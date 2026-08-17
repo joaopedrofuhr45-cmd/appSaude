@@ -5,7 +5,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
+
 
 @Getter
 @Setter
@@ -16,9 +16,9 @@ import java.util.Date;
 @Table(name = "paciente")
 public class EntityJpaPaciente {
 
-
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id;
+    private Long id;
 
     @Column(length = 150, nullable = false)
     private String nome;
@@ -27,18 +27,16 @@ public class EntityJpaPaciente {
     private String email;
 
     @Column(length = 16, nullable = false)
-   private String senha;
+    private String senha;
 
-   @Column(length = 20)
+    @Column(length = 20)
     private String telefonePaciente;
 
-   @Column(length = 11, nullable = false, unique = true)
+    @Column(length = 11, nullable = false, unique = true)
     private String cpfPaciente;
 
-   private LocalDate dataDeNascimento;
+    private LocalDate dataDeNascimento;
 
-   private LocalDateTime criadoEmPaciente;
-
-
+    private LocalDateTime criadoEmPaciente;
 
 }
