@@ -1,1 +1,23 @@
+:root {
+    --cor-principal: #1A5278;
+    --cor-fundo: #f5f7fa;
+    --cor-texto: #6b7280;
+}
 
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+.btn {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--cor-principal);
+}
