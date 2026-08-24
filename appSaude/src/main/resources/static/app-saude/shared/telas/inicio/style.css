@@ -1,4 +1,4 @@
-@import url(.../css/style-global.css);
+@import url("../../css/style-global.css");
 
 main{
     justify-content: center;
@@ -10,16 +10,18 @@ main{
 
 h1{
     color: var(--cor-principal);
-    font-size: 50px;
+    font-size: 35px;
+    margin: 0;
 }
 
 p{
-    color: #6b7280;
     text-align: center;
 }
 
+
+
 button {
-    background-color: var(--cor-principal);
+    background-color: var( --cor-principal);
     width: 200px;
     height: 25%;
     border-radius: 10px;
@@ -49,18 +51,32 @@ button a{
     display: flex;
 }
 
+.logo img{
+    width: 250px;
+}
+
 .logo h1{
     margin: 10px;
 
 }
+
+.logo p{
+     color: var(--cor-texto);
+     font-size: 16px;
+     margin: 0;
+ }
 
 .div-icons{
     align-items: center;
     justify-content: center;
     flex-direction: column;
     display: flex;
+    width: 118px;
+    height: 215px;
 }
 
 .icon{
-
+    width: 75px;
+    height: 75px;
+    margin: 0;
 }
