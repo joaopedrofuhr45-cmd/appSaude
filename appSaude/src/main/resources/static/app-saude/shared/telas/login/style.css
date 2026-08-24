@@ -1,15 +1,6 @@
 @import url("../../css/style-global.css");
 
 
-:root{
-    --azul-escuro: #163a4a;
-    --texto: #2c2c2c;
-    --placeholder: #9a9a9a;
-    --linha: #d9d9d9;
-    --erro: #e0392c;
-    --fundo: #f5f5f5;
-  }
-
 .Telalogin{
     background: var(--card);
     width: 100%;
@@ -24,47 +15,4 @@ h1 {
     margin-bottom: 70px;
   }
 
-.Form {
-    margin-bottom: 34px;
-  }
-
-.Form label {
-    display: block;
-    color: var(--cor-principal);
-    font-size: 13px;
-    margin-bottom: 10px;
-  }
-
-.Form input {
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid var(--fundo);
-    padding: 4px 2px 8px;
-    font-size: 14px;
-    color: #333;
-    outline: none;
-    background: transparent;
-  }
-
-.Form input:focus {
-    border-bottom: 1px solid var(--azul-escuro);
-  }
-
-.btn-entrar {
-    margin-top: 20px;
-    width: 100%;
-    padding: 16px;
-    background: var(--cor-principal);
-    color: var(--card);
-    font-size: 15px;
-    font-weight: 600;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    letter-spacing: 0.3px;
-  }
-
-.btn-entrar:hover {
-    background: var(--azul-escuro);
-  }
 

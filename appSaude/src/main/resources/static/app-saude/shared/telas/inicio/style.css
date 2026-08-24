@@ -61,3 +61,13 @@ main{
     height: 75px;
     margin: 0;
 }
+
+.buttonn {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: var(--cor-principal);
+    color: white
+}

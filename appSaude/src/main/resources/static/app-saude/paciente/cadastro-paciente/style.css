@@ -1,77 +1,11 @@
 @import url("../../shared/css/style-global.css");
 
-:root{
-    --azul: #1f4e63;
-    --azul-escuro: #163a4a;
-    --placeholder: #9a9a9a;
-    --linha: #d9d9d9;
-    --erro: #e0392c;
-    --fundo: #f5f5f5;
-  }
-
   h1{
     text-align: center;
-    font-size: 24px;
     font-weight: 700;
     margin: 0 0 40px;
   }
 
-  form{
-    display: flex;
-    flex-direction: column;
-  }
-
-  .campo{
-    position: relative;
-    margin-bottom: 26px;
-  }
-
-  .campo input{
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid var(--linha);
-    padding: 6px 20px 10px 0;
-    font-size: 15px;
-    color: var(--texto);
-    background: transparent;
-    outline: none;
-    transition: border-color 0.2s;
-  }
-
-  .campo input::placeholder{
-    color: var(--placeholder);
-  }
-
-  .campo input:focus{
-    border-bottom: 1.5px solid var(--azul);
-  }
-
-  .campo .asterisco{
-    position: absolute;
-    right: 0;
-    top: 4px;
-    color: var(--erro);
-    font-size: 18px;
-    line-height: 1;
-  }
-
-  .botao-proximo{
-    margin-top: 24px;
-    background: var(--azul);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 15px;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-
-  .botao-proximo:hover{
-    background: var(--azul-escuro);
-  }
 
   .voltar{
     display: block;
