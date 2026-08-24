@@ -6,11 +6,6 @@ main{
     margin: 0 auto;
 }
 
-.title{
-    color: var(--cor-principal);
-    font-size: 35px;
-}
-
 .section{
     display: flex;
     height: auto;
