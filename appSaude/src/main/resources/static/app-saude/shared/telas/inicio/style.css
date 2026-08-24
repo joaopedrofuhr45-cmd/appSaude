@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     margin: 0;
     padding: 0;
@@ -90,3 +91,69 @@ h1 {
 .voltar a:hover {
     text-decoration: underline;
   }
+=======
+main{
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h1{
+    color: #1A5278;
+    font-size: 50px;
+}
+
+p{
+    color: #6b7280;
+    text-align: center;
+}
+
+button {
+    background-color: #1A5278;
+    width: 200px;
+    height: 25%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+button a{
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.section{
+    display: flex;
+    width: 700;
+    height: auto;
+    margin: 0 auto;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.logo{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.logo h1{
+    margin: 10px;
+
+}
+
+.div-icons{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+}
+
+.icon{
+
+}
+>>>>>>> 8a8a1e4c4f88e3933f3e17f645d1f68dc04d133f
