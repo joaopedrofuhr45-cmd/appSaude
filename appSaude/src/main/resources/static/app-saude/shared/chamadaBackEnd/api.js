@@ -58,10 +58,10 @@ class ApiService {
 // ---------- AUTH ----------
 
 class AuthService extends ApiService {
-    login(email, senha) {
+    login(cpf, senha) {
         return this.fetch("/auth/login", {
             method: "POST",
-            body: JSON.stringify({ email, senha }),
+            body: JSON.stringify({ cpf, senha }),
         });
     }
 
