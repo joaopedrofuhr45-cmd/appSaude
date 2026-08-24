@@ -28,6 +28,7 @@ body {
 .title{
     color: var(--cor-principal);
     font-size: 35px;
+    text-align: center;
 }
 
 .card{
@@ -106,7 +107,7 @@ form{
 }
 
 .form input:focus{
-    border-bottom: 1.5px solid var(--azul);
+    border-bottom: 1.5px solid var(--cor-principal);
 }
 
 .form .asterisco{

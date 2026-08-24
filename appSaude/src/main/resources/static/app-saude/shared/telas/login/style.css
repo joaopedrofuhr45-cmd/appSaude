@@ -1,15 +1,5 @@
 @import url("../../css/style-global.css");
 
-
-.Telalogin{
-    background: var(--card);
-    width: 100%;
-    max-width: 480px;
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-    padding: 56px 56px 48px;
-  }
-
 h1 {
     text-align: center;
     margin-bottom: 70px;
