@@ -9,18 +9,18 @@
 <body>
 
 <div class="Telalogin">
-    <h1>Login</h1>
+    <h1 class="title">Login</h1>
 
     <form id="loginForm">
         <div class="Form">
-            <label for="cpf">CPF</label>
-            <input type="text" id="cpf" name="cpf" placeholder="">
+            <input type="text" id="cpf" name="cpf" placeholder="CPF">
         </div>
 
         <div class="Form">
-            <label for="senha">Senha</label>
-            <input type="password" id="senha" name="senha" placeholder="">
+            <input type="password" id="senha" name="senha" placeholder="Senha">
         </div>
+
+        <p id="mensagem" class="mensagem-erro"></p>
 
         <button type="submit" class="btn-entrar">Entrar</button>
     </form>
@@ -29,6 +29,8 @@
         <a href="/appSaude/src/main/resources/static/app-saude/shared/telas/inicio/">Voltar</a>
     </div>
 </div>
+
+        <script type="module" src="./login.js"></script>
 
 </body>
 </html>

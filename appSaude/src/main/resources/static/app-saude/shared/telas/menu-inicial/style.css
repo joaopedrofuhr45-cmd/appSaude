@@ -1,19 +1,5 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    background: #f5f6fa;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-  }
-  
+@import url("../../css/style-global.css");
+
   .box {
     width: 100%;
     max-width: 520px;
@@ -25,10 +11,6 @@
   }
   
   .logo-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 16px;
-    background: #2118ca;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,9 +18,8 @@
   }
   
   .logo-icon img {
-    width: 36px;
-    height: 36px;
-    filter: brightness(0) invert(1);
+    width: 100px;
+    height: 100px;
   }
   
   .logo h1 {
@@ -55,6 +36,7 @@
   .list {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 14px;
   }
   
@@ -69,23 +51,24 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     transition: transform 0.15s, box-shadow 0.15s;
     border: 1px solid transparent;
+    width: 520px;
   }
-  
+
   .card:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
   
   .card.highlight {
-    border-color: #4f46e5;
-    background: #eef2ff;
+    border-color: var(--cor-principal);
+    background: white;
   }
   
   .icon {
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background: #eef2ff;
+    background: var(--cor-fundo);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -98,7 +81,7 @@
   }
   
   .card.highlight .icon {
-    background: #4f46e5;
+    background: var(--cor-principal);
   }
   
   .card.highlight .icon img {

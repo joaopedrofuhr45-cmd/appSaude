@@ -1,46 +1,20 @@
 @import url("../../css/style-global.css");
 
 main{
-    justify-content: center;
-    width: 100%;
+    text-align: center;
     height: auto;
-    max-width: 600px;
     margin: 0 auto;
 }
 
-h1{
+.title{
     color: var(--cor-principal);
     font-size: 35px;
-    margin: 0;
-}
-
-p{
-    text-align: center;
-}
-
-
-
-button {
-    background-color: var( --cor-principal);
-    width: 200px;
-    height: 25%;
-    border-radius: 10px;
-    padding: 10px;
-}
-
-button a{
-    color: white;
-    text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .section{
     display: flex;
-    width: 700;
     height: auto;
-    margin: 0 auto;
     justify-content: center;
-    margin-top: 10px;
     padding: 10px;
 }
 
@@ -52,7 +26,7 @@ button a{
 }
 
 .logo img{
-    width: 250px;
+    max-width: 100px;
 }
 
 .logo h1{
@@ -71,9 +45,16 @@ button a{
     justify-content: center;
     flex-direction: column;
     display: flex;
-    width: 118px;
+    width: 120px;
+    min-width: 85px;
     height: 215px;
 }
+
+.div-icons p{
+    min-width: 75px;
+    min-height: 75px;
+    padding: 5px;
+ }
 
 .icon{
     width: 75px;

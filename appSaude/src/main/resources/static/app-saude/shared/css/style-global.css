@@ -2,6 +2,7 @@
     --cor-principal: #1A5278;
     --cor-fundo: #f5f7fa;
     --cor-texto: #6b7280;
+    --card: #ffffff;
 }
 
 
@@ -10,18 +11,19 @@
 
 body {
     font-family: Arial, sans-serif;
-
-
-
     margin: 0;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--fundo);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--cor-fundo);
     color: var(--cor-texto);
     padding: 40px 20px;
+}
+
+.title{
+    color: var(--cor-principal);
+    font-size: 35px;
 }
 
 .card{
@@ -35,6 +37,7 @@ body {
 
 a{
     text-decoration: none;
+    color: white;
 }
 
 .btn {
@@ -43,5 +46,21 @@ a{
     padding: 12px 24px;
     cursor: pointer;
     font-size: 16px;
+    background-color: var(--cor-principal);
+}
+
+.voltar {
+    margin-top: auto;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.voltar a {
     color: var(--cor-principal);
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.voltar a:hover {
+    text-decoration: underline;
 }
