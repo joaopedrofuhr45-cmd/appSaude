@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <!-- Fundo Quadrado com Cantos Arredondados -->
+  <rect x="25" y="25" width="450" height="450" rx="80" ry="80" fill="#1A5278" />
+  
+  <!-- Contorno do Coração -->
+  <path d="M 250 440 
+           C 110 300, 65 240, 65 170 
+           C 65 105, 115 60, 175 60 
+           C 212 60, 238 78, 250 98 
+           C 262 78, 288 60, 325 60 
+           C 385 60, 435 105, 435 170 
+           C 435 240, 400 320, 250 440 Z" 
+        fill="none" stroke="#FFFFFF" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" />
+        
+  <!-- Linha do Batimento Cardíaco (ECG) -->
+  <path d="M 85 240 
+           L 190 240 
+           L 215 185 
+           L 245 320 
+           L 285 210 
+           L 310 240 
+           L 420 240" 
+        fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

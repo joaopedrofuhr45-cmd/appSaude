@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <!-- Fundo Circular Azul -->
+  <circle cx="250" cy="250" r="230" fill="#1C5376" />
+  
+  <!-- Corpo do Sino -->
+  <path d="M 250 130 
+           C 260 130, 266 137, 266 148 
+           C 315 160, 345 200, 345 265 
+           L 358 310 
+           C 360 317, 355 325, 345 325 
+           L 155 325 
+           C 145 325, 140 317, 142 310 
+           L 155 265 
+           C 155 200, 185 160, 234 148 
+           C 234 137, 240 130, 250 130 Z" 
+        fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+        
+  <!-- Badalo (Base Inferior) -->
+  <path d="M 215 345 
+           C 215 370, 285 370, 285 345" 
+        fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
