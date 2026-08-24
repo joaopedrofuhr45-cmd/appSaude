@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #f5f6fa;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .box {
+    width: 100%;
+    max-width: 520px;
+  }
+  
+  .logo {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  
+  .logo-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: #2118ca;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+  }
+  
+  .logo-icon img {
+    width: 36px;
+    height: 36px;
+    filter: brightness(0) invert(1);
+  }
+  
+  .logo h1 {
+    font-size: 22px;
+    color: #1f2937;
+    margin-bottom: 4px;
+  }
+  
+  .logo p {
+    font-size: 14px;
+    color: #6b7280;
+  }
+  
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  .card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 18px;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    transition: transform 0.15s, box-shadow 0.15s;
+    border: 1px solid transparent;
+  }
+  
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .card.highlight {
+    border-color: #4f46e5;
+    background: #eef2ff;
+  }
+  
+  .icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #eef2ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .icon img {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .card.highlight .icon {
+    background: #4f46e5;
+  }
+  
+  .card.highlight .icon img {
+    filter: brightness(0) invert(1);
+  }
+  
+  .text h2 {
+    font-size: 15px;
+    color: #1f2937;
+    margin-bottom: 2px;
+  }
+  
+  .text p {
+    font-size: 12px;
+    color: #6b7280;
+  }
+  
+  .footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 13px;
+    color: #6b7280;
+  }
+  
+  .footer a {
+    color: #4f46e5;
+    font-weight: 600;
+    text-decoration: none;
+  }
