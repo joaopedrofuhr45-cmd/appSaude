@@ -37,13 +37,6 @@ class AuthService extends ApiService {
         });
     }
 
-    enviarSelfie(file) {
-        const formData = new FormData();
-        formData.append("selfie", file);
-
-        return this.upload("/auth/selfie", formData);
-    }
-
     logout() {
         localStorage.removeItem("token");
         localStorage.removeItem("usuario");
