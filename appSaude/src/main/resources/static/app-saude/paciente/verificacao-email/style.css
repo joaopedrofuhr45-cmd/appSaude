@@ -1,31 +1,44 @@
+@import url("../../shared/css/variaveis.css");
+
 .card p {
     text-align: center;
-    color: var(--texto, #555);
+    color: var(--cor-texto);
     margin-bottom: 24px;
     font-size: 14px;
+    line-height: 1.5;
 }
 
 .form input {
     text-align: center;
-    letter-spacing: 6px;
+    letter-spacing: 8px;
     font-size: 20px;
 }
 
 .mensagem-erro {
     min-height: 18px;
-    color: var(--erro, #d6455a);
+    color: var(--erro);
     font-size: 13px;
     text-align: center;
-    margin: 8px 0;
+    margin: 8px 0 0;
 }
 
 .btn-link {
     display: block;
-    margin: 16px auto 0;
+    width: 100%;
+    margin-top: 16px;
+
     background: none;
     border: none;
-    color: var(--azul-escuro, #0c4a45);
+
+    color: var(--cor-principal);
     font-size: 14px;
     font-weight: 600;
+
     cursor: pointer;
+    transition: color 0.2s;
+}
+
+.btn-link:hover {
+    color: var(--azul-escuro);
+    text-decoration: underline;
 }
