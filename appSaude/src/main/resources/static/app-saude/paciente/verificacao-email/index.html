@@ -14,8 +14,13 @@
     <p>Enviamos um código de 6 dígitos para o seu e-mail. Digite-o abaixo para continuar.</p>
 
     <form id="form-verificacao">
-        <div class="form">
-            <input type="text" name="codigo" placeholder="Código de verificação" inputmode="numeric" maxlength="6" required>
+        <div class="codigo-blocos">
+            <input type="text" class="bloco" inputmode="numeric" maxlength="1" data-index="0" required>
+            <input type="text" class="bloco" inputmode="numeric" maxlength="1" data-index="1" required>
+            <input type="text" class="bloco" inputmode="numeric" maxlength="1" data-index="2" required>
+            <input type="text" class="bloco" inputmode="numeric" maxlength="1" data-index="3" required>
+            <input type="text" class="bloco" inputmode="numeric" maxlength="1" data-index="4" required>
+            <input type="text" class="bloco" inputmode="numeric" maxlength="1" data-index="5" required>
         </div>
 
         <p id="mensagem-erro" class="mensagem-erro"></p>

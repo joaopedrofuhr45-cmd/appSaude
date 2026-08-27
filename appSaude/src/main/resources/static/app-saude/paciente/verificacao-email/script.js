@@ -16,7 +16,7 @@ function apagarCookie(nome) {
 const email = getCookie("cadastro_email");
 
 const form = document.querySelector("#form-verificacao");
-const codigoInput = document.querySelector("input[name='codigo']");
+const blocos = document.querySelectorAll(".bloco");
 const mensagemErro = document.querySelector("#mensagem-erro");
 const btnReenviar = document.querySelector("#btn-reenviar");
 
@@ -28,14 +28,45 @@ authService.enviarCodigoVerificacao(email).catch((error) => {
     mensagemErro.textContent = error.message || "Não foi possível enviar o código.";
 });
 
+blocos.forEach((bloco, index) => {
+    bloco.addEventListener("input", () => {
+        bloco.value = bloco.value.replace(/[^0-9]/g, "");
+
+        if (bloco.value && index < blocos.length - 1) {
+            blocos[index + 1].focus();
+        }
+    });
+
+    bloco.addEventListener("keydown", (event) => {
+        if (event.key === "Backspace" && !bloco.value && index > 0) {
+            blocos[index - 1].focus();
+        }
+    });
+
+    bloco.addEventListener("paste", (event) => {
+        event.preventDefault();
+        const colado = event.clipboardData.getData("text").replace(/[^0-9]/g, "");
+
+        blocos.forEach((b, i) => {
+            b.value = colado[i] || "";
+        });
+
+        blocos[Math.min(colado.length, blocos.length) - 1]?.focus();
+    });
+});
+
+function getCodigoCompleto() {
+    return Array.from(blocos).map((b) => b.value).join("");
+}
+
 form.addEventListener("submit", async (event) => {
     event.preventDefault();
     mensagemErro.textContent = "";
 
-    const codigo = codigoInput.value.trim();
+    const codigo = getCodigoCompleto();
 
-    if (!codigo) {
-        mensagemErro.textContent = "Digite o código recebido.";
+    if (codigo.length !== blocos.length) {
+        mensagemErro.textContent = "Preencha todos os dígitos do código.";
         return;
     }
 

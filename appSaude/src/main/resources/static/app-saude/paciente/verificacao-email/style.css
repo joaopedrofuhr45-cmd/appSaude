@@ -8,10 +8,28 @@
     line-height: 1.5;
 }
 
-.form input {
+.codigo-blocos {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.bloco {
+    width: 48px;
+    height: 56px;
     text-align: center;
-    letter-spacing: 8px;
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--azul-escuro);
+    border: 1.5px solid var(--linha);
+    border-radius: 10px;
+    background: var(--white);
+}
+
+.bloco:focus {
+    outline: none;
+    border-color: var(--cor-principal);
 }
 
 .mensagem-erro {
