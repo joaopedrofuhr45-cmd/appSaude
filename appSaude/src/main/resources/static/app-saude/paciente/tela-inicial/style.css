@@ -1,0 +1,98 @@
+@import url("../../shared/css/variaveis.css");
+
+.bemVindo h2{
+    color: var(--black);
+    margin: 0;
+    font-size: 20px;
+}
+
+.bemVindo p{
+    margin: 0;
+    font-size: 12px;
+}
+
+.section-acessoRapido{
+    margin: 50px 0 75px;
+
+}
+
+.section-acessoRapido div p{
+    margin: 0;
+    font-weight: bold;
+
+}
+
+.esp-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.esp-div a{
+    margin: 10px 5px;
+}
+
+.esp-btn{
+    background-color: #EFF6FF;
+    border: none;
+    border-radius: 10px;
+    height: 80px;
+    width: 80px;
+    color: #374151;
+    font-size: 10px;
+}
+
+.header-consulta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.left-consulta {
+    text-align: left;
+}
+
+.right-consulta {
+    text-align: right;
+}
+
+.title-consulta {
+    color: var(--black);
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+}
+
+.link-consulta {
+    color: var(--hour);
+    font-size: 12px;
+}
+
+.right-con{
+    
+}
+
+.status-div{
+    height: auto;
+    width: 1%;
+    background-color: var(--status_concluido);
+}
+
+.consultas{
+    display: flex;
+    align-items: left;
+    
+}
+
+.horario{
+    color: var(--hour);
+    font-weight: bold;
+    margin: 10px;
+}
+
+.medico{
+    color: var(--black);
+    font-weight: bold;
+    margin: 10px;
+}
