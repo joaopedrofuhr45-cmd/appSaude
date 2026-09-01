@@ -50,15 +50,31 @@ a{
 
 .card {
     width: 100%;
-    max-width: 480px;
+    max-width: 390px;
 
-    padding: 56px 56px 48px;
+    padding: 56px 25px 48px;
 
     background: var(--card);
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
 
     position: relative;
+}
+
+.card--com-menu {
+
+    width: 100%;
+    max-width: 390px;
+
+
+    padding: 56px 25px 48px;
+
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+
+    position: relative;
+    padding-bottom: 100px;
 }
 
 
@@ -186,7 +202,6 @@ form {
     transform: translateX(-50%);
 
     width: 100%;
-    max-width: 390px;
 
     height: 61px;
 
@@ -224,6 +239,11 @@ form {
     color: #151515;
 
     font-size: 8px;
+}
+
+.item-menu:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -269,6 +289,6 @@ form {
 
         width: 100%;
 
-        border-radius: 0 0 25px 25px;
+        border-radius: 0 0 16px 16px;
     }
 }

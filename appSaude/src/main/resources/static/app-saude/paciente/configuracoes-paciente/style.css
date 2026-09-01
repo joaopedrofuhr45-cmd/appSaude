@@ -46,33 +46,13 @@ body {
 
 
 /* =========================================================
-   APLICAÇÃO
-   ========================================================= */
-
-.app {
-    width: 100%;
-    max-width: 390px;
-    min-height: 100vh;
-
-    background: var(--branco);
-
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-
-    border-radius: 0;
-}
-
-
-/* =========================================================
    CONTEÚDO
    ========================================================= */
 
 .conteudo {
     flex: 1;
 
-    padding: 50px 16px 100px;
+    padding: 0 16px 100px;
 }
 
 
@@ -227,89 +207,6 @@ h1 {
 }
 
 
-/* =========================================================
-   MENU INFERIOR
-   ========================================================= */
-
-.menu-inferior {
-    position: fixed;
-
-    bottom: 0;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: 100%;
-    max-width: 390px;
-
-    height: 61px;
-
-    background: var(--branco);
-
-    border-top: 1px solid #dcdcdc;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    z-index: 10;
-}
-
-
-/* =========================================================
-   ITEM DO MENU
-   ========================================================= */
-
-.item-menu {
-    width: 20%;
-
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 4px;
-
-    text-decoration: none;
-
-    color: #151515;
-
-    font-size: 8px;
-}
-
-
-.item-menu i {
-    font-size: 18px;
-}
-
-
-.item-menu span {
-    font-size: 7px;
-
-    color: #a0a0a0;
-}
-
-
-/* =========================================================
-   MENU ATIVO
-   ========================================================= */
-
-.item-menu.ativo i {
-    color: #111111;
-}
-
-
-.item-menu.ativo span {
-    color: #1675d1;
-}
-
-
-/* =========================================================
-   RESPONSIVIDADE
-   ========================================================= */
 
 @media (min-width: 500px) {
 
@@ -318,7 +215,6 @@ h1 {
     }
 
     .app {
-        min-height: 844px;
 
         border-radius: 25px;
 
@@ -327,16 +223,4 @@ h1 {
         box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
     }
 
-    .menu-inferior {
-        position: absolute;
-
-        left: 0;
-        bottom: 0;
-
-        transform: none;
-
-        width: 100%;
-
-        border-radius: 0 0 25px 25px;
-    }
 }

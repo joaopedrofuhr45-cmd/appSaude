@@ -51,6 +51,11 @@ a {
     cursor: pointer;
 }
 
+.botao-especialidade:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
 
 /* Próximas consultas */
 
@@ -91,6 +96,11 @@ a {
     border: 1px rgba(138, 138, 138, 0.274) solid;
     border-left: 4px solid var(--status_concluido);
     margin: 15px auto;
+}
+
+.cartao-consulta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .horario-consulta {
@@ -149,4 +159,8 @@ a {
     align-items: center;
     justify-content: center;
     margin: 0;
+}
+
+.secao-proximas-consultas{
+    margin: 50px auto;
 }
