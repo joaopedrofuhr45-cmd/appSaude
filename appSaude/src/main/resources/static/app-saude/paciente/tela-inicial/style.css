@@ -1,38 +1,46 @@
 @import url("../../shared/css/variaveis.css");
 
-.bemVindo h2{
+a {
+    cursor: pointer;
+}
+
+
+/* Boas-vindas */
+
+.secao-boas-vindas h2 {
     color: var(--black);
     margin: 0;
     font-size: 20px;
 }
 
-.bemVindo p{
+.secao-boas-vindas p {
     margin: 0;
     font-size: 12px;
 }
 
-.section-acessoRapido{
-    margin: 50px 0 75px;
 
+/* Acesso rápido */
+
+.secao-acesso-rapido {
+    margin: 50px auto;
 }
 
-.section-acessoRapido div p{
+.secao-acesso-rapido > div > p {
     margin: 0;
     font-weight: bold;
-
 }
 
-.esp-div{
+.lista-especialidades {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.esp-div a{
+.lista-especialidades a {
     margin: 10px 5px;
 }
 
-.esp-btn{
+.botao-especialidade {
     background-color: #EFF6FF;
     border: none;
     border-radius: 10px;
@@ -40,59 +48,105 @@
     width: 80px;
     color: #374151;
     font-size: 10px;
+    cursor: pointer;
 }
 
-.header-consulta {
+
+/* Próximas consultas */
+
+.cabecalho-consultas {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
 
-.left-consulta {
+.titulo-consultas {
     text-align: left;
 }
 
-.right-consulta {
-    text-align: right;
-}
-
-.title-consulta {
+.titulo-consultas h2 {
     color: var(--black);
     font-weight: bold;
     font-size: 14px;
     margin: 0;
 }
 
-.link-consulta {
+.link-consultas {
+    text-align: right;
+}
+
+.link-consultas a {
     color: var(--hour);
     font-size: 12px;
 }
 
-.right-con{
-    
-}
 
-.status-div{
-    height: auto;
-    width: 1%;
-    background-color: var(--status_concluido);
-}
+/* Cartão da consulta */
 
-.consultas{
+.cartao-consulta {
     display: flex;
-    align-items: left;
-    
+    background: var(--card);
+    border-radius: 16px;
+    border: 1px rgba(138, 138, 138, 0.274) solid;
+    border-left: 4px solid var(--status_concluido);
+    margin: 15px auto;
 }
 
-.horario{
+.horario-consulta {
+    width: 20%;
+    display: block;
+}
+
+.horario-consulta p {
     color: var(--hour);
     font-weight: bold;
     margin: 10px;
 }
 
-.medico{
+.informacoes-consulta {
+    width: 70%;
+    display: block;
+}
+
+.nome-medico {
     color: var(--black);
     font-weight: bold;
-    margin: 10px;
+    margin: 10px 0;
+    font-size: 13px;
+}
+
+.nome-especialidade {
+    color: var(--cor-texto);
+    font-size: 11px;
+}
+
+.status-consulta {
+    background-color: var(--status_concluido-background);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 75px;
+}
+
+.status-consulta p {
+    color: var(--status_concluido);
+    margin: 2px;
+    font-size: 10px;
+}
+
+.seta-consulta {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    color: var(--cor-texto);
+}
+
+.seta-consulta p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
 }

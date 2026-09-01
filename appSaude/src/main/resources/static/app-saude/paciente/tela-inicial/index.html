@@ -7,55 +7,152 @@
     <title>Home</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../../shared/css/style-global.css">
-
 </head>
 
 <body>
-    <main class="card">
-        <section class="bemVindo">
-            <h2>Olá, Nome!</h2>
-            <p>Como podemos ajudar hoje?</p>
-        </section>
+<main class="card">
 
-        <section class="section-acessoRapido">
-            <div>
-                <p>Acesso rápido</p>
-            </div>
-            <div class="esp-div">
-                <a href=""><button class="esp-btn">Pediatra</button></a>
-                <a href=""><button class="esp-btn">Clínico Geral</button></a>
-                <a href=""><button class="esp-btn">Cardiologia</button></a>
-                <a href=""><button class="esp-btn">Endocrinologia</button></a>
-            </div>
-        </section>
-        <section class="section-proxConsultas">
-            <div>
-                <div class="header-consulta">
-                    <div class="left-consulta">
-                        <h2 class="title-consulta">Próximas consultas</h2>
-                    </div>
-                    <div class="right-consulta"><a href="" class="link-consulta">Ver todos</a></div>
+    <section class="secao-boas-vindas">
+        <h2>Olá, Nome!</h2>
+        <p>Como podemos ajudar hoje?</p>
+    </section>
+
+    <section class="secao-acesso-rapido">
+        <div>
+            <p>Acesso rápido</p>
+        </div>
+
+        <div class="lista-especialidades">
+            <a href="">
+                <button class="botao-especialidade">Pediatra</button>
+            </a>
+
+            <a href="">
+                <button class="botao-especialidade">Clínico Geral</button>
+            </a>
+
+            <a href="">
+                <button class="botao-especialidade">Cardiologia</button>
+            </a>
+
+            <a href="">
+                <button class="botao-especialidade">Endocrinologia</button>
+            </a>
+        </div>
+    </section>
+
+    <section class="secao-proximas-consultas">
+        <div>
+
+            <div class="cabecalho-consultas">
+                <div class="titulo-consultas">
+                    <h2>Próximas consultas</h2>
                 </div>
 
-                <div class="consultas">
-                    <div class="status-div">
+                <div class="link-consultas">
+                    <a href="">Ver todos</a>
+                </div>
+            </div>
+
+            <a href="">
+                <div class="cartao-consulta">
+
+                    <div class="horario-consulta">
+                        <p>8:00</p>
                     </div>
-                    <div class="">
-                        <p class="horario">8:00</p>
+
+                    <div class="informacoes-consulta">
+                        <p class="nome-medico">Dr. Carlos</p>
+                        <p class="nome-especialidade">Clínica Geral</p>
+
+                        <div class="status-consulta">
+                            <p>Confirmado</p>
+                        </div>
                     </div>
-                    <div class="consultas-info">
-                        <p class="medico">Dr. Carlos</p>
-                        <p class="especialidade">Clínica Geral</p>
-                        <p class="status">Confirmado</p>
-                    </div>
-                    <div class="right-con">
+
+                    <div class="seta-consulta">
                         <p>></p>
                     </div>
-                </div>
 
-            </div>
-        </section>
-    </main>
+                </div>
+            </a>
+            <a href="">
+                <div class="cartao-consulta">
+
+                    <div class="horario-consulta">
+                        <p>8:00</p>
+                    </div>
+
+                    <div class="informacoes-consulta">
+                        <p class="nome-medico">Dr. Carlos</p>
+                        <p class="nome-especialidade">Clínica Geral</p>
+
+                        <div class="status-consulta">
+                            <p>Confirmado</p>
+                        </div>
+                    </div>
+
+                    <div class="seta-consulta">
+                        <p>></p>
+                    </div>
+
+                </div>
+            </a>
+            <a href="">
+                <div class="cartao-consulta">
+
+                    <div class="horario-consulta">
+                        <p>8:00</p>
+                    </div>
+
+                    <div class="informacoes-consulta">
+                        <p class="nome-medico">Dr. Carlos</p>
+                        <p class="nome-especialidade">Clínica Geral</p>
+                        <div class="status-consulta">
+                            <p>Confirmado</p>
+                        </div>
+                    </div>
+
+                    <div class="seta-consulta">
+                        <p>></p>
+                    </div>
+
+                </div>
+            </a>
+
+        </div>
+    </section>
+    <nav class="menu-inferior">
+
+        <a href="#" class="item-menu">
+            <i class="fa-solid fa-check"></i>
+            <span>Consultas</span>
+        </a>
+
+        <a href="#" class="item-menu">
+            <i class="fa-regular fa-calendar"></i>
+            <span>Próximas</span>
+        </a>
+
+        <a href="#" class="item-menu ativo">
+            <i class="fa-solid fa-house"></i>
+            <span>Início</span>
+        </a>
+
+        <a href="#" class="item-menu">
+            <i class="fa-solid fa-stethoscope"></i>
+            <span>Agendar</span>
+        </a>
+
+        <a href="#" class="item-menu">
+            <i class="fa-solid fa-gear"></i>
+            <span>Config</span>
+        </a>
+
+    </nav>
+
+
+</main>
 </body>
 
 </html>
