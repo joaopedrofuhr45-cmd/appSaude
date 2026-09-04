@@ -1,4 +1,4 @@
-import { authService } from "../../chamadaBackEnd/authService";
+import { authService } from "../../recursos/chamadaBackEnd/authService.js";
 
 const form = document.querySelector("#loginForm");
 const cpfInput = document.querySelector("#cpf");
