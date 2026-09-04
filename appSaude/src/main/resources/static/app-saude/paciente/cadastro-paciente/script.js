@@ -1,5 +1,5 @@
 // paciente/cadastro-paciente/script.js
-import { authService } from "../../shared/chamadaBackEnd/api.js";
+import { authService } from "../../recursos/chamadaBackEnd/authService.js";
 
 const form = document.querySelector("#form-cadastro");
 const nomeInput = document.querySelector("input[name='nome']");

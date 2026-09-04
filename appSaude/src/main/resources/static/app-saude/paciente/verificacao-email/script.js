@@ -1,5 +1,5 @@
 // paciente/verificacao-email/script.js
-import { authService } from "../../shared/chamadaBackEnd/authService.js";
+import { authService } from "../../recursos/chamadaBackEnd/authService.js";
 
 function getCookie(nome) {
     const encontrado = document.cookie
