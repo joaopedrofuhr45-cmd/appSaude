@@ -21,8 +21,8 @@ form.addEventListener("submit", async (event) => {
     try {
         const resposta = await authService.login(cpf, senha);
         authService.salvarSessao(resposta.token, resposta.usuario);
-        window.location.href = "/pages/home.html";
+        window.location.href = "../../paciente/tela-inicial/index.html";
     } catch (error) {
         mensagem.textContent = error.message;
     }
-});
+});s

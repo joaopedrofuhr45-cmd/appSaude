@@ -55,18 +55,9 @@ btnSair.addEventListener("click", () => {
         return;
     }
 
-    /*
-     * Caso você tenha uma função de logout no backend,
-     * ela deve ser chamada aqui.
-     *
-     * Exemplo:
-     *
-     * await authService.logout();
-     */
-
     localStorage.removeItem("token");
     localStorage.removeItem("usuario");
 
-    window.location.href = "../login/index.html";
+    window.location.href = "../../telas-comuns/login/index.html";
 
 });

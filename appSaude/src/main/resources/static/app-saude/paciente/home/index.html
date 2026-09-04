@@ -13,7 +13,7 @@
 <main class="card">
 
     <section class="secao-boas-vindas">
-        <h2>Olá, Nome!</h2>
+        <h2 id="saudacao">Olá, Nome!</h2>
         <p>Como podemos ajudar hoje?</p>
     </section>
 
@@ -23,19 +23,19 @@
         </div>
 
         <div class="lista-especialidades">
-            <a href="">
+            <a href="../agendar-consulta/index.html">
                 <button class="botao-especialidade">Pediatra</button>
             </a>
 
-            <a href="">
+            <a href="../agendar-consulta/index.html">
                 <button class="botao-especialidade">Clínico Geral</button>
             </a>
 
-            <a href="">
+            <a href="../agendar-consulta/index.html">
                 <button class="botao-especialidade">Cardiologia</button>
             </a>
 
-            <a href="">
+            <a href="../agendar-consulta/index.html">
                 <button class="botao-especialidade">Endocrinologia</button>
             </a>
         </div>
@@ -50,96 +50,35 @@
                 </div>
 
                 <div class="link-consultas">
-                    <a href="">Ver todos</a>
+                    <a href="../proximas-consultas/index.html">Ver todos</a>
                 </div>
             </div>
 
-            <a href="">
-                <div class="cartao-consulta">
-
-                    <div class="horario-consulta">
-                        <p>8:00</p>
-                    </div>
-
-                    <div class="informacoes-consulta">
-                        <p class="nome-medico">Dr. Carlos</p>
-                        <p class="nome-especialidade">Clínica Geral</p>
-
-                        <div class="status-consulta">
-                            <p>Confirmado</p>
-                        </div>
-                    </div>
-
-                    <div class="seta-consulta">
-                        <p>></p>
-                    </div>
-
-                </div>
-            </a>
-            <a href="">
-                <div class="cartao-consulta">
-
-                    <div class="horario-consulta">
-                        <p>8:00</p>
-                    </div>
-
-                    <div class="informacoes-consulta">
-                        <p class="nome-medico">Dr. Carlos</p>
-                        <p class="nome-especialidade">Clínica Geral</p>
-
-                        <div class="status-consulta">
-                            <p>Confirmado</p>
-                        </div>
-                    </div>
-
-                    <div class="seta-consulta">
-                        <p>></p>
-                    </div>
-
-                </div>
-            </a>
-            <a href="">
-                <div class="cartao-consulta">
-
-                    <div class="horario-consulta">
-                        <p>8:00</p>
-                    </div>
-
-                    <div class="informacoes-consulta">
-                        <p class="nome-medico">Dr. Carlos</p>
-                        <p class="nome-especialidade">Clínica Geral</p>
-                        <div class="status-consulta">
-                            <p>Confirmado</p>
-                        </div>
-                    </div>
-
-                    <div class="seta-consulta">
-                        <p>></p>
-                    </div>
-
-                </div>
-            </a>
+            <div id="lista-consultas">
+                <!-- os cards de .cartao-consulta são gerados aqui pelo script.js -->
+            </div>
 
         </div>
     </section>
+
     <nav class="menu-inferior">
 
-        <a href="#" class="item-menu">
+        <a href="../consultas-anteriores/index.html" class="item-menu">
             <i class="fa-solid fa-check"></i>
             <span>Consultas</span>
         </a>
 
-        <a href="#" class="item-menu">
+        <a href="../proximas-consultas/index.html" class="item-menu">
             <i class="fa-regular fa-calendar"></i>
             <span>Próximas</span>
         </a>
 
-        <a href="#" class="item-menu ativo">
+        <a href="../tela-inicial/index.html" class="item-menu ativo">
             <i class="fa-solid fa-house"></i>
             <span>Início</span>
         </a>
 
-        <a href="#" class="item-menu">
+        <a href="../agendar-consulta/index.html" class="item-menu">
             <i class="fa-solid fa-stethoscope"></i>
             <span>Agendar</span>
         </a>
@@ -151,8 +90,8 @@
 
     </nav>
 
-
 </main>
+<script type="module" src="script.js"></script>
 </body>
 
 </html>

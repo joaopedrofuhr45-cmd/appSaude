@@ -161,6 +161,44 @@ a {
     margin: 0;
 }
 
-.secao-proximas-consultas{
+.secao-proximas-consultas {
     margin: 50px auto;
+}
+
+
+/* Variantes de status — só entram em ação se vier "pend" ou "cancel" do backend */
+
+.cartao-consulta.status-pendente {
+    border-left-color: var(--status_pendente);
+}
+
+.cartao-consulta.status-pendente .status-consulta {
+    background-color: var(--status_pendente-background);
+}
+
+.cartao-consulta.status-pendente .status-consulta p {
+    color: var(--status_pendente);
+}
+
+.cartao-consulta.status-cancelada {
+    border-left-color: var(--status_cancelado);
+}
+
+.cartao-consulta.status-cancelada .status-consulta {
+    background-color: var(--status_cancelado-background);
+}
+
+.cartao-consulta.status-cancelada .status-consulta p {
+    color: var(--status_cancelado);
+}
+
+
+/* Estados vazios / erro */
+
+.sem-consultas,
+.erro-consultas {
+    text-align: center;
+    color: var(--cor-texto);
+    font-size: 13px;
+    margin: 20px 0;
 }

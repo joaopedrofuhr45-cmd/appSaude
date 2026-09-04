@@ -33,6 +33,10 @@ form.addEventListener("submit", async (event) => {
 
     try {
         await authService.cadastrar(dto);
+
+        // salva o e-mail em cookie pra tela de verificação conseguir ler
+        document.cookie = `cadastro_email=${encodeURIComponent(email)}; path=/`;
+
         window.location.href = "../verificacao-email/index.html";
     } catch (error) {
         alert(error.message || "Não foi possível concluir o cadastro.");
