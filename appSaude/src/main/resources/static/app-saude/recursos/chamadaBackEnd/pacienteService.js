@@ -1,4 +1,4 @@
-import { ApiService } from "./apiService.js";
+import { ApiService } from "./api.js";
 
 class PacienteService extends ApiService {
 

@@ -12,6 +12,10 @@
     --status_concluido: #22C55E;
     --status_concluido-background: #DCFCE7;
     --hour: #2563EB;
+    --status_pendente: #F59E0B;
+    --status_pendente-background: #FEF3C7;
+    --status_cancelado: #DC2626;
+    --status_cancelado-background: #FEE2E2;
 }
 
 
