@@ -14,13 +14,56 @@ body{
     border-radius: 10px;
     background-color: var(--white);
     padding: 50px;
+    padding-right: 0;
+}
+
+.cadastro h1{
+    color: var(--primary-text);
+    font-size: 40px;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 15px;
 }
 
 .cadastro p{
-    color: var(--white);
+    color: var(--secondary-text);
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+
+.field-1{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 25px;
+
+}
+
+.field-2{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+    margin-right: 50px;
+}
+
+label{
+    margin-bottom: 10px;
+    font-weight: var(--font-weight-medium);
+}
+
+input{
+    width: 400px;
+    height: 50px;
+    border-radius: 10px;
+    color: var(--secondary-text);
+    border: 1px solid var(--secondary-text);
+    padding: 10px;
+}
+
+input:focus{
+    outline: none;
 }
 
 
+/*Direita*/
 .cards {
     width: 30%;
     margin: 10px;
