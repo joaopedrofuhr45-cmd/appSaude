@@ -1,493 +1,269 @@
-/* ========================================
-   RESET
-======================================== */
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html,
 body {
-  width: 100%;
-  min-height: 100%;
+    width: 100%;
+    min-height: 100%;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-
-  background: #ffffff;
-
-  color: #354654;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #354654;
 }
-
-
-/* ========================================
- PÁGINA
-======================================== */
 
 .page {
-  min-height: 100vh;
-
-  display: flex;
-  flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 
-/* ========================================
- HEADER
-======================================== */
-
+/* HEADER */
 .header {
-  height: 70px;
-
-  border-bottom: 1px solid #e2e6e8;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 0 35px;
-
-  background: #ffffff;
+    height: 70px;
+    border-bottom: 1px solid #e2e6e8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 35px;
+    background: #ffffff;
 }
 
 
-/* ========================================
- VOLTAR
-======================================== */
-
+/* VOLTAR */
 .back-button {
-  display: flex;
-  align-items: center;
-
-  gap: 8px;
-
-  text-decoration: none;
-
-  color: #279d99;
-
-  font-size: 14px;
-  font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #279d99;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .back-button svg {
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 }
 
 .back-button:hover {
-  color: #1c827e;
+    color: #1c827e;
 }
 
 
-/* ========================================
- LOGO
-======================================== */
-
+/* LOGO */
 .logo {
-  position: absolute;
-
-  left: 50%;
-
-  transform: translateX(-50%);
-
-  text-decoration: none;
-
-  color: #354654;
-
-  font-size: 36px;
-
-  font-weight: 700;
-
-  letter-spacing: -1.5px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    color: #354654;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
 }
 
 .logo span {
-  color: #25a49f;
+    color: #25a49f;
 }
 
 
-/* ========================================
- ESPAÇO DO HEADER
-======================================== */
-
+/* ESPAÇO DO HEADER */
 .header-space {
-  width: 70px;
+    width: 70px;
 }
 
 
-/* ========================================
- MAIN
-======================================== */
-
+/* MAIN */
 .main {
-  flex: 1;
-
-  display: flex;
-  justify-content: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .profile-section {
-  width: 100%;
-  max-width: 1050px;
-
-  padding-top: 65px;
+    width: 100%;
+    max-width: 1050px;
+    padding-top: 65px;
 }
 
 
-/* ========================================
- TÍTULO
-======================================== */
-
+/* TÍTULO */
 .profile-section h1 {
-  text-align: center;
-
-  color: #354654;
-
-  font-size: 32px;
-
-  font-weight: 700;
-
-  margin-bottom: 8px;
+    text-align: center;
+    color: #354654;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
 }
 
 
-/* ========================================
- SUBTÍTULO
-======================================== */
-
+/* SUBTÍTULO */
 .subtitle {
-  text-align: center;
-
-  color: #4f5e69;
-
-  font-size: 21px;
-
-  margin-bottom: 48px;
+    text-align: center;
+    color: #4f5e69;
+    font-size: 21px;
+    margin-bottom: 48px;
 }
 
 
-/* ========================================
- CARDS
-======================================== */
-
+/* CARDS */
 .cards {
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 30px;
-
-  width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
 }
 
 
-/* ========================================
- CARD
-======================================== */
-
+/* CARD */
 .profile-card {
-  height: 318px;
-
-  border: 1px solid #cfd5d8;
-
-  border-radius: 9px;
-
-  background: #ffffff;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  padding: 32px 28px 27px;
-
-  transition: 0.2s;
+    height: 318px;
+    border: 1px solid #cfd5d8;
+    border-radius: 9px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 28px 27px;
+    transition: 0.2s;
 }
 
 .profile-card:hover {
-  border-color: #2aa7a2;
-
-  box-shadow:
-      0 5px 20px rgba(30, 100, 110, 0.08);
-
-  transform: translateY(-2px);
+    border-color: #2aa7a2;
+    box-shadow: 0 5px 20px rgba(30, 100, 110, 0.08);
+    transform: translateY(-2px);
 }
 
 
-/* ========================================
- ÍCONE
-======================================== */
-
+/* ÍCONE */
 .profile-icon {
-  width: 72px;
-  height: 72px;
-
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: #354654;
-
-  margin-bottom: 15px;
+    width: 72px;
+    height: 72px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #354654;
+    margin-bottom: 15px;
 }
 
 .profile-icon > svg {
-  width: 64px;
-  height: 64px;
-
-  stroke-width: 1.5;
+    width: 64px;
+    height: 64px;
+    stroke-width: 1.5;
 }
 
 
 /* CORAÇÃO DO PACIENTE */
-
 .heart {
-  position: absolute;
-
-  left: 50%;
-  top: 50%;
-
-  transform: translate(-50%, -45%);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -45%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .heart svg {
-  width: 23px;
-  height: 23px;
-
-  stroke-width: 1.8;
+    width: 23px;
+    height: 23px;
+    stroke-width: 1.8;
 }
 
 
-/* ========================================
- TÍTULO DOS CARDS
-======================================== */
-
+/* TÍTULO DOS CARDS */
 .profile-card h2 {
-  color: #354654;
-
-  font-size: 24px;
-
-  font-weight: 700;
-
-  margin-bottom: 16px;
-
-  text-align: center;
+    color: #354654;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-align: center;
 }
 
 
-/* ========================================
- TEXTO DOS CARDS
-======================================== */
-
+/* TEXTO DOS CARDS */
 .profile-card p {
-  color: #3f4e59;
-
-  font-size: 15px;
-
-  line-height: 1.55;
-
-  text-align: center;
-
-  min-height: 48px;
+    color: #3f4e59;
+    font-size: 15px;
+    line-height: 1.55;
+    text-align: center;
+    min-height: 48px;
 }
 
 
-/* ========================================
- BOTÃO
-======================================== */
-
+/* BOTÃO */
 .select-button {
-  width: 100%;
-
-  height: 50px;
-
-  margin-top: auto;
-
-  border: none;
-
-  border-radius: 6px;
-
-  background: #29a6a1;
-
-  color: #ffffff;
-
-  font-size: 15px;
-
-  font-weight: 500;
-
-  cursor: pointer;
-
-  transition: 0.2s;
+    width: 100%;
+    height: 50px;
+    margin-top: auto;
+    border: none;
+    border-radius: 6px;
+    background: #29a6a1;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
 .select-button:hover {
-  background: #218d89;
+    background: #218d89;
 }
 
 .select-button:active {
-  transform: scale(0.98);
+    transform: scale(0.98);
 }
 
 
-/* ========================================
- INFORMAÇÃO
-======================================== */
-
+/* INFORMAÇÃO */
 .info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 10px;
-
-  margin-top: 47px;
-
-  color: #3f4e59;
-
-  font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 47px;
+    color: #3f4e59;
+    font-size: 14px;
 }
 
 .info svg {
-  width: 20px;
-  height: 20px;
-
-  stroke-width: 1.8;
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.8;
 }
 
 
-/* ========================================
- FOOTER
-======================================== */
-
+/* FOOTER */
 .footer {
-  height: 72px;
-
-  margin-top: 55px;
-
-  border-top: 1px solid #e2e6e8;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 28px;
-
-  background: #ffffff;
+    height: 72px;
+    margin-top: 55px;
+    border-top: 1px solid #e2e6e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    background: #ffffff;
 }
 
 .footer a {
-  color: #4e5b65;
-
-  text-decoration: none;
-
-  font-size: 14px;
+    color: #4e5b65;
+    text-decoration: none;
+    font-size: 14px;
 }
 
 .footer a:hover {
-  color: #279d99;
+    color: #279d99;
 }
 
 .footer span {
-  color: #aeb6ba;
-
-  font-size: 13px;
-}
-
-
-/* ========================================
- RESPONSIVIDADE
-======================================== */
-
-@media (max-width: 1100px) {
-
-  .profile-section {
-      max-width: 900px;
-  }
-
-  .cards {
-      gap: 20px;
-  }
-
-}
-
-
-@media (max-width: 800px) {
-
-  .profile-section {
-      padding: 45px 25px;
-  }
-
-  .profile-section h1 {
-      font-size: 28px;
-  }
-
-  .subtitle {
-      font-size: 18px;
-  }
-
-  .cards {
-      grid-template-columns: 1fr;
-
-      max-width: 450px;
-
-      margin: 0 auto;
-  }
-
-  .profile-card {
-      height: 300px;
-  }
-
-  .info {
-      margin-bottom: 20px;
-  }
-
-}
-
-
-@media (max-width: 500px) {
-
-  .header {
-      padding: 0 18px;
-  }
-
-  .logo {
-      font-size: 30px;
-  }
-
-  .back-button span {
-      display: none;
-  }
-
-  .profile-section {
-      padding: 35px 18px;
-  }
-
-  .profile-section h1 {
-      font-size: 24px;
-  }
-
-  .subtitle {
-      font-size: 16px;
-
-      margin-bottom: 30px;
-  }
-
-  .info {
-      text-align: center;
-
-      padding: 0 10px;
-  }
-
-  .footer {
-      gap: 15px;
-  }
-
+    color: #aeb6ba;
+    font-size: 13px;
 }
