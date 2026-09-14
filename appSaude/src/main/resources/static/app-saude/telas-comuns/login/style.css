@@ -1,0 +1,18 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.card {
+    width: 100%;
+    max-width: 390px;
+
+    padding: 56px 25px 48px;
+
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+
+    position: ;
+
+}
