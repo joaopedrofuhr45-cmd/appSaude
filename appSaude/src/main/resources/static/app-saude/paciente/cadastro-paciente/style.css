@@ -3,14 +3,6 @@
 }
 
 
-progress {
-    width: 150px;
-    height: 12px;
-    border-radius: 6px;
-    color: var(--primary);
-    background-color: ;
-}
-
 .informacoes {
     width: 30%;
 }
