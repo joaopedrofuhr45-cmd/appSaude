@@ -1,3 +1,5 @@
+@import "variaveis.css";
+
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +13,7 @@ body {
 }
 
 body {
-    background-color: #f2f2f2;
+    background-color: var(--body);
     font-family: Arial, sans-serif;
 }
 
@@ -23,12 +25,42 @@ main {
     justify-content: center;
     align-items: center;
 }
+/* header padrão do projeto*/
+.topo {
+    width: 100%;
+    height: 64px;
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+}
+ 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--foreground);
+}
+ 
+.logo i {
+    color: var(--primary);
+    font-size: 22px;
+}
+ 
+.logo .mais {
+    color: var(--primary);
+}
+
+/* header padrão do projeto*/
 
 .principal {
     width: 900px;
     display: flex;
     align-items: center;
-
+    gap: 40px;
 }
 
 .imagem {
@@ -49,55 +81,86 @@ main {
 }
 
 .title {
+    margin-bottom: 8px;
+    font-size: 26px;
+    color: var(--foreground);
+}
+
+.form-prin > p {
+    color: #6b7a84;
     margin-bottom: 25px;
-    font-size: 28px;
 }
 
 form {
     display: flex;
     flex-direction: column;
+    margin-top: 18px;
 }
-.form-prin{
-    background-color: white;
-    padding: 60px;
-    border-radius: 6px;
 
+.form-prin {
+    background-color: white;
+    padding: 45px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.247);
 }
+
 
 input {
-    width: 350px;
+    width: 100%;
     height: 45px;
     padding: 0 15px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border);
     border-radius: 6px;
-    font-size: 16px;
-    margin-top: 20px;
+    font-size: 15px;
+    color: var(--foreground);
+    
+}
 
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--ring);
 }
 
 .btn {
-    width: 350px;
+    width: 100%;
     height: 45px;
+    margin-top: 20px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    background-color: ;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.btn:hover {
+    opacity: 0.92;
 }
 
 .mensagem-erro {
     min-height: 20px;
+    color: var(--destructive);
+    font-size: 13px;
+    margin-top: 8px;
 }
 
 .voltar {
     margin-top: 20px;
+    padding-top: 18px;
     text-align: center;
-    border-top: #ccccccb3 solid 1px ;
+    border-top: #ccccccb3 solid 1px;
+    font-size: 14px;
+    color: #6b7a84;
 }
 
 .voltar a {
     text-decoration: none;
+    color: var(--primary);
+    font-weight: 600;
 }
 
-#criar-conta{
-    margin-top: 20px;
+#criar-conta {
+    margin-top: 0;
 }

@@ -6,10 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela login</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
 
 <body>
+    <!-- header padrão do projeto -->
+    <header class="topo">
+        <div class="logo">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <span>Saúde<span class="mais">+</span></span>
+        </div>
+    </header>
 
     <main>
         <section class="principal">
@@ -18,10 +26,11 @@
                     alt="sua saúde em um só lugar">
             </div>
 
-            <div class="form-prin">
-                <h1 class="title">Entrar na sua conta</h1>
+            <div class="login">
+                <div class="form-prin">
+                    <h1 class="title">Entrar na sua conta</h1>
                     <p>Acesso sua área de saúde</p>
-                
+
                     <form id="loginForm">
                         <div class="form">
                             <input type="text" id="cpf" name="cpf" placeholder="CPF">
@@ -40,6 +49,7 @@
                         <p id="criar-conta">não tem uma conta? <a href="#">Criar conta</a></p>
                     </div>
                 </div>
+            </div>
         </section>
     </main>
 
