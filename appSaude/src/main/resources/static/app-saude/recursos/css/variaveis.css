@@ -1,5 +1,4 @@
 :root {
-    --body: #f4f6f9;
     --primary: #218c83;
     --primary-foreground: #f8fdfc;
     --background: #f8fbfb;
@@ -11,6 +10,10 @@
     --ring: #daeaea;
     --white: #ffffff;
     --muted: #8a97a0;
+
+    --body: #f4f6f9;
+
+    --card: #ebf3f5;
 
     --primary-text: #26313E;
     --secondary-text: #5B6774;

@@ -94,7 +94,7 @@ label {
     width: 30%;
     margin: 10px;
     border-radius: 10px;
-    background-color: var(--primary-foreground);
+    background-color: var(--card);
     padding: 25px;
 }
 
