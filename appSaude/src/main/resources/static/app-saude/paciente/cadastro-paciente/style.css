@@ -1,8 +1,8 @@
-body{
+body {
     background: var(--body);
 }
 
-.content{
+.content {
     display: flex;
     justify-content: left;
     margin: 50px 250px;
@@ -14,51 +14,77 @@ body{
     border-radius: 10px;
     background-color: var(--white);
     padding: 50px;
-    padding-right: 0;
 }
 
-.cadastro h1{
+.cadastro h1 {
     color: var(--primary-text);
     font-size: 40px;
     font-weight: var(--font-weight-bold);
     margin-bottom: 15px;
 }
 
-.cadastro p{
+.cadastro p {
     color: var(--secondary-text);
     font-size: 20px;
     margin-bottom: 25px;
 }
 
-.field-1{
+.field {
     display: flex;
     flex-direction: row;
     margin-bottom: 25px;
+    width: 950px;
 
 }
 
-.field-2{
+form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+form button {
+    height: 50px;
+    width: 100%;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: 10px;
+}
+
+
+label {
+    margin-bottom: 10px;
+    font-weight: var(--font-weight-medium);
+}
+
+.input-container-left {
+    width: 100%;
     display: flex;
     flex-direction: column;
     margin-bottom: 25px;
     margin-right: 50px;
 }
 
-label{
-    margin-bottom: 10px;
-    font-weight: var(--font-weight-medium);
+.input-container-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
 }
 
-input{
-    width: 400px;
+.input-container-left input, .input-container-right input {
+    width: 100%;
     height: 50px;
     border-radius: 10px;
     color: var(--secondary-text);
     border: 1px solid var(--secondary-text);
     padding: 10px;
+    font-size: 16px;
 }
 
-input:focus{
+.input-container-left input:focus, .input-container-right input:focus {
     outline: none;
 }
 
@@ -82,7 +108,7 @@ input:focus{
     font-size: 50px;
     padding: 5px;
     background-color: var(--ring);
-    color: var(--primary) ;
+    color: var(--primary);
 
     border-radius: 50px;
     display: flex;

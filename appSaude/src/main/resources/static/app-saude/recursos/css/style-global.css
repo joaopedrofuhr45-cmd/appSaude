@@ -12,8 +12,7 @@
 
 * {
     box-sizing: border-box;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;;
-    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 
@@ -141,42 +140,6 @@ form {
    CAMPOS DO FORMULÁRIO
    ========================================================= */
 
-.form {
-    position: relative;
-    margin-bottom: 26px;
-}
-
-.form input {
-    width: 100%;
-
-    padding: 6px 20px 10px 0;
-
-    background: transparent;
-    color: var(--cor-texto);
-
-    border: none;
-    border-bottom: 1px solid var(--linha);
-
-    outline: none;
-
-    font-size: 15px;
-
-    transition: border-color 0.2s;
-}
-
-
-/* Placeholder */
-
-.form input::placeholder {
-    color: var(--placeholder);
-}
-
-
-/* Campo selecionado */
-
-.form input:focus {
-    border-bottom: 1.5px solid var(--cor-principal);
-}
 
 /* =========================================================
    MENU INFERIOR

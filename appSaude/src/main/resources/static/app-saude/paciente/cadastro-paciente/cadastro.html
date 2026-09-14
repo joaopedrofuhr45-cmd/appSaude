@@ -7,6 +7,7 @@
     <title>Cadastro</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="../../recursos/css/style-global.css">
+
 </head>
 
 <body>
@@ -17,16 +18,43 @@
             <p>Comece sua jornada de cuidado com Saúde+.</p>
 
             <form action="">
-                <div class="field-1">
-                    <div class="field-2">
-                        <label for="nome">Nome completo</label>
-                        <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo" required>
+                <div class="form">
+                    <div class="field">
+                        <div class="input-container-left">
+                            <label for="nome">Nome completo</label>
+                            <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo" required>
+                        </div>
+                        <div class="input-container-right">
+                            <label for="email">E-mail</label>
+                            <input type="email" name="email" id="email" placeholder="exemplo@seuemail.com" required>
+                        </div>
                     </div>
-                    <div class="field-2">
-                        <label for="email">E-mail</label>
-                        <input type="email" name="email" id="email" placeholder="exemplo@seuemail.com" required>
+
+                    <div class="field">
+                        <div class="input-container-left">
+                            <label for="cpf">CPF</label>
+                            <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" required>
+                        </div>
+                        <div class="input-container-right">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" name="telefone" id="telefone" placeholder="(11) 98765-4321" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <div class="input-container-left">
+                            <label for="senha">Senha</label>
+                            <input type="password" name="senha" id="senha" placeholder="Digite sua senha" minlength="8"
+                                   required>
+                        </div>
+                        <div class="input-container-right">
+                            <label for="confirmarsenha">Confimar senha</label>
+                            <input type="password" name="confirmarsenha" id="confirmarsenha" placeholder="Confirme sua senha" minlength="8">
+                        </div>
                     </div>
                 </div>
+                    <button type="submit">Criar conta</button>
+
             </form>
 
         </div>
