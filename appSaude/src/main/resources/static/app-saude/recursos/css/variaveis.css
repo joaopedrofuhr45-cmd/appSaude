@@ -1,4 +1,5 @@
 :root {
+    --body: #f4f6f9;
     --primary: #218c83;
     --primary-foreground: #f8fdfc;
     --background: #f8fbfb;
@@ -7,5 +8,6 @@
     --accent: #ddf4f1;
     --destructive: #e7000b;
     --border: #dce2e6;
-    --ring: #218c83;
+    --ring: #daeaea;
+    --white: #ffffff;
 } 

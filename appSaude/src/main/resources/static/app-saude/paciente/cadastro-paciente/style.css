@@ -1,28 +1,47 @@
+body{
+    background: var(--body);
+}
+
+.content{
+    display: flex;
+    justify-content: left;
+    margin: 50px 250px;
+}
+
 .cadastro {
     width: 70%;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: var(--white);
 }
 
 
-.informacoes {
+.cards {
     width: 30%;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: var(--primary-foreground);
+}
+
+.card {
+    padding: 20px;
 }
 
 .icon {
-    height: 50px;
-    width: 50px;
-    font-size: 30px;
+    height: 80px;
+    width: 80px;
+    font-size: 50px;
     padding: 5px;
-    background-color: var(--secondary);
+    background-color: var(--ring);
     color: var(--primary) ;
 
-    border-radius: 25px;
+    border-radius: 50px;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-.title,
-.description {
+.title, .description {
     text-align: left;
 
 }
