@@ -1,4 +1,4 @@
-
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -17,6 +17,8 @@ body {
     color: #354654;
 }
 
+
+/* PÁGINA */
 .page {
     min-height: 100vh;
     display: flex;
@@ -128,10 +130,13 @@ body {
     border: 1px solid #cfd5d8;
     border-radius: 9px;
     background: #ffffff;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+
     padding: 32px 28px 27px;
+
     transition: 0.2s;
 }
 
@@ -146,11 +151,15 @@ body {
 .profile-icon {
     width: 72px;
     height: 72px;
+
     position: relative;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     color: #354654;
+
     margin-bottom: 15px;
 }
 
@@ -164,9 +173,12 @@ body {
 /* CORAÇÃO DO PACIENTE */
 .heart {
     position: absolute;
+
     left: 50%;
     top: 50%;
+
     transform: translate(-50%, -45%);
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -184,7 +196,9 @@ body {
     color: #354654;
     font-size: 24px;
     font-weight: 700;
+
     margin-bottom: 16px;
+
     text-align: center;
 }
 
@@ -194,7 +208,9 @@ body {
     color: #3f4e59;
     font-size: 15px;
     line-height: 1.55;
+
     text-align: center;
+
     min-height: 48px;
 }
 
@@ -203,15 +219,28 @@ body {
 .select-button {
     width: 100%;
     height: 50px;
+
     margin-top: auto;
+
     border: none;
     border-radius: 6px;
+
     background: #29a6a1;
     color: #ffffff;
+
     font-size: 15px;
     font-weight: 500;
+
     cursor: pointer;
+
     transition: 0.2s;
+
+    /* Faz o <a> se comportar como botão */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
 }
 
 .select-button:hover {
@@ -228,8 +257,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+
     gap: 10px;
+
     margin-top: 47px;
+
     color: #3f4e59;
     font-size: 14px;
 }
@@ -244,12 +276,17 @@ body {
 /* FOOTER */
 .footer {
     height: 72px;
+
     margin-top: 55px;
+
     border-top: 1px solid #e2e6e8;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     gap: 28px;
+
     background: #ffffff;
 }
 
