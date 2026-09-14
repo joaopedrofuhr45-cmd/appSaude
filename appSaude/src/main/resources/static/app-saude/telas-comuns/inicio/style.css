@@ -1,6 +1,3 @@
-/* =========================================
-   RESET
-========================================= */
 
 * {
     margin: 0;
@@ -14,79 +11,58 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #ffffff;
     color: #263b4a;
 }
 
+a {
+    text-decoration: none;
+}
 
-/* =========================================
-   HEADER
-========================================= */
+/* CONTAINERS */
+.header-container,
+.hero-container,
+.profiles-container,
+.about-container {
+    width: 900px;
+    max-width: calc(100% - 50px);
+    margin: auto;
+}
 
+/* HEADER */
 .header {
-    width: 100%;
     height: 88px;
-
-    background: #ffffff;
-
     border-bottom: 1px solid #f0f3f5;
 }
 
 .header-container {
-    width: 900px;
-    max-width: calc(100% - 50px);
-
     height: 100%;
-
-    margin: 0 auto;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-
-/* =========================================
-   LOGO
-========================================= */
-
+/* LOGO */
 .logo {
-    text-decoration: none;
-
     font-size: 26px;
     font-weight: 700;
-
-    color: #263b4a;
 }
 
 .logo span {
     color: #28a9a2;
 }
 
-
-/* =========================================
-   MENU
-========================================= */
-
+/* MENU */
 .nav {
     display: flex;
     align-items: center;
-
     gap: 34px;
-
     margin-left: 50px;
 }
 
 .nav-link {
-    position: relative;
-
-    text-decoration: none;
-
     color: #263b4a;
-
     font-size: 14px;
     font-weight: 500;
-
     padding: 33px 0 29px;
 }
 
@@ -95,248 +71,138 @@ body {
 }
 
 .nav-link.active {
-    color: #263b4a;
+    border-bottom: 2px solid #28a9a2;
 }
 
-.nav-link.active::after {
-    content: "";
-
-    position: absolute;
-
-    bottom: 20px;
-    left: 0;
-
-    width: 35px;
-    height: 2px;
-
-    background: #28a9a2;
-}
-
-
-/* =========================================
-   BOTÕES DO HEADER
-========================================= */
-
-.header-buttons {
+/* BOTÕES DO HEADER */
+.header-buttons,
+.hero-buttons {
     display: flex;
     align-items: center;
+}
 
+.header-buttons {
     gap: 15px;
 }
 
 .btn-login,
-.btn-register {
-    text-decoration: none;
-
-    font-size: 13px;
+.btn-register,
+.btn-primary,
+.btn-secondary {
     font-weight: 600;
+    transition: .2s;
+}
 
+.btn-login,
+.btn-register {
     padding: 10px 20px;
-
     border-radius: 22px;
-
-    transition: 0.2s;
+    font-size: 13px;
 }
 
 .btn-login {
     color: #279e98;
-
     border: 1px solid #279e98;
-
-    background: #ffffff;
-}
-
-.btn-login:hover {
-    background: #effafa;
 }
 
 .btn-register {
-    color: #ffffff;
-
+    color: white;
     background: #2aa7a2;
 }
 
-.btn-register:hover {
+.btn-login:hover,
+.btn-secondary:hover {
+    background: #effafa;
+}
+
+.btn-register:hover,
+.btn-primary:hover {
     background: #218f8a;
 }
 
-
-/* =========================================
-   HERO
-========================================= */
-
-.hero {
-    background: #ffffff;
-}
-
+/* HERO */
 .hero-container {
-    width: 900px;
-    max-width: calc(100% - 50px);
-
     min-height: 310px;
-
-    margin: 0 auto;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-
-/* =========================================
-   TEXTO HERO
-========================================= */
-
 .hero-content {
     width: 52%;
-
-    padding-top: 20px;
 }
 
 .hero-content h1 {
     color: #263d4c;
-
     font-size: 32px;
     line-height: 1.4;
-
-    font-weight: 700;
-
     margin-bottom: 14px;
 }
 
 .hero-content p {
     color: #647785;
-
     font-size: 16px;
     line-height: 1.5;
-
     margin-bottom: 27px;
 }
 
-
-/* =========================================
-   BOTÕES HERO
-========================================= */
-
 .hero-buttons {
-    display: flex;
-
-    align-items: center;
-
     gap: 18px;
 }
 
 .btn-primary,
 .btn-secondary {
-    text-decoration: none;
-
     padding: 12px 23px;
-
     border-radius: 7px;
-
     font-size: 13px;
-    font-weight: 600;
-
-    transition: 0.2s;
 }
 
 .btn-primary {
-    color: #ffffff;
-
+    color: white;
     background: #2aa8a1;
-}
-
-.btn-primary:hover {
-    background: #218f89;
 }
 
 .btn-secondary {
     color: #2aa19b;
-
-    background: #ffffff;
-
     border: 1px solid #2aa19b;
 }
 
-.btn-secondary:hover {
-    background: #effafa;
-}
-
-
-/* =========================================
-   IMAGEM HERO
-========================================= */
-
+/* IMAGEM */
 .hero-image {
     width: 45%;
-
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 .hero-image img {
     width: 100%;
     max-width: 430px;
-
-    display: block;
 }
 
-
-/* =========================================
-   CARDS
-========================================= */
-
+/* CARDS */
 .profiles {
     padding: 15px 0 27px;
-
-    background: #ffffff;
 }
 
 .profiles-container {
-    width: 900px;
-    max-width: calc(100% - 50px);
-
-    margin: 0 auto;
-
     display: grid;
-
     grid-template-columns: repeat(3, 1fr);
-
     gap: 22px;
 }
 
-
-/* =========================================
-   CARD INDIVIDUAL
-========================================= */
-
 .profile-card {
     min-height: 170px;
-
     padding: 21px 23px;
-
     background: #f5f9fc;
-
     border-radius: 7px;
 }
-
-
-/* ÍCONE */
 
 .profile-icon {
     width: 45px;
     height: 45px;
-
     margin-bottom: 9px;
-
     border-radius: 50%;
-
     background: #e0f4f2;
-
     color: #2aa7a1;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -344,288 +210,92 @@ body {
 
 .profile-icon svg {
     width: 25px;
-    height: 25px;
 }
 
-
-/* TÍTULO */
-
 .profile-card h2 {
-    color: #263b4a;
-
     font-size: 17px;
-
     margin-bottom: 8px;
 }
 
-
-/* TEXTO */
-
 .profile-card p {
     color: #61727e;
-
     font-size: 13px;
-
     line-height: 1.55;
 }
 
-
-/* =========================================
-   SOBRE NÓS
-========================================= */
-
+/* SOBRE */
 .about {
-    background: #f5f9fc;
-
     padding: 23px 0 25px;
+    background: #f5f9fc;
 }
 
 .about-container {
-    width: 900px;
-    max-width: calc(100% - 50px);
-
-    margin: 0 auto;
-
     display: flex;
-
     align-items: center;
-
     gap: 35px;
 }
 
-
-/* ÍCONE */
-
 .about-icon {
     width: 65px;
-    height: 65px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: #2aa7a1;
-
     flex-shrink: 0;
+    text-align: center;
+    color: #2aa7a1;
 }
 
 .about-icon svg {
     width: 58px;
     height: 58px;
-
-    stroke-width: 1.5;
 }
-
-
-/* TEXTO */
 
 .about-content {
     max-width: 600px;
 }
 
 .about-content h2 {
-    color: #263b4a;
-
     font-size: 18px;
-
     margin-bottom: 7px;
 }
 
 .about-content p {
     color: #71828e;
-
     font-size: 13px;
-
     line-height: 1.55;
-
     margin-bottom: 8px;
 }
 
 .about-content a {
     display: inline-flex;
-
     align-items: center;
-
     gap: 6px;
-
     color: #239f99;
-
     font-size: 12px;
     font-weight: 600;
-
     text-decoration: underline;
 }
 
 .about-content a svg {
     width: 14px;
-    height: 14px;
 }
 
-
-/* =========================================
-   FOOTER
-========================================= */
-
+/* FOOTER */
 .footer {
     height: 52px;
-
     background: #eef3f7;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
 }
 
 .footer-links {
     display: flex;
-
-    align-items: center;
-
     gap: 20px;
 }
 
 .footer-links a {
     color: #61727e;
-
-    text-decoration: none;
-
     font-size: 12px;
-}
-
-.footer-links a:hover {
-    color: #239f99;
 }
 
 .footer-links span {
     color: #a8b3bb;
-
-    font-size: 12px;
-}
-
-
-/* =========================================
-   RESPONSIVIDADE
-========================================= */
-
-@media (max-width: 900px) {
-
-    .header-container,
-    .hero-container,
-    .profiles-container,
-    .about-container {
-        width: 100%;
-    }
-
-    .nav {
-        gap: 15px;
-        margin-left: 20px;
-    }
-
-    .hero-content h1 {
-        font-size: 28px;
-    }
-
-}
-
-
-@media (max-width: 750px) {
-
-    .header {
-        height: auto;
-    }
-
-    .header-container {
-        padding: 18px 0;
-
-        flex-wrap: wrap;
-
-        gap: 15px;
-    }
-
-    .nav {
-        order: 3;
-
-        width: 100%;
-
-        justify-content: center;
-
-        margin-left: 0;
-    }
-
-    .nav-link {
-        padding: 10px 0;
-    }
-
-    .nav-link.active::after {
-        bottom: 3px;
-    }
-
-    .hero-container {
-        flex-direction: column;
-
-        padding: 40px 0;
-    }
-
-    .hero-content {
-        width: 100%;
-    }
-
-    .hero-image {
-        width: 80%;
-
-        margin-top: 30px;
-    }
-
-    .profiles-container {
-        grid-template-columns: 1fr;
-    }
-
-    .profile-card {
-        min-height: auto;
-    }
-
-}
-
-
-@media (max-width: 500px) {
-
-    .header-container,
-    .hero-container,
-    .profiles-container,
-    .about-container {
-        max-width: calc(100% - 30px);
-    }
-
-    .header-buttons {
-        gap: 7px;
-    }
-
-    .btn-login,
-    .btn-register {
-        padding: 8px 12px;
-    }
-
-    .nav {
-        gap: 13px;
-    }
-
-    .nav-link {
-        font-size: 12px;
-    }
-
-    .hero-content h1 {
-        font-size: 26px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-
-        align-items: flex-start;
-    }
-
-    .about-container {
-        align-items: flex-start;
-    }
-
 }
