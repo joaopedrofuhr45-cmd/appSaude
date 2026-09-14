@@ -1,1 +1,48 @@
+.cadastro {
+    width: 70%;
+}
 
+
+progress {
+    width: 150px;
+    height: 12px;
+    border-radius: 6px;
+    color: var(--primary);
+    background-color: ;
+}
+
+.informacoes {
+    width: 30%;
+}
+
+.icon {
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+    padding: 5px;
+    background-color: var(--secondary);
+    color: var(--primary) ;
+
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.title,
+.description {
+    text-align: left;
+
+}
+
+.title h2 {
+    font-size: 18px;
+    color: var();
+    text-align: left;
+}
+
+.description p {
+    font-size: 12px;
+    color: var(--cor-texto);
+    text-align: left;
+}

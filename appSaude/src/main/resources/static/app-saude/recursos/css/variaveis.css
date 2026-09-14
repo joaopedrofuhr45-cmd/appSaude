@@ -1,21 +1,11 @@
 :root {
-    --cor-principal: #1A5278;
-    --cor-fundo: #f5f7fa;
-    --cor-texto: #6b7280;
-    --card: #ffffff;
-    --azul-escuro: #163a4a;
-    --white: #ffffff;
-    --placeholder: #9a9a9a;
-    --linha: #d9d9d9;
-    --erro: #e0392c;
-    --black: #000000;
-    --status_concluido: #22C55E;
-    --status_concluido-background: #DCFCE7;
-    --hour: #2563EB;
-    --status_pendente: #F59E0B;
-    --status_pendente-background: #FEF3C7;
-    --status_cancelado: #DC2626;
-    --status_cancelado-background: #FEE2E2;
+    --primary: #218c83;
+    --primary-foreground: #f8fdfc;
+    --background: #f8fbfb;
+    --foreground: #1a2b36;
+    --secondary: #ddf4f1;
+    --accent: #ddf4f1;
+    --destructive: #e7000b;
+    --border: #dce2e6;
+    --ring: #218c83;
 }
-
-
