@@ -1,5 +1,3 @@
-@import "variaveis.css";
-
 * {
     margin: 0;
     padding: 0;
@@ -13,58 +11,105 @@ body {
 }
 
 body {
-    background-color: var(--body);
+    background-color: #f5f9fc;
     font-family: Arial, sans-serif;
+    color: #354654;
 }
+
+
+/* HEADER */
+
+.topo {
+    width: 100%;
+    height: 64px;
+
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e6e8;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 30px;
+}
+
+.botao-voltar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #279d99;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.botao-voltar i {
+    font-size: 16px;
+}
+
+.botao-voltar:hover {
+    color: #1c827e;
+}
+
+
+/* LOGO */
+
+.logo {
+    position: absolute;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #354654;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.logo i {
+    color: #29a6a1;
+    font-size: 22px;
+}
+
+.logo .mais {
+    color: #29a6a1;
+}
+
+
+/* MAIN */
 
 main {
     width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 64px);
 
     display: flex;
     justify-content: center;
     align-items: center;
 }
-/* header padrão do projeto*/
-.topo {
-    width: 100%;
-    height: 64px;
-    background-color: var(--white);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    padding: 0 30px;
-}
- 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--foreground);
-}
- 
-.logo i {
-    color: var(--primary);
-    font-size: 22px;
-}
- 
-.logo .mais {
-    color: var(--primary);
-}
 
-/* header padrão do projeto*/
+
+/* CONTEÚDO */
 
 .principal {
     width: 900px;
+
     display: flex;
     align-items: center;
+
     gap: 40px;
 }
 
+
+/* IMAGEM */
+
 .imagem {
     width: 50%;
+
     display: flex;
     justify-content: flex-start;
 }
@@ -74,86 +119,152 @@ main {
     height: auto;
 }
 
+
+/* LOGIN */
+
 .login {
     width: 50%;
-    display: flex;
-    flex-direction: column;
 }
+
+
+/* CAIXA DO LOGIN */
+
+.form-prin {
+    background-color: #ffffff;
+
+    padding: 45px;
+
+    border-radius: 8px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* TÍTULO */
 
 .title {
     margin-bottom: 8px;
+
     font-size: 26px;
-    color: var(--foreground);
+
+    color: #354654;
 }
+
+
+/* SUBTÍTULO */
 
 .form-prin > p {
     color: #6b7a84;
     margin-bottom: 25px;
 }
 
+
+/* FORMULÁRIO */
+
 form {
     display: flex;
     flex-direction: column;
+
     margin-top: 18px;
 }
 
-.form-prin {
-    background-color: white;
-    padding: 45px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.247);
-}
 
+/* INPUTS */
+
+.form {
+    margin-bottom: 12px;
+}
 
 input {
     width: 100%;
     height: 45px;
+
     padding: 0 15px;
-    border: 1px solid var(--border);
+
+    border: 1px solid #d5dcdf;
     border-radius: 6px;
+
     font-size: 15px;
-    color: var(--foreground);
-    
+
+    color: #354654;
 }
 
 input:focus {
     outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px var(--ring);
+
+    border-color: #29a6a1;
+
+    box-shadow: 0 0 0 3px rgba(41, 166, 161, 0.15);
 }
+
+
+/* BOTÃO ENTRAR */
 
 .btn {
     width: 100%;
     height: 45px;
+
     margin-top: 20px;
+
     border: none;
     border-radius: 6px;
+
+    background-color: #29a6a1;
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 600;
+
     cursor: pointer;
-    background-color: 
 }
+
+.btn:hover {
+    background-color: #218d89;
+}
+
+
+/* MENSAGEM DE ERRO */
 
 .mensagem-erro {
     min-height: 20px;
-    color: var(--destructive);
+
+    color: #d9534f;
+
     font-size: 13px;
+
     margin-top: 8px;
 }
 
+
+/* CRIAR CONTA */
+
 .voltar {
     margin-top: 20px;
+
     padding-top: 18px;
+
     text-align: center;
-    border-top: #ccccccb3 solid 1px;
+
+    border-top: 1px solid #cccccc;
+
     font-size: 14px;
+
     color: #6b7a84;
 }
 
 .voltar a {
     text-decoration: none;
-    color: var(--primary);
+
+    color: #29a6a1;
+
     font-weight: 600;
+}
+
+.voltar a:hover {
+    color: #218d89;
 }
 
 #criar-conta {
     margin-top: 0;
 }
+
