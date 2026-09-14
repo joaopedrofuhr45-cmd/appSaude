@@ -1,18 +1,96 @@
-*{
-    padding: 0;
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.card {
+html,
+body {
     width: 100%;
-    max-width: 390px;
+    min-height: 100vh;
+}
 
-    padding: 56px 25px 48px;
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+}
 
-    background: var(--card);
-    border-radius: 16px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+main {
+    width: 100%;
+    min-height: 100vh;
 
-    position: ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.principal {
+    width: 900px;
+    display: flex;
+    align-items: center;
+
+}
+
+.imagem {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.imagem img {
+    width: 320px;
+    height: auto;
+}
+
+.login {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+.form-prin{
+    background-color: white;
+    padding: 60px;
+    border-radius: 6px;
+
+}
+
+input {
+    width: 350px;
+    height: 45px;
+    padding: 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.btn {
+    width: 350px;
+    height: 45px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.mensagem-erro {
+    min-height: 20px;
+}
+
+.voltar {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.voltar a {
+    text-decoration: none;
 }
