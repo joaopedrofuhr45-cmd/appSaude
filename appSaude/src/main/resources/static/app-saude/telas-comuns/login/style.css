@@ -81,6 +81,7 @@ input {
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    background-color: ;
 }
 
 .mensagem-erro {
@@ -90,9 +91,13 @@ input {
 .voltar {
     margin-top: 20px;
     text-align: center;
-    border-top: #cccccc8f solid 1px ;
+    border-top: #ccccccb3 solid 1px ;
 }
 
 .voltar a {
     text-decoration: none;
+}
+
+#criar-conta{
+    margin-top: 20px;
 }
