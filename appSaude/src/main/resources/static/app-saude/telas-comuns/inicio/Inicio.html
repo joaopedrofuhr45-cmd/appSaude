@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Saúde+</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="header-container">
+
+            <!-- LOGO -->
+            <a href="#" class="logo">
+                Saúde<span>+</span>
+            </a>
+
+            <!-- MENU -->
+            <nav class="nav">
+
+                <a href="#" class="nav-link active">
+                    Início
+                </a>
+
+                <a href="#sobre" class="nav-link">
+                    Sobre nós
+                </a>
+
+                <a href="#funciona" class="nav-link">
+                    Como funciona
+                </a>
+
+                <a href="#contato" class="nav-link">
+                    Contato
+                </a>
+
+            </nav>
+
+            <!-- BOTÕES -->
+            <div class="header-buttons">
+
+                <a href="/appSaude/src/main/resources/static/app-saude/telas-comuns/login/login.html" class="btn-login">
+                    Entrar
+                </a>
+
+                <a href="/appSaude/src/main/resources/static/app-saude/paciente/cadastro-paciente/cadastro.html" class="btn-register">
+                    Criar conta
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= CONTEÚDO PRINCIPAL ================= -->
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-container">
+
+                <!-- TEXTO -->
+                <div class="hero-content">
+
+                    <h1>
+                        Cuidado com a sua saúde,
+                        <br>
+                        de forma simples
+                    </h1>
+
+                    <p>
+                        Conecte pacientes, médicos e atendentes em um só lugar.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="/appSaude/src/main/resources/static/app-saude/telas-comuns/login/login.html" class="btn-primary">
+                            Entrar na plataforma
+                        </a>
+
+                        <a href="/appSaude/src/main/resources/static/app-saude/paciente/cadastro-paciente/cadastro.html" class="btn-secondary">
+                            Criar minha conta
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ILUSTRAÇÃO -->
+                <div class="hero-image">
+
+                    <img
+                        src="../../recursos/img/inicio.png"
+                        alt="Equipe de saúde"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CARDS ================= -->
+
+        <section class="profiles" id="funciona">
+
+            <div class="profiles-container">
+
+                <!-- PACIENTES -->
+                <div class="profile-card">
+
+                    <div class="profile-icon">
+                        <i data-lucide="user-round"></i>
+                    </div>
+
+                    <h2>
+                        Para pacientes
+                    </h2>
+
+                    <p>
+                        Agende consultas, acompanhe seus
+                        atendimentos e tenha mais praticidade
+                        no cuidado com a sua saúde.
+                    </p>
+
+                </div>
+
+
+                <!-- MÉDICOS -->
+                <div class="profile-card">
+
+                    <div class="profile-icon">
+                        <i data-lucide="stethoscope"></i>
+                    </div>
+
+                    <h2>
+                        Para médicos
+                    </h2>
+
+                    <p>
+                        Organize sua agenda, atenda seus
+                        pacientes e gerencie seus atendimentos
+                        de forma simples e segura.
+                    </p>
+
+                </div>
+
+
+                <!-- ATENDENTES -->
+                <div class="profile-card">
+
+                    <div class="profile-icon">
+                        <i data-lucide="headset"></i>
+                    </div>
+
+                    <h2>
+                        Para atendentes
+                    </h2>
+
+                    <p>
+                        Facilite o agendamento, o atendimento
+                        e a comunicação entre pacientes e médicos
+                        com mais eficiência.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SOBRE NÓS ================= -->
+
+        <section class="about" id="sobre">
+
+            <div class="about-container">
+
+                <div class="about-icon">
+                    <i data-lucide="heart-pulse"></i>
+                </div>
+
+                <div class="about-content">
+
+                    <h2>
+                        Sobre nós
+                    </h2>
+
+                    <p>
+                        Somos uma plataforma de saúde que acredita
+                        em um atendimento mais acessível, organizado
+                        e humano. Nosso objetivo é conectar pessoas
+                        e profissionais para uma experiência de
+                        cuidado mais completa e eficiente.
+                    </p>
+
+                    <a href="#">
+                        Conheça nossa história
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer" id="contato">
+
+        <div class="footer-links">
+
+            <a href="#">
+                Privacidade
+            </a>
+
+            <span>|</span>
+
+            <a href="#">
+                Termos de uso
+            </a>
+
+            <span>|</span>
+
+            <a href="#">
+                Contato
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+
+</html>
