@@ -6,7 +6,7 @@ const listaConsultas = document.getElementById("lista-consultas");
 
 // Protege a rota — sem login, redireciona
 if (!authService.isAutenticado()) {
-    window.location.href = "../../telas-comuns/login/index.html";
+    window.location.href = "../login/index.html";
 }
 
 const usuario = authService.getUsuarioLogado();

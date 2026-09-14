@@ -58,6 +58,6 @@ btnSair.addEventListener("click", () => {
     localStorage.removeItem("token");
     localStorage.removeItem("usuario");
 
-    window.location.href = "../../telas-comuns/login/index.html";
+    window.location.href = "../login/index.html";
 
 });

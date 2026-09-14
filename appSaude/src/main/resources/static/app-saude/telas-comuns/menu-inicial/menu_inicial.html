@@ -1,168 +1,125 @@
 ```html
 <!doctype html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Saúde+ | Escolha seu perfil</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
     <!-- Ícones -->
     <script src="https://unpkg.com/lucide@latest"></script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="page">
+      <!-- HEADER -->
+      <header class="header">
+        <a href="../inicio/Inicio.html" class="back-button">
+          <i data-lucide="arrow-left"></i>
+          <span>Voltar</span>
+        </a>
 
-        <!-- HEADER -->
-        <header class="header">
+        <a href="#" class="logo"> Saúde<span>+</span> </a>
 
-            <a href="../inicio/Inicio.html" class="back-button">
-                <i data-lucide="arrow-left"></i>
-                <span>Voltar</span>
-            </a>
+        <!-- Espaço para manter a logo centralizada -->
+        <div class="header-space"></div>
+      </header>
 
-            <a href="#" class="logo">
-                Saúde<span>+</span>
-            </a>
+      <!-- CONTEÚDO -->
+      <main class="main">
+        <section class="profile-section">
+          <h1>Como você vai usar a plataforma?</h1>
 
-            <!-- Espaço para manter a logo centralizada -->
-            <div class="header-space"></div>
+          <p class="subtitle">Escolha o seu perfil para continuar</p>
 
-        </header>
+          <!-- CARDS -->
+          <div class="cards">
+            <!-- PACIENTE -->
+            <div class="profile-card">
+              <div class="profile-icon">
+                <i data-lucide="user-round"></i>
 
-
-        <!-- CONTEÚDO -->
-        <main class="main">
-
-            <section class="profile-section">
-
-                <h1>Como você vai usar a plataforma?</h1>
-
-                <p class="subtitle">
-                    Escolha o seu perfil para continuar
-                </p>
-
-
-                <!-- CARDS -->
-                <div class="cards">
-
-                    <!-- PACIENTE -->
-                    <div class="profile-card">
-
-                        <div class="profile-icon">
-
-                            <i data-lucide="user-round"></i>
-
-                            <div class="heart">
-                                <i data-lucide="heart"></i>
-                            </div>
-
-                        </div>
-
-                        <h2>Sou paciente</h2>
-
-                        <p>
-                            Acompanhe sua saúde e
-                            <br>
-                            suas consultas
-                        </p>
-
-                        <a href="../login/login.html" class="select-button">
-                            Selecionar
-                        </a>
-
-                    </div>
-
-
-                    <!-- MÉDICO -->
-                    <div class="profile-card">
-
-                        <div class="profile-icon">
-                            <i data-lucide="stethoscope"></i>
-                        </div>
-
-                        <h2>Sou médico</h2>
-
-                        <p>
-                            Gerencie atendimentos e
-                            <br>
-                            pacientes
-                        </p>
-
-                        <a href="#" class="select-button">
-                            Selecionar
-                        </a>
-
-                    </div>
-
-
-                    <!-- ATENDENTE -->
-                    <div class="profile-card">
-
-                        <div class="profile-icon">
-                            <i data-lucide="headset"></i>
-                        </div>
-
-                        <h2>Sou atendente</h2>
-
-                        <p>
-                            Organize agendas e
-                            <br>
-                            recepção
-                        </p>
-
-                        <a href="#" class="select-button">
-                            Selecionar
-                        </a>
-
-                    </div>
-
+                <div class="heart">
+                  <i data-lucide="heart"></i>
                 </div>
+              </div>
 
+              <h2>Sou paciente</h2>
 
-                <!-- AVISO -->
-                <div class="info">
+              <p>
+                Acompanhe sua saúde e
+                <br />
+                suas consultas
+              </p>
 
-                    <i data-lucide="info"></i>
+              <a href="../login/login.html" class="select-button">
+                Selecionar
+              </a>
+            </div>
 
-                    <span>
-                        Você poderá alterar algumas preferências depois
-                    </span>
+            <!-- MÉDICO -->
+            <div class="profile-card">
+              <div class="profile-icon">
+                <i data-lucide="stethoscope"></i>
+              </div>
 
-                </div>
+              <h2>Sou médico</h2>
 
-            </section>
+              <p>
+                Gerencie atendimentos e
+                <br />
+                pacientes
+              </p>
 
-        </main>
+              <a href="#" class="select-button"> Selecionar </a>
+            </div>
 
+            <!-- ATENDENTE -->
+            <div class="profile-card">
+              <div class="profile-icon">
+                <i data-lucide="headset"></i>
+              </div>
 
-        <!-- FOOTER -->
-        <footer class="footer">
+              <h2>Sou atendente</h2>
 
-            <a href="#">Ajuda</a>
+              <p>
+                Organize agendas e
+                <br />
+                recepção
+              </p>
 
-            <span>|</span>
+              <a href="#" class="select-button"> Selecionar </a>
+            </div>
+          </div>
 
-            <a href="#">Privacidade</a>
+          <!-- AVISO -->
+          <div class="info">
+            <i data-lucide="info"></i>
 
-            <span>|</span>
+            <span> Você poderá alterar algumas preferências depois </span>
+          </div>
+        </section>
+      </main>
 
-            <a href="#">Sair</a>
+      <!-- FOOTER -->
+      <footer class="footer">
+        <a href="#">Ajuda</a>
 
-        </footer>
+        <span>|</span>
 
+        <a href="#">Privacidade</a>
+
+        <span>|</span>
+
+        <a href="#">Sair</a>
+      </footer>
     </div>
 
-
     <script>
-        lucide.createIcons();
+      lucide.createIcons();
     </script>
-
-</body>
-
+  </body>
 </html>
 ```
