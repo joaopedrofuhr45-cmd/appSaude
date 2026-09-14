@@ -11,4 +11,17 @@
     --ring: #daeaea;
     --white: #ffffff;
     --muted: #8a97a0;
+
+    --primary-text: #26313E;
+    --secondary-text: #5B6774;
+
+
+    /* ============================================
+     PESO DAS FONTES (FONT WEIGHTS)
+     ============================================ */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
 } 
