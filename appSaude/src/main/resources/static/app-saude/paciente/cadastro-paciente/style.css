@@ -3,6 +3,10 @@ body {
     margin: 0;
 }
 
+label{
+    color: var(--primary-text);
+}
+
 
 /* =========================
    CONTEÚDO PRINCIPAL
