@@ -1,103 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../../recursos/css/style-global.css">
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../../recursos/css/style-global.css" />
+
     <script src="../cadastro-paciente/script.js"></script>
+  </head>
 
-</head>
-
-<body>
-<main>
-    <section class="content">
+  <body>
+    <main>
+      <section class="content">
         <div class="cadastro">
-            <h1>Crie sua conta</h1>
-            <p>Comece sua jornada de cuidado com Saúde+.</p>
+          <h1>Crie sua conta</h1>
 
-            <form id="form-cadastro">
-                <div class="form">
-                    <div class="field">
-                        <div class="input-container">
-                            <label for="nome">Nome completo</label>
-                            <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo" required>
-                        </div>
-                        <div class="input-container">
-                            <label for="email">E-mail</label>
-                            <input type="email" name="email" id="email" placeholder="exemplo@seuemail.com" required>
-                        </div>
-                    </div>
+          <p>Comece sua jornada de cuidado com Saúde+.</p>
 
-                    <div class="field">
-                        <div class="input-container">
-                            <label for="cpf">CPF</label>
-                            <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" maxlength="11" required>
-                        </div>
-                        <div class="input-container">
-                            <label for="telefone">Telefone</label>
-                            <input type="tel" name="telefone" id="telefone" placeholder="(11) 98765-4321" required>
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <div class="input-container">
-                            <label for="senha">Senha</label>
-                            <input type="password" name="senha" id="senha" placeholder="Digite sua senha" minlength="8"
-                                   required>
-                        </div>
-                        <div class="input-container">
-                            <label for="confirmar_senha">Confimar senha</label>
-                            <input type="password" name="confirmar_senha" id="confirmar_senha"
-                                   placeholder="Confirme sua senha" minlength="8">
-                        </div>
-                    </div>
+          <form id="form-cadastro">
+            <div class="form">
+              <div class="field">
+                <div class="input-container">
+                  <label for="nome">Nome completo</label>
+                  <input
+                    type="text"
+                    name="nome"
+                    id="nome"
+                    placeholder="Digite seu nome completo"
+                    required
+                  />
                 </div>
-                <button type="submit">Criar conta</button>
 
-            </form>
+                <div class="input-container">
+                  <label for="email">E-mail</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="exemplo@seuemail.com"
+                    required
+                  />
+                </div>
+              </div>
 
+              <div class="field">
+                <div class="input-container">
+                  <label for="cpf">CPF</label>
+                  <input
+                    type="text"
+                    name="cpf"
+                    id="cpf"
+                    placeholder="000.000.000-00"
+                    maxlength="11"
+                    required
+                  />
+                </div>
+
+                <div class="input-container">
+                  <label for="telefone">Telefone</label>
+                  <input
+                    type="tel"
+                    name="telefone"
+                    id="telefone"
+                    placeholder="(11) 98765-4321"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="input-container">
+                  <label for="senha">Senha</label>
+                  <input
+                    type="password"
+                    name="senha"
+                    id="senha"
+                    placeholder="Digite sua senha"
+                    minlength="8"
+                    required
+                  />
+                </div>
+
+                <div class="input-container">
+                  <label for="confirmar_senha">Confirmar senha</label>
+                  <input
+                    type="password"
+                    name="confirmar_senha"
+                    id="confirmar_senha"
+                    placeholder="Confirme sua senha"
+                    minlength="8"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+
+            <button type="submit">Criar conta</button>
+          </form>
         </div>
+
         <div class="cards">
-            <div class="card">
-                <div class="icon">
-                    <i class="fa-solid fa-heart-pulse"></i>
-                </div>
-                <div class="title">
-                    <h2>Acompanhe sua saúde</h2>
-                </div>
-                <div class="description">
-                    <p>Veja seus históricos, exames, medicamentos e acompanhe sua evolução.</p>
-                </div>
+          <div class="card">
+            <div class="icon">
+              <i class="fa-solid fa-heart-pulse"></i>
             </div>
-            <div class="card">
-                <div class="icon">
-                    <i class="fa-solid fa-file-lines"></i>
-                </div>
-                <div class="title">
-                    <h2>Organize seus documentos</h2>
-                </div>
-                <div class="description">
-                    <p>Tenha seus laudos, receitas e documentos sempre à mão, com segurança.</p>
-                </div>
+
+            <div class="title">
+              <h2>Acompanhe sua saúde</h2>
             </div>
-            <div class="card">
-                <div class="icon">
-                    <i class="fa-solid fa-user-doctor"></i>
-                </div>
-                <div class="title">
-                    <h2>Conecte-se com profissionais</h2>
-                </div>
-                <div class="description">
-                    <p>Encontre especialistas, agende consultas e tire suas dúvidas com mais facilidade.</p>
-                </div>
+
+            <div class="description">
+              <p>
+                Veja seus históricos, exames, medicamentos e acompanhe sua
+                evolução.
+              </p>
             </div>
+          </div>
+
+          <div class="card">
+            <div class="icon">
+              <i class="fa-solid fa-file-lines"></i>
+            </div>
+
+            <div class="title">
+              <h2>Organize seus documentos</h2>
+            </div>
+
+            <div class="description">
+              <p>
+                Tenha seus laudos, receitas e documentos sempre à mão, com
+                segurança.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="icon">
+              <i class="fa-solid fa-user-doctor"></i>
+            </div>
+
+            <div class="title">
+              <h2>Conecte-se com profissionais</h2>
+            </div>
+
+            <div class="description">
+              <p>
+                Encontre especialistas, agende consultas e tire suas dúvidas com
+                mais facilidade.
+              </p>
+            </div>
+          </div>
         </div>
-
-    </section>
-</main>
-</body>
-
+      </section>
+    </main>
+  </body>
 </html>
