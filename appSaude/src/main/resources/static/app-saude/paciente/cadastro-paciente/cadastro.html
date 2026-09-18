@@ -21,40 +21,41 @@
             <form id="form-cadastro">
                 <div class="form">
                     <div class="field">
-                        <div class="input-container-left">
+                        <div class="input-container">
                             <label for="nome">Nome completo</label>
                             <input type="text" name="nome" id="nome" placeholder="Digite seu nome completo" required>
                         </div>
-                        <div class="input-container-right">
+                        <div class="input-container">
                             <label for="email">E-mail</label>
                             <input type="email" name="email" id="email" placeholder="exemplo@seuemail.com" required>
                         </div>
                     </div>
 
                     <div class="field">
-                        <div class="input-container-left">
+                        <div class="input-container">
                             <label for="cpf">CPF</label>
-                            <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" required>
+                            <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" maxlength="11" required>
                         </div>
-                        <div class="input-container-right">
+                        <div class="input-container">
                             <label for="telefone">Telefone</label>
                             <input type="tel" name="telefone" id="telefone" placeholder="(11) 98765-4321" required>
                         </div>
                     </div>
 
                     <div class="field">
-                        <div class="input-container-left">
+                        <div class="input-container">
                             <label for="senha">Senha</label>
                             <input type="password" name="senha" id="senha" placeholder="Digite sua senha" minlength="8"
                                    required>
                         </div>
-                        <div class="input-container-right">
+                        <div class="input-container">
                             <label for="confirmar_senha">Confimar senha</label>
-                            <input type="password" name="confirmar_senha" id="confirmar_senha" placeholder="Confirme sua senha" minlength="8">
+                            <input type="password" name="confirmar_senha" id="confirmar_senha"
+                                   placeholder="Confirme sua senha" minlength="8">
                         </div>
                     </div>
                 </div>
-                    <button type="submit">Criar conta</button>
+                <button type="submit">Criar conta</button>
 
             </form>
 

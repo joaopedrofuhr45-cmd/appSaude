@@ -4,12 +4,15 @@ body {
 
 .content {
     display: flex;
-    justify-content: left;
-    margin: 50px 250px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 50px 5%;
 }
 
 .cadastro {
-    width: 70%;
+    flex: 2 1 500px;
+    max-width: 800px;
     margin: 10px;
     border-radius: 10px;
     background-color: var(--white);
@@ -31,17 +34,16 @@ body {
 
 .field {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
     margin-bottom: 25px;
-    width: 950px;
-
+    width: 100%;
 }
 
 form {
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-
+    flex-direction: column;
+    width: 100%;
 }
 
 form button {
@@ -59,22 +61,14 @@ label {
     font-weight: var(--font-weight-medium);
 }
 
-.input-container-left {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 25px;
-    margin-right: 50px;
-}
-
-.input-container-right {
-    width: 100%;
+.input-container{
+    flex: 1 1 250px;
     display: flex;
     flex-direction: column;
     margin-bottom: 25px;
 }
 
-.input-container-left input, .input-container-right input {
+.input-container input{
     width: 100%;
     height: 50px;
     border-radius: 10px;
@@ -82,16 +76,18 @@ label {
     border: 1px solid var(--secondary-text);
     padding: 10px;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
-.input-container-left input:focus, .input-container-right input:focus {
+. :focus {
     outline: none;
 }
 
 
 /*Direita*/
 .cards {
-    width: 30%;
+    flex: 1 1 280px;
+    max-width: 400px;
     margin: 10px;
     border-radius: 10px;
     background-color: var(--card);
