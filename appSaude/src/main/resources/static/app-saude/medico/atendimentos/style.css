@@ -7,9 +7,6 @@
 .col-main {
     flex: 1;
     min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
 }
 
 .col-side {
@@ -18,61 +15,6 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-
-.pairs-row {
-    display: flex;
-    gap: 16px;
-    margin-bottom: 16px;
-}
-
-.pairs-row:last-child { margin-bottom: 0; }
-
-.pair {
-    flex: 1;
-    display: flex;
-    gap: 12px;
-    padding: 14px 16px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-}
-
-.pair .bubble {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 999px;
-    background: var(--secondary);
-    color: var(--primary);
-    flex-shrink: 0;
-}
-
-.pair .kv {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-}
-
-.pair .kv span {
-    font-size: 11px;
-    color: var(--secondary-text);
-}
-
-.pair .kv strong {
-    font-size: 13px;
-    font-weight: var(--font-weight-semibold);
-    color: var(--primary-text);
-}
-
-.obs-box {
-    padding: 10px 12px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    font-size: 12px;
-    color: var(--secondary-text);
-    min-height: 45px;
 }
 
 .card-person .person {
@@ -126,7 +68,7 @@
 }
 
 .btn-outline-block,
-.btn-danger-block {
+.btn-primary-block {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -141,19 +83,46 @@
     color: var(--primary-text);
 }
 
-.btn-danger-block {
+.btn-primary-block {
     border: none;
-    background: #fbe4e4;
-    color: #c0392b;
+    background: var(--primary);
+    color: var(--white);
 }
 
 .btn-outline-block:disabled,
-.btn-danger-block:disabled {
+.btn-primary-block:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-.pill--agendado { background: #ddebf7; color: #1d5fa8; }
-.pill--confirmado { background: #e0f2e6; color: #258551; }
-.pill--finalizado { background: #eef0f1; color: var(--secondary-text); }
-.pill--cancelado { background: #fbe4e4; color: #c0392b; }
+.prontuario-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.bloco-prontuario {
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.bloco-prontuario strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-text);
+}
+
+.bloco-prontuario textarea {
+    width: 100%;
+    border: none;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 12px;
+    color: #374151;
+    padding: 0;
+}
+
+.bloco-prontuario textarea:focus { outline: none; }
