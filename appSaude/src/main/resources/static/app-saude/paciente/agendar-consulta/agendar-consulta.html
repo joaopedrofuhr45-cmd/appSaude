@@ -61,7 +61,27 @@
           Escolha a especialidade, o profissional e o melhor horário para
           atendimento.
         </p>
+        <h1 class="page-title">Histórico</h1>
+        <p class="page-subtitle">
+          Veja consultas finalizadas, retornos e registros recentes do seu
+          atendimento.
+        </p>
 
+        <div class="filtro-historico">
+          <label for="filtro-status">Mostrar:</label>
+          <select id="filtro-status">
+            <option value="REALIZADA" selected>Concluídas</option>
+            <option value="PENDENTE">Pendentes</option>
+            <option value="CONFIRMADA">Confirmadas</option>
+            <option value="CANCELADA">Canceladas</option>
+          </select>
+        </div>
+
+        <section class="panel">
+          <div class="historico-grid" id="lista-historico">
+            <div class="estado">Carregando histórico...</div>
+          </div>
+        </section>
         <section class="panel">
           <form id="form-agendar">
             <div class="campo-linha">

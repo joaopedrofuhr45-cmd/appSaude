@@ -12,29 +12,6 @@ class PacienteService extends ApiService {
             body: JSON.stringify(dto),
         });
     }
-
-    atualizarFoto(id, file) {
-        const formData = new FormData();
-        formData.append("foto", file);
-
-        return this.upload(`/pacientes/${id}/foto`, formData);
-    }
-
-    atualizarSenha(id, senhaAtual, novaSenha) {
-        return this.fetch(`/pacientes/${id}/senha`, {
-            method: "PUT",
-            body: JSON.stringify({
-                senhaAtual,
-                novaSenha,
-            }),
-        });
-    }
-
-    excluirConta(id) {
-        return this.fetch(`/pacientes/${id}`, {
-            method: "DELETE",
-        });
-    }
 }
 
 export const pacienteService = new PacienteService();

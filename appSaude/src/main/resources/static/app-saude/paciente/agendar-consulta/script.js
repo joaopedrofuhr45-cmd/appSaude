@@ -11,13 +11,27 @@ document.querySelector("#btn-logout").addEventListener("click", () => {
     window.location.href = "../login/login.html";
 });
 
-// pré-seleciona a especialidade quando vem do "Acesso rápido" da Home
-const especialidadeParam = new URLSearchParams(window.location.search).get("especialidade");
+const params = new URLSearchParams(window.location.search);
+const editandoId = params.get("id");
+
+const especialidadeParam = params.get("especialidade");
 if (especialidadeParam) {
     const select = document.querySelector("#especialidade");
     if ([...select.options].some((o) => o.value === especialidadeParam)) {
         select.value = especialidadeParam;
     }
+}
+
+if (editandoId) {
+    document.querySelector("#data").value = params.get("data") ?? "";
+    document.querySelector("#horario").value = params.get("horario") ?? "";
+    document.querySelector("#observacao").value = params.get("observacao") ?? "";
+
+    document.querySelector("#pagina-titulo").textContent = "Editar consulta";
+    document.querySelector("#pagina-subtitulo").textContent =
+        "Altere a data, o horário ou a observação da sua consulta.";
+    document.querySelector("#btn-solicitar").innerHTML =
+        `<i class="fa-regular fa-floppy-disk"></i> Salvar alterações`;
 }
 
 const form = document.querySelector("#form-agendar");
@@ -51,11 +65,16 @@ form.addEventListener("submit", async (event) => {
     mensagem.style.display = "none";
 
     try {
-        await consultaService.criar(dto);
-        mostrarMensagem("Consulta solicitada com sucesso! Você será notificado quando for confirmada.");
-        form.reset();
+        if (editandoId) {
+            await consultaService.atualizar(editandoId, dto);
+            mostrarMensagem("Consulta atualizada com sucesso!");
+        } else {
+            await consultaService.criar(dto);
+            mostrarMensagem("Consulta solicitada com sucesso! Você será notificado quando for confirmada.");
+            form.reset();
+        }
     } catch (error) {
-        mostrarMensagem(error.message || "Não foi possível solicitar o agendamento.", true);
+        mostrarMensagem(error.message || "Não foi possível salvar a consulta.", true);
     } finally {
         btnSolicitar.disabled = false;
     }

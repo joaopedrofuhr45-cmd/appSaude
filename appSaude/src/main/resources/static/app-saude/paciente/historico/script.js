@@ -12,6 +12,14 @@ document.querySelector("#btn-logout").addEventListener("click", () => {
 });
 
 const listaHistorico = document.querySelector("#lista-historico");
+const filtroStatus = document.querySelector("#filtro-status");
+
+const TITULOS_POR_STATUS = {
+    REALIZADA: "Consulta concluída",
+    PENDENTE: "Consulta pendente",
+    CONFIRMADA: "Consulta confirmada",
+    CANCELADA: "Consulta cancelada",
+};
 
 function formatarData(dataISO) {
     if (!dataISO) return "";
@@ -19,9 +27,9 @@ function formatarData(dataISO) {
     return `${dia}/${mes}/${ano}`;
 }
 
-function renderHistorico(consultas) {
+function renderHistorico(consultas, status) {
     if (!consultas.length) {
-        listaHistorico.innerHTML = `<p class="estado">Nenhum registro no histórico ainda.</p>`;
+        listaHistorico.innerHTML = `<p class="estado">Nenhum registro com esse status.</p>`;
         return;
     }
 
@@ -29,9 +37,9 @@ function renderHistorico(consultas) {
         .map(
             (consulta) => `
                 <div class="historico-item">
-                    <strong>${consulta.status === "REALIZADA" ? "Consulta concluída" : "Retorno realizado"}</strong>
+                    <strong>${TITULOS_POR_STATUS[status] ?? "Consulta"}</strong>
                     <span class="subtitulo">${consulta.especialidade ?? ""} - ${formatarData(consulta.data)}</span>
-                    <span class="descricao">${consulta.observacao || "Atendimento finalizado."}</span>
+                    <span class="descricao">${consulta.observacao || "Sem observações registradas."}</span>
                 </div>
             `
         )
@@ -44,13 +52,17 @@ async function carregarHistorico() {
         return;
     }
 
+    const status = filtroStatus.value;
+    listaHistorico.innerHTML = `<div class="estado">Carregando histórico...</div>`;
+
     try {
-        const consultas = await consultaService.listarPorPaciente(usuario.id);
-        const finalizadas = consultas.filter((c) => c.status === "REALIZADA");
-        renderHistorico(finalizadas);
+        const consultas = await consultaService.listarPorStatus(usuario.id, status);
+        renderHistorico(consultas, status);
     } catch (error) {
         listaHistorico.innerHTML = `<p class="estado estado--erro">${error.message || "Não foi possível carregar o histórico."}</p>`;
     }
 }
+
+filtroStatus.addEventListener("change", carregarHistorico);
 
 carregarHistorico();

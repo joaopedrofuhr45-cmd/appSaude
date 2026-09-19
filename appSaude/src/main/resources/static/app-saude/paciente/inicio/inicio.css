@@ -160,3 +160,51 @@
     font-size: 11px;
     color: var(--secondary-text);
 }
+
+.consulta-item {
+    flex-wrap: wrap;
+}
+
+.consulta-item .lado-direito {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.consulta-item .acoes {
+    display: flex;
+    gap: 6px;
+}
+
+.acao-editar,
+.acao-cancelar {
+    font-size: 11px;
+    font-weight: var(--font-weight-semibold);
+    border: none;
+    background: none;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.acao-editar {
+    color: var(--primary);
+}
+
+.acao-editar:hover {
+    background: var(--secondary);
+}
+
+.acao-cancelar {
+    color: var(--destructive);
+}
+
+.acao-cancelar:hover {
+    background: #fbe1e1;
+}
+
+.acao-cancelar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

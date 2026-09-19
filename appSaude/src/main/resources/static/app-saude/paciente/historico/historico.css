@@ -36,3 +36,24 @@
         grid-template-columns: 1fr;
     }
 }
+.filtro-historico {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: -10px;
+}
+
+.filtro-historico label {
+    font-size: 12px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-text);
+}
+
+.filtro-historico select {
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+    color: var(--primary-text);
+    background: var(--white);
+}

@@ -2,14 +2,6 @@ import { ApiService } from "./api.js";
 
 class ConsultaService extends ApiService {
 
-    listar() {
-        return this.fetch("/consultas");
-    }
-
-    getById(id) {
-        return this.fetch(`/consultas/${id}`);
-    }
-
     criar(dto) {
         return this.fetch("/consultas", {
             method: "POST",
@@ -34,8 +26,8 @@ class ConsultaService extends ApiService {
         return this.fetch(`/consultas?pacienteId=${pacienteId}`);
     }
 
-    listarPorStatus(status) {
-        return this.fetch(`/consultas?status=${status}`);
+    listarPorStatus(pacienteId, status) {
+        return this.fetch(`/consultas?pacienteId=${pacienteId}&status=${status}`);
     }
 }
 

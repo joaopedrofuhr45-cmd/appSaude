@@ -16,27 +16,6 @@ class AuthService extends ApiService {
         });
     }
 
-    enviarCodigoVerificacao(email) {
-        return this.fetch("/auth/verificacao/enviar", {
-            method: "POST",
-            body: JSON.stringify({ email }),
-        });
-    }
-
-    confirmarCodigoVerificacao(email, codigo) {
-        return this.fetch("/auth/verificacao/confirmar", {
-            method: "POST",
-            body: JSON.stringify({ email, codigo }),
-        });
-    }
-
-    validarDados(dto) {
-        return this.fetch("/auth/validacao", {
-            method: "POST",
-            body: JSON.stringify(dto),
-        });
-    }
-
     logout() {
         localStorage.removeItem("token");
         localStorage.removeItem("usuario");
@@ -51,10 +30,6 @@ class AuthService extends ApiService {
         const raw = localStorage.getItem("usuario");
 
         return raw ? JSON.parse(raw) : null;
-    }
-
-    isAutenticado() {
-        return !!localStorage.getItem("token");
     }
 }
 

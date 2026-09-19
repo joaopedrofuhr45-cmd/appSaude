@@ -30,6 +30,17 @@ function badgeStatus(status) {
     return mapa[status] || { classe: "badge--pendente", texto: status || "Pendente" };
 }
 
+function linkEditar(consulta) {
+    const params = new URLSearchParams({
+        id: consulta.id,
+        especialidade: consulta.especialidade ?? "",
+        data: consulta.data ?? "",
+        horario: consulta.horario ?? "",
+        observacao: consulta.observacao ?? "",
+    });
+    return `../agendar-consulta/agendar-consulta.html?${params.toString()}`;
+}
+
 function renderProximaConsulta(consulta) {
     if (!consulta) {
         proximaConsultaCard.innerHTML = `<p class="estado">Nenhuma consulta agendada no momento.</p>`;
@@ -56,6 +67,8 @@ function renderListaConsultas(consultas) {
         .slice(0, 3)
         .map((consulta) => {
             const badge = badgeStatus(consulta.status);
+            const editavel = consulta.status !== "CANCELADA" && consulta.status !== "REALIZADA";
+
             return `
                 <div class="consulta-item">
                     <p class="horario">${consulta.horario ?? ""}</p>
@@ -63,7 +76,15 @@ function renderListaConsultas(consultas) {
                         <strong>${consulta.medico ?? "Profissional a definir"}</strong>
                         <span>${consulta.especialidade ?? ""} - ${formatarData(consulta.data)}${consulta.local ? ` - ${consulta.local}` : ""}</span>
                     </div>
-                    <span class="badge ${badge.classe}">${badge.texto}</span>
+                    <div class="lado-direito">
+                        <span class="badge ${badge.classe}">${badge.texto}</span>
+                        ${editavel ? `
+                            <div class="acoes">
+                                <a class="acao-editar" href="${linkEditar(consulta)}">Editar</a>
+                                <button type="button" class="acao-cancelar" data-id="${consulta.id}">Cancelar</button>
+                            </div>
+                        ` : ""}
+                    </div>
                 </div>
             `;
         })
@@ -109,6 +130,22 @@ async function carregarDashboard() {
         statCadastro.textContent = "--";
     }
 }
+
+listaProximasConsultas.addEventListener("click", async (event) => {
+    const btn = event.target.closest(".acao-cancelar");
+    if (!btn) return;
+
+    if (!confirm("Tem certeza que deseja cancelar essa consulta?")) return;
+
+    btn.disabled = true;
+    try {
+        await consultaService.cancelar(btn.dataset.id);
+        carregarDashboard();
+    } catch (error) {
+        alert(error.message || "Não foi possível cancelar a consulta.");
+        btn.disabled = false;
+    }
+});
 
 btnLogout.addEventListener("click", () => {
     authService.logout();
