@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agendar consulta | Saúde+</title>
+    <link rel="stylesheet" href="../../recursos/css/style-global.css" />
+    <link rel="stylesheet" href="../../recursos/css/dashboard-paciente.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <div class="logo">
+          <i class="fa-regular fa-heart"></i> Saúde<span>+</span>
+        </div>
+
+        <div class="patient-card">
+          <strong id="sidebar-nome">Carregando...</strong>
+          <span id="sidebar-desde"></span>
+        </div>
+
+        <nav>
+          <a href="../inicio/inicio.html"><span class="dot"></span> Início</a>
+          <a href="agendar-consulta.html" class="ativo"
+            ><span class="dot"></span> Agendar consulta</a
+          >
+          <a href="../historico/historico.html"
+            ><span class="dot"></span> Histórico</a
+          >
+          <a href="../configuracoes/configuracoes.html"
+            ><span class="dot"></span> Configurações</a
+          >
+        </nav>
+
+        <hr class="divider" />
+        <button class="logout" id="btn-logout">Sair da conta</button>
+      </aside>
+
+      <main class="dashboard-content">
+        <div class="topbar">
+          <a
+            href="../../telas-comuns/menu-inicial/menu_inicial.html"
+            class="voltar"
+          >
+            <i class="fa-solid fa-arrow-left"></i> Voltar ao menu inicial
+          </a>
+          <div class="topbar-actions">
+            <button class="icon-btn" title="Notificações">
+              <i class="fa-regular fa-bell"></i>
+            </button>
+            <a href="agendar-consulta.html" class="btn-primary">
+              <i class="fa-solid fa-plus"></i> Nova consulta
+            </a>
+          </div>
+        </div>
+
+        <h1 class="page-title">Agendar consulta</h1>
+        <p class="page-subtitle">
+          Escolha a especialidade, o profissional e o melhor horário para
+          atendimento.
+        </p>
+
+        <section class="panel">
+          <form id="form-agendar">
+            <div class="campo-linha">
+              <div class="campo">
+                <label for="especialidade">Especialidade</label>
+                <select id="especialidade" name="especialidade" required>
+                  <option value="">Selecione</option>
+                  <option value="Clínico geral">Clínico geral</option>
+                  <option value="Cardiologia">Cardiologia</option>
+                  <option value="Oftalmologia">Oftalmologia</option>
+                  <option value="Pediatria">Pediatria</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="medico">Médico</label>
+                <select id="medico" name="medico">
+                  <option value="">Primeiro disponível</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="campo-linha">
+              <div class="campo">
+                <label for="data">Data</label>
+                <input type="date" id="data" name="data" required />
+              </div>
+              <div class="campo">
+                <label for="horario">Horário</label>
+                <input type="time" id="horario" name="horario" required />
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="observacao">Observação</label>
+              <textarea
+                id="observacao"
+                name="observacao"
+                rows="3"
+                placeholder="Descreva rapidamente o motivo da consulta"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="btn-primary btn-full"
+              id="btn-solicitar"
+            >
+              <i class="fa-regular fa-calendar-check"></i> Solicitar agendamento
+            </button>
+
+            <p
+              class="estado"
+              id="mensagem-agendamento"
+              style="display: none"
+            ></p>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

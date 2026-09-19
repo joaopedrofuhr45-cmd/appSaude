@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Histórico | Saúde+</title>
+    <link rel="stylesheet" href="../../recursos/css/style-global.css" />
+    <link rel="stylesheet" href="../../recursos/css/dashboard-paciente.css" />
+    <link rel="stylesheet" href="" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <div class="logo">
+          <i class="fa-regular fa-heart"></i> Saúde<span>+</span>
+        </div>
+
+        <div class="patient-card">
+          <strong id="sidebar-nome">Carregando...</strong>
+          <span id="sidebar-desde"></span>
+        </div>
+
+        <nav>
+          <a href="../inicio/inicio.html"><span class="dot"></span> Início</a>
+          <a href="../agendar-consulta/agendar-consulta.html"
+            ><span class="dot"></span> Agendar consulta</a
+          >
+          <a href="historico.html" class="ativo"
+            ><span class="dot"></span> Histórico</a
+          >
+          <a href="../configuracoes/configuracoes.html"
+            ><span class="dot"></span> Configurações</a
+          >
+        </nav>
+
+        <hr class="divider" />
+        <button class="logout" id="btn-logout">Sair da conta</button>
+      </aside>
+
+      <main class="dashboard-content">
+        <div class="topbar">
+          <a
+            href="../../telas-comuns/menu-inicial/menu_inicial.html"
+            class="voltar"
+          >
+            <i class="fa-solid fa-arrow-left"></i> Voltar ao menu inicial
+          </a>
+          <div class="topbar-actions">
+            <button class="icon-btn" title="Notificações">
+              <i class="fa-regular fa-bell"></i>
+            </button>
+            <a
+              href="../agendar-consulta/agendar-consulta.html"
+              class="btn-primary"
+            >
+              <i class="fa-solid fa-plus"></i> Nova consulta
+            </a>
+          </div>
+        </div>
+
+        <h1 class="page-title">Histórico</h1>
+        <p class="page-subtitle">
+          Veja consultas finalizadas, retornos e registros recentes do seu
+          atendimento.
+        </p>
+
+        <section class="panel">
+          <div class="historico-grid" id="lista-historico">
+            <div class="estado">Carregando histórico...</div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

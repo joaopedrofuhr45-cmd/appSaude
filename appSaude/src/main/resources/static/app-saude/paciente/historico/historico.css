@@ -1,0 +1,38 @@
+.historico-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.historico-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.historico-item strong {
+    font-size: 13px;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-text);
+}
+
+.historico-item .subtitulo {
+    font-size: 11px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--secondary-text);
+}
+
+.historico-item .descricao {
+    font-size: 11px;
+    color: var(--secondary-text);
+    max-width: 300px;
+}
+
+@media (max-width: 900px) {
+    .historico-grid {
+        grid-template-columns: 1fr;
+    }
+}

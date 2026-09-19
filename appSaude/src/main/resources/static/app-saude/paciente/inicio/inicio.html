@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Início | Saúde+</title>
+    <link rel="stylesheet" href="../../recursos/css/style-global.css" />
+    <link rel="stylesheet" href="../../recursos/css/dashboard-paciente.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <div class="logo">
+          <i class="fa-regular fa-heart"></i> Saúde<span>+</span>
+        </div>
+
+        <div class="patient-card">
+          <strong id="sidebar-nome">Carregando...</strong>
+          <span id="sidebar-desde"></span>
+        </div>
+
+        <nav>
+          <a href="inicio.html" class="ativo"
+            ><span class="dot"></span> Início</a
+          >
+          <a href="../agendar-consulta/agendar-consulta.html"
+            ><span class="dot"></span> Agendar consulta</a
+          >
+          <a href="../historico/historico.html"
+            ><span class="dot"></span> Histórico</a
+          >
+          <a href="../configuracoes/configuracoes.html"
+            ><span class="dot"></span> Configurações</a
+          >
+        </nav>
+
+        <hr class="divider" />
+        <button class="logout" id="btn-logout">Sair da conta</button>
+      </aside>
+
+      <main class="dashboard-content">
+        <div class="topbar">
+          <a
+            href="../../telas-comuns/menu-inicial/menu_inicial.html"
+            class="voltar"
+          >
+            <i class="fa-solid fa-arrow-left"></i> Voltar ao menu inicial
+          </a>
+          <div class="topbar-actions">
+            <button class="icon-btn" title="Notificações">
+              <i class="fa-regular fa-bell"></i>
+            </button>
+            <a
+              href="../agendar-consulta/agendar-consulta.html"
+              class="btn-primary"
+            >
+              <i class="fa-solid fa-plus"></i> Nova consulta
+            </a>
+          </div>
+        </div>
+
+        <section class="hero">
+          <div class="hero-texto">
+            <h1 id="saudacao">Olá! Como está sua saúde hoje?</h1>
+            <p>
+              Acompanhe suas próximas consultas, agende novos atendimentos e
+              mantenha seus dados sempre atualizados.
+            </p>
+          </div>
+
+          <div class="next-appointment-card" id="proxima-consulta-card">
+            <div class="estado">Carregando próxima consulta...</div>
+          </div>
+        </section>
+
+        <section class="stats-row" id="stats-row">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fa-regular fa-calendar-check"></i>
+            </div>
+            <p class="stat-valor" id="stat-marcadas">–</p>
+            <p class="stat-label">consultas marcadas</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fa-regular fa-file-lines"></i>
+            </div>
+            <p class="stat-valor" id="stat-realizados">–</p>
+            <p class="stat-label">atendimentos realizados</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-regular fa-clock"></i></div>
+            <p class="stat-valor" id="stat-proximo-horario">–</p>
+            <p class="stat-label">próximo horário</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <p class="stat-valor" id="stat-cadastro">–</p>
+            <p class="stat-label">cadastro completo</p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2 style="margin-bottom: 14px">Acesso rápido</h2>
+          <div class="acesso-rapido-grid">
+            <a
+              href="../agendar-consulta/agendar-consulta.html?especialidade=Clínico geral"
+              class="acesso-item"
+            >
+              <i class="fa-solid fa-stethoscope"></i>
+              <span>Clínico geral</span>
+            </a>
+            <a
+              href="../agendar-consulta/agendar-consulta.html?especialidade=Cardiologia"
+              class="acesso-item"
+            >
+              <i class="fa-solid fa-heart-pulse"></i>
+              <span>Cardiologia</span>
+            </a>
+            <a
+              href="../agendar-consulta/agendar-consulta.html?especialidade=Oftalmologia"
+              class="acesso-item"
+            >
+              <i class="fa-solid fa-eye"></i>
+              <span>Oftalmologia</span>
+            </a>
+            <a
+              href="../agendar-consulta/agendar-consulta.html?especialidade=Pediatria"
+              class="acesso-item"
+            >
+              <i class="fa-regular fa-face-smile"></i>
+              <span>Pediatria</span>
+            </a>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Próximas consultas</h2>
+            <a href="../agendar-consulta/agendar-consulta.html">Agendar nova</a>
+          </div>
+          <div id="lista-proximas-consultas">
+            <div class="estado">Carregando consultas...</div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

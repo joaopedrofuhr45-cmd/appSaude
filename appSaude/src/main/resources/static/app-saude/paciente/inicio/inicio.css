@@ -1,0 +1,162 @@
+.hero {
+    display: flex;
+    gap: 24px;
+    align-items: stretch;
+}
+
+.hero-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.hero-texto h1 {
+    font-size: 22px;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-text);
+}
+
+.hero-texto p {
+    font-size: 13px;
+    color: var(--secondary-text);
+    max-width: 480px;
+}
+
+.next-appointment-card {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 320px;
+    flex-shrink: 0;
+    padding: 18px 20px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.next-appointment-card .titulo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary);
+}
+
+.next-appointment-card .especialidade {
+    font-size: 18px;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-text);
+}
+
+.next-appointment-card .detalhes {
+    font-size: 12px;
+    color: var(--secondary-text);
+}
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.stat-valor {
+    font-size: 20px;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-text);
+}
+
+.stat-label {
+    font-size: 11px;
+    color: var(--secondary-text);
+}
+
+.acesso-rapido-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.acesso-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 18px 12px;
+    background: var(--body);
+    border-radius: 10px;
+    color: var(--primary-text);
+    font-size: 12px;
+    font-weight: var(--font-weight-semibold);
+}
+
+.acesso-item i {
+    font-size: 20px;
+    color: var(--primary);
+}
+
+.acesso-item:hover {
+    background: var(--secondary);
+}
+
+.consulta-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 16px;
+    background: var(--body);
+    border-left: 3px solid var(--primary);
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.consulta-item:last-child {
+    margin-bottom: 0;
+}
+
+.consulta-item .horario {
+    font-size: 15px;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary);
+}
+
+.consulta-item .info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.consulta-item .info strong {
+    font-size: 13px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-text);
+}
+
+.consulta-item .info span {
+    font-size: 11px;
+    color: var(--secondary-text);
+}
