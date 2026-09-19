@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas do dia | Saúde+</title>
+    <link rel="stylesheet" href="../../recursos/css/style-global.css">
+    <link rel="stylesheet" href="../../recursos/css/dashboard-staff.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="dashboard">
+    <aside class="sidebar">
+        <div class="logo"><i class="fa-regular fa-heart"></i> Saúde<span>+</span></div>
+        <div class="who">
+            <strong id="sidebar-nome">Carregando...</strong>
+            <span id="sidebar-subtitulo"></span>
+        </div>
+        <nav>
+            <a href="index.html" class="ativo"><span class="dot"></span> Consultas do dia</a>
+            <a href="../configuracoes-medico/index.html"><span class="dot"></span> Configurações</a>
+        </nav>
+        <hr class="divider">
+        <button class="logout" id="btn-logout">Sair da conta</button>
+    </aside>
+
+    <main class="dashboard-content">
+        <div class="topbar">
+            <a href="../../telas-comuns/menu-inicial/menu_inicial.html" class="voltar">
+                <i class="fa-solid fa-arrow-left"></i> Voltar ao menu inicial
+            </a>
+            <div class="topbar-actions">
+                <span class="chip"><i class="fa-regular fa-calendar"></i> <span id="data-atual"></span></span>
+                <button class="icon-btn" title="Notificações"><i class="fa-regular fa-bell"></i></button>
+            </div>
+        </div>
+
+        <h1 class="page-title">Consultas do dia</h1>
+        <p class="page-subtitle">Acompanhe a fila de atendimento e abra o prontuário de cada paciente.</p>
+
+        <section class="panel card-filters">
+            <div class="campo">
+                <label for="filtro-paciente">Buscar paciente</label>
+                <input type="text" id="filtro-paciente" placeholder="Nome do paciente">
+            </div>
+            <div class="campo">
+                <label for="filtro-situacao">Situação</label>
+                <select id="filtro-situacao">
+                    <option value="">Todas</option>
+                    <option value="PENDENTE">Agendado</option>
+                    <option value="CONFIRMADA">Confirmado</option>
+                    <option value="REALIZADA">Finalizado</option>
+                    <option value="CANCELADA">Cancelado</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-header">
+                <h2 id="titulo-lista">Consultas agendadas</h2>
+                <button class="link" id="btn-atualizar">Atualizar</button>
+            </div>
+            <div class="rows" id="lista-consultas">
+                <div class="estado">Carregando consultas...</div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
