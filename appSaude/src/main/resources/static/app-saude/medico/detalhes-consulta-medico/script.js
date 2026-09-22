@@ -83,5 +83,7 @@ document.querySelector("#btn-cancelar").addEventListener("click", async () => {
         alert(error.message || "Não foi possível cancelar a consulta.");
     }
 });
-
+document.querySelector("#btn-iniciar-atendimento").addEventListener("click", () => {
+    window.location.href = `../atendimentos/atendimento.html?id=${consultaId}`;
+});
 carregar();
