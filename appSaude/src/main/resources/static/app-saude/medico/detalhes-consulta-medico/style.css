@@ -141,6 +141,21 @@
     color: var(--primary-text);
 }
 
+.btn-primary-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 40px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--primary-text);
+}
+
 .btn-danger-block {
     border: none;
     background: #fbe4e4;
