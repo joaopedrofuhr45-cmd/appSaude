@@ -10,8 +10,8 @@ const mensagem = document.querySelector("#mensagem");
 // Isso ainda não existe no backend — é uma decisão de contrato pra o front
 // saber pra onde mandar cada um depois do login.
 const DESTINO_POR_TIPO = {
-    ATENDENTE: "../../atendente/atendimentos/index.html",
-    MEDICO: "../../medico/consultas-do-dia/index.html",
+    ATENDENTE: "../../atendente/atendimentos/atendimentos.html",
+    MEDICO: "../../medico/consultas-do-dia/atendimentos.html",
 };
 
 form.addEventListener("submit", async (event) => {

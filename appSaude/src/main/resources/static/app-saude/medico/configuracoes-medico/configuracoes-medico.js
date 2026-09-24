@@ -1,4 +1,4 @@
-// medico/configuracoes-medico/script.js
+// medico/configuracoes-medico/login.js
 import { authService } from "../../recursos/chamadaBackEnd/authService.js";
 import { medicoService } from "../../recursos/chamadaBackEnd/medicoService.js";
 import { preencherSidebarStaff } from "../../recursos/js/staffSidebar.js";

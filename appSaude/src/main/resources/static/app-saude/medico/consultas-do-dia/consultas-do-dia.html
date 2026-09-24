@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atendimentos | Saúde+</title>
+    <title>Consultas do dia | Saúde+</title>
     <link rel="stylesheet" href="../../recursos/css/style-global.css">
     <link rel="stylesheet" href="../../recursos/css/dashboard-staff.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="consultas-do-dia.css">
 </head>
 <body>
 <div class="dashboard">
@@ -17,8 +17,8 @@
             <span id="sidebar-subtitulo"></span>
         </div>
         <nav>
-            <a href="index.html" class="ativo"><span class="dot"></span> Atendimentos</a>
-            <a href="../configuracoes-atendente/index.html"><span class="dot"></span> Configurações</a>
+            <a href="consultas-do-dia.html" class="ativo"><span class="dot"></span> Consultas do dia</a>
+            <a href="../configuracoes-medico/configuracoes-medico.html"><span class="dot"></span> Configurações</a>
         </nav>
         <hr class="divider">
         <button class="logout" id="btn-logout">Sair da conta</button>
@@ -30,21 +30,15 @@
                 <i class="fa-solid fa-arrow-left"></i> Voltar ao menu inicial
             </a>
             <div class="topbar-actions">
+                <span class="chip"><i class="fa-regular fa-calendar"></i> <span id="data-atual"></span></span>
                 <button class="icon-btn" title="Notificações"><i class="fa-regular fa-bell"></i></button>
-                <button class="btn-primary" id="btn-novo-agendamento">
-                    <i class="fa-solid fa-plus"></i> Novo agendamento
-                </button>
             </div>
         </div>
 
-        <h1 class="page-title">Atendimentos</h1>
-        <p class="page-subtitle">Todas as consultas do hospital na data selecionada.</p>
+        <h1 class="page-title">Consultas do dia</h1>
+        <p class="page-subtitle">Acompanhe a fila de atendimento e abra o prontuário de cada paciente.</p>
 
         <section class="panel card-filters">
-            <div class="campo">
-                <label for="filtro-data">Data</label>
-                <input type="date" id="filtro-data">
-            </div>
             <div class="campo">
                 <label for="filtro-paciente">Buscar paciente</label>
                 <input type="text" id="filtro-paciente" placeholder="Nome do paciente">
@@ -61,36 +55,18 @@
             </div>
         </section>
 
-        <section class="stats-row">
-            <div class="stat-card">
-                <div class="stat-icon"><i class="fa-regular fa-calendar"></i></div>
-                <p class="stat-valor" id="stat-total">–</p>
-                <p class="stat-label">consultas no dia</p>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon"><i class="fa-solid fa-check"></i></div>
-                <p class="stat-valor" id="stat-agendadas">–</p>
-                <p class="stat-label">agendadas</p>
-            </div>
-            <div class="stat-card">
-                <div class="stat-icon"><i class="fa-regular fa-clock"></i></div>
-                <p class="stat-valor" id="stat-proximo">–</p>
-                <p class="stat-label">próximo horário</p>
-            </div>
-        </section>
-
         <section class="panel">
             <div class="panel-header">
-                <h2 id="titulo-agenda">Agenda</h2>
-                <button class="link" id="btn-exportar">Exportar lista</button>
+                <h2 id="titulo-lista">Consultas agendadas</h2>
+                <button class="link" id="btn-atualizar">Atualizar</button>
             </div>
-            <div class="rows" id="lista-atendimentos">
-                <div class="estado">Carregando atendimentos...</div>
+            <div class="rows" id="lista-consultas">
+                <div class="estado">Carregando consultas...</div>
             </div>
         </section>
     </main>
 </div>
 
-<script type="module" src="script.js"></script>
+<script type="module" src="consultas-do-dia.js"></script>
 </body>
 </html>

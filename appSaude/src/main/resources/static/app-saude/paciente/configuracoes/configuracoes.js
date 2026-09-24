@@ -1,15 +1,22 @@
-// atendente/configuracoes-atendente/script.js
+// paciente/configuracoes/login.js
 import { authService } from "../../recursos/chamadaBackEnd/authService.js";
-import { atendenteService } from "../../recursos/chamadaBackEnd/atendenteService.js";
-import { preencherSidebarStaff } from "../../recursos/js/staffSidebar.js";
+import { pacienteService } from "../../recursos/chamadaBackEnd/pacienteService.js";
+import { preencherSidebarUsuario } from "../../recursos/js/sidebarUsuario.js";
 
 const usuario = authService.getUsuarioLogado();
-preencherSidebarStaff(usuario, "Atendente · Recepção");
+preencherSidebarUsuario(usuario);
 
 document.querySelector("#btn-logout").addEventListener("click", () => {
     authService.logout();
-    window.location.href = "../../telas-comuns/login-medico-atendente/login.html";
+    window.location.href = "../login/login.html";
 });
+
+const formPerfil = document.querySelector("#form-perfil");
+const nomeInput = document.querySelector("#nome");
+const emailInput = document.querySelector("#email");
+const telefoneInput = document.querySelector("#telefone");
+const btnSalvar = document.querySelector("#btn-salvar");
+const mensagemPerfil = document.querySelector("#mensagem-perfil");
 
 function mostrarMensagem(el, texto, erro = false) {
     el.textContent = texto;
@@ -17,20 +24,14 @@ function mostrarMensagem(el, texto, erro = false) {
     el.classList.toggle("estado--erro", erro);
 }
 
-const nomeInput = document.querySelector("#nome");
-const emailInput = document.querySelector("#email");
-const telefoneInput = document.querySelector("#telefone");
-const btnSalvar = document.querySelector("#btn-salvar");
-const mensagemPerfil = document.querySelector("#mensagem-perfil");
-
 async function carregarPerfil() {
     if (!usuario?.id) {
-        mostrarMensagem(mensagemPerfil, "Não foi possível identificar o atendente logado.", true);
+        mostrarMensagem(mensagemPerfil, "Não foi possível identificar o paciente logado.", true);
         return;
     }
 
     try {
-        const perfil = await atendenteService.getPerfil(usuario.id);
+        const perfil = await pacienteService.getPerfil(usuario.id);
         nomeInput.value = perfil.nome ?? "";
         emailInput.value = perfil.email ?? "";
         telefoneInput.value = perfil.telefone ?? "";
@@ -39,19 +40,21 @@ async function carregarPerfil() {
     }
 }
 
-document.querySelector("#form-perfil").addEventListener("submit", async (event) => {
+formPerfil.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (!usuario?.id) return;
+
+    const dto = {
+        nome: nomeInput.value.trim(),
+        email: emailInput.value.trim(),
+        telefone: telefoneInput.value.trim(),
+    };
 
     btnSalvar.disabled = true;
     mensagemPerfil.style.display = "none";
 
     try {
-        await atendenteService.atualizarPerfil(usuario.id, {
-            nome: nomeInput.value.trim(),
-            email: emailInput.value.trim(),
-            telefone: telefoneInput.value.trim(),
-        });
+        await pacienteService.atualizarPerfil(usuario.id, dto);
         mostrarMensagem(mensagemPerfil, "Dados atualizados com sucesso.");
     } catch (error) {
         mostrarMensagem(mensagemPerfil, error.message || "Não foi possível salvar as alterações.", true);
@@ -60,13 +63,14 @@ document.querySelector("#form-perfil").addEventListener("submit", async (event) 
     }
 });
 
+const formSenha = document.querySelector("#form-senha");
 const senhaAtualInput = document.querySelector("#senha-atual");
 const novaSenhaInput = document.querySelector("#nova-senha");
 const confirmarNovaSenhaInput = document.querySelector("#confirmar-nova-senha");
 const btnSalvarSenha = document.querySelector("#btn-salvar-senha");
 const mensagemSenha = document.querySelector("#mensagem-senha");
 
-document.querySelector("#form-senha").addEventListener("submit", async (event) => {
+formSenha.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (!usuario?.id) return;
 
@@ -84,9 +88,9 @@ document.querySelector("#form-senha").addEventListener("submit", async (event) =
     mensagemSenha.style.display = "none";
 
     try {
-        await atendenteService.atualizarSenha(usuario.id, senhaAtualInput.value, novaSenhaInput.value);
+        await pacienteService.atualizarSenha(usuario.id, senhaAtualInput.value, novaSenhaInput.value);
         mostrarMensagem(mensagemSenha, "Senha atualizada com sucesso.");
-        document.querySelector("#form-senha").reset();
+        formSenha.reset();
     } catch (error) {
         mostrarMensagem(mensagemSenha, error.message || "Não foi possível atualizar a senha.", true);
     } finally {

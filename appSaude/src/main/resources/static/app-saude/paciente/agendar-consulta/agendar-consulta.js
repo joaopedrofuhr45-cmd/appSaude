@@ -1,4 +1,4 @@
-// paciente/agendar-consulta/script.js
+// paciente/agendar-consulta/login.js
 import { authService } from "../../recursos/chamadaBackEnd/authService.js";
 import { consultaService } from "../../recursos/chamadaBackEnd/consultaService.js";
 import { preencherSidebarUsuario } from "../../recursos/js/sidebarUsuario.js";

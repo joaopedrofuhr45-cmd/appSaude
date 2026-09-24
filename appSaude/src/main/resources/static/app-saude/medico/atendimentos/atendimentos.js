@@ -1,4 +1,4 @@
-// medico/atendimento/script.js
+// medico/atendimento/login.js
 import { authService } from "../../recursos/chamadaBackEnd/authService.js";
 import { consultaService } from "../../recursos/chamadaBackEnd/consultaService.js";
 import { preencherSidebarStaff } from "../../recursos/js/staffSidebar.js";
@@ -62,7 +62,7 @@ document.querySelector("#btn-finalizar").addEventListener("click", async () => {
             status: "REALIZADA",
             observacao: prontuario,
         });
-        window.location.href = "../consultas-do-dia/index.html";
+        window.location.href = "../consultas-do-dia/consultas-do-dia.html";
     } catch (error) {
         mostrarMensagem(error.message || "Não foi possível finalizar a consulta.", true);
     }

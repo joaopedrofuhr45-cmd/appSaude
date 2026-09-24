@@ -1,4 +1,4 @@
-// paciente/cadastro-paciente/script.js
+// paciente/cadastro-paciente/login.js
 import { authService } from "../../recursos/chamadaBackEnd/authService.js";
 
 const form = document.querySelector("#form-cadastro");
@@ -37,7 +37,7 @@ form.addEventListener("submit", async (event) => {
         // salva o e-mail em cookie pra tela de verificação conseguir ler
         document.cookie = `cadastro_email=${encodeURIComponent(email)}; path=/`;
 
-        window.location.href = "../verificacao-email/index.html";
+        window.location.href = "../verificacao-email/atendimentos.html";
     } catch (error) {
         alert(error.message || "Não foi possível concluir o cadastro.");
     }

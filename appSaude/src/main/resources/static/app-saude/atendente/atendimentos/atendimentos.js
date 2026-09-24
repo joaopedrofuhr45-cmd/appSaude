@@ -1,4 +1,4 @@
-// atendente/atendimentos/script.js
+// atendente/atendimentos/login.js
 import { authService } from "../../recursos/chamadaBackEnd/authService.js";
 import { consultaService } from "../../recursos/chamadaBackEnd/consultaService.js";
 import { preencherSidebarStaff } from "../../recursos/js/staffSidebar.js";

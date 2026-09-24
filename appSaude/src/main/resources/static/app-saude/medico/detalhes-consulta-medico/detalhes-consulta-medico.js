@@ -1,4 +1,4 @@
-// medico/detalhes-consulta-medico/script.js
+// medico/detalhes-consulta-medico/login.js
 import { authService } from "../../recursos/chamadaBackEnd/authService.js";
 import { consultaService } from "../../recursos/chamadaBackEnd/consultaService.js";
 import { preencherSidebarStaff } from "../../recursos/js/staffSidebar.js";
@@ -78,12 +78,12 @@ document.querySelector("#btn-cancelar").addEventListener("click", async () => {
 
     try {
         await consultaService.cancelar(consultaId);
-        window.location.href = "../consultas-do-dia/index.html";
+        window.location.href = "../consultas-do-dia/consultas-do-dia.html";
     } catch (error) {
         alert(error.message || "Não foi possível cancelar a consulta.");
     }
 });
 document.querySelector("#btn-iniciar-atendimento").addEventListener("click", () => {
-    window.location.href = `../atendimentos/atendimento.html?id=${consultaId}`;
+    window.location.href = `../atendimentos/atendimentos.html`;
 });
 carregar();
