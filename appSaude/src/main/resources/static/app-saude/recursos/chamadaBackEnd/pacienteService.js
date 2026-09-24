@@ -12,6 +12,14 @@ class PacienteService extends ApiService {
             body: JSON.stringify(dto),
         });
     }
+
+
+     atualizarSenha(id, senhaAtual, novaSenha) {
+        return this.fetch(`/pacientes/${id}/senha`, {
+            method: "PUT",
+            body: JSON.stringify({ senhaAtual, novaSenha }),
+        });
+    }
 }
 
 export const pacienteService = new PacienteService();

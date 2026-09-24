@@ -11,80 +11,91 @@ document.querySelector("#btn-logout").addEventListener("click", () => {
     window.location.href = "../login/login.html";
 });
 
-const form = document.querySelector("#form-perfil");
+const formPerfil = document.querySelector("#form-perfil");
 const nomeInput = document.querySelector("#nome");
-const cpfInput = document.querySelector("#cpf");
+const emailInput = document.querySelector("#email");
 const telefoneInput = document.querySelector("#telefone");
 const btnSalvar = document.querySelector("#btn-salvar");
-const mensagem = document.querySelector("#mensagem-perfil");
+const mensagemPerfil = document.querySelector("#mensagem-perfil");
 
-const prefEmail = document.querySelector("#pref-email");
-const prefSms = document.querySelector("#pref-sms");
-
-function mostrarMensagem(texto, erro = false) {
-    mensagem.textContent = texto;
-    mensagem.style.display = "block";
-    mensagem.classList.toggle("estado--erro", erro);
+function mostrarMensagem(el, texto, erro = false) {
+    el.textContent = texto;
+    el.style.display = "block";
+    el.classList.toggle("estado--erro", erro);
 }
 
 async function carregarPerfil() {
     if (!usuario?.id) {
-        mostrarMensagem("Não foi possível identificar o paciente logado.", true);
+        mostrarMensagem(mensagemPerfil, "Não foi possível identificar o paciente logado.", true);
         return;
     }
 
     try {
         const perfil = await pacienteService.getPerfil(usuario.id);
         nomeInput.value = perfil.nome ?? "";
-        cpfInput.value = perfil.cpf ?? "";
+        emailInput.value = perfil.email ?? "";
         telefoneInput.value = perfil.telefone ?? "";
     } catch (error) {
-        mostrarMensagem(error.message || "Não foi possível carregar seus dados.", true);
+        mostrarMensagem(mensagemPerfil, error.message || "Não foi possível carregar seus dados.", true);
     }
 }
 
-form.addEventListener("submit", async (event) => {
+formPerfil.addEventListener("submit", async (event) => {
     event.preventDefault();
-
     if (!usuario?.id) return;
 
     const dto = {
         nome: nomeInput.value.trim(),
+        email: emailInput.value.trim(),
         telefone: telefoneInput.value.trim(),
     };
 
     btnSalvar.disabled = true;
-    mensagem.style.display = "none";
+    mensagemPerfil.style.display = "none";
 
     try {
         await pacienteService.atualizarPerfil(usuario.id, dto);
-        mostrarMensagem("Dados atualizados com sucesso.");
+        mostrarMensagem(mensagemPerfil, "Dados atualizados com sucesso.");
     } catch (error) {
-        mostrarMensagem(error.message || "Não foi possível salvar as alterações.", true);
+        mostrarMensagem(mensagemPerfil, error.message || "Não foi possível salvar as alterações.", true);
     } finally {
         btnSalvar.disabled = false;
     }
 });
 
-// OBS: ainda não existe endpoint de preferências de notificação no backend.
-// Por enquanto guardamos a escolha localmente pra não travar a tela; quando
-// a rota existir (ex.: pacienteService.atualizarPreferencias), é só trocar
-// este bloco por uma chamada real.
-function carregarPreferenciasLocais() {
-    const salvas = JSON.parse(localStorage.getItem("preferenciasNotificacao") || "{}");
-    prefEmail.checked = salvas.email ?? true;
-    prefSms.checked = salvas.sms ?? true;
-}
+const formSenha = document.querySelector("#form-senha");
+const senhaAtualInput = document.querySelector("#senha-atual");
+const novaSenhaInput = document.querySelector("#nova-senha");
+const confirmarNovaSenhaInput = document.querySelector("#confirmar-nova-senha");
+const btnSalvarSenha = document.querySelector("#btn-salvar-senha");
+const mensagemSenha = document.querySelector("#mensagem-senha");
 
-function salvarPreferenciasLocais() {
-    localStorage.setItem(
-        "preferenciasNotificacao",
-        JSON.stringify({ email: prefEmail.checked, sms: prefSms.checked })
-    );
-}
+formSenha.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!usuario?.id) return;
 
-prefEmail.addEventListener("change", salvarPreferenciasLocais);
-prefSms.addEventListener("change", salvarPreferenciasLocais);
+    if (novaSenhaInput.value !== confirmarNovaSenhaInput.value) {
+        mostrarMensagem(mensagemSenha, "As senhas não coincidem.", true);
+        return;
+    }
+
+    if (novaSenhaInput.value.length < 8) {
+        mostrarMensagem(mensagemSenha, "A nova senha precisa ter pelo menos 8 caracteres.", true);
+        return;
+    }
+
+    btnSalvarSenha.disabled = true;
+    mensagemSenha.style.display = "none";
+
+    try {
+        await pacienteService.atualizarSenha(usuario.id, senhaAtualInput.value, novaSenhaInput.value);
+        mostrarMensagem(mensagemSenha, "Senha atualizada com sucesso.");
+        formSenha.reset();
+    } catch (error) {
+        mostrarMensagem(mensagemSenha, error.message || "Não foi possível atualizar a senha.", true);
+    } finally {
+        btnSalvarSenha.disabled = false;
+    }
+});
 
 carregarPerfil();
-carregarPreferenciasLocais();

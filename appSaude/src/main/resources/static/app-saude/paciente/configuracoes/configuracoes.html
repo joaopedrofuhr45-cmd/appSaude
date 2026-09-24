@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../../recursos/css/style-global.css" />
     <link rel="stylesheet" href="../../recursos/css/dashboard-paciente.css" />
     <link rel="stylesheet" href="configuracoes.css" />
-    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
@@ -24,15 +23,9 @@
 
         <nav>
           <a href="../inicio/inicio.html"><span class="dot"></span> Início</a>
-          <a href="../agendar-consulta/agendar-consulta.html"
-            ><span class="dot"></span> Agendar consulta</a
-          >
-          <a href="../historico/historico.html"
-            ><span class="dot"></span> Histórico</a
-          >
-          <a href="configuracoes.html" class="ativo"
-            ><span class="dot"></span> Configurações</a
-          >
+          <a href="../agendar-consulta/agendar-consulta.html"><span class="dot"></span> Agendar consulta</a>
+          <a href="../historico/historico.html"><span class="dot"></span> Histórico</a>
+          <a href="configuracoes.html" class="ativo"><span class="dot"></span> Configurações</a>
         </nav>
 
         <hr class="divider" />
@@ -41,94 +34,76 @@
 
       <main class="dashboard-content">
         <div class="topbar">
-          <a
-            href="../../telas-comuns/menu-inicial/menu_inicial.html"
-            class="voltar"
-          >
+          <a href="../../telas-comuns/menu-inicial/menu_inicial.html" class="voltar">
             <i class="fa-solid fa-arrow-left"></i> Voltar ao menu inicial
           </a>
           <div class="topbar-actions">
             <button class="icon-btn" title="Notificações">
               <i class="fa-regular fa-bell"></i>
             </button>
-            <a
-              href="../agendar-consulta/agendar-consulta.html"
-              class="btn-primary"
-            >
-              <i class="fa-solid fa-plus"></i> Nova consulta
-            </a>
           </div>
         </div>
 
         <h1 class="page-title">Configurações</h1>
-        <p class="page-subtitle">
-          Atualize seus dados pessoais e escolha como quer receber avisos da
-          plataforma.
-        </p>
+        <p class="page-subtitle">Gerencie suas informações de acesso e segurança da conta.</p>
 
-        <div class="config-grid">
-          <section class="panel">
-            <h2 style="margin-bottom: 16px">Dados do paciente</h2>
-            <form id="form-perfil">
-              <div class="campo-linha">
-                <div class="campo">
-                  <label for="nome">Nome completo</label>
-                  <input type="text" id="nome" name="nome" required />
-                </div>
-                <div class="campo">
-                  <label for="cpf">CPF</label>
-                  <input
-                    type="text"
-                    id="cpf"
-                    name="cpf"
-                    placeholder="000.000.000-00"
-                    disabled
-                  />
-                </div>
-                <div class="campo">
-                  <label for="telefone">Telefone</label>
-                  <input
-                    type="tel"
-                    id="telefone"
-                    name="telefone"
-                    placeholder="(11) 98765-4321"
-                    required
-                  />
-                </div>
+        <section class="panel">
+          <form id="form-perfil">
+            <div class="campo-linha">
+              <div class="campo">
+                <label for="nome">Nome completo</label>
+                <input type="text" id="nome" name="nome" required />
               </div>
-
-              <button
-                type="submit"
-                class="btn-primary btn-full"
-                id="btn-salvar"
-              >
-                <i class="fa-regular fa-floppy-disk"></i> Salvar alterações
-              </button>
-
-              <p class="estado" id="mensagem-perfil" style="display: none"></p>
-            </form>
-          </section>
-
-          <section class="panel preferencias-panel">
-            <h2 style="margin-bottom: 14px">Preferências</h2>
-
-            <label class="preferencia-item">
-              <div>
-                <strong>Lembretes por e-mail</strong>
-                <span>Receber avisos das consultas</span>
+              <div class="campo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="exemplo@seuemail.com" required />
               </div>
-              <input type="checkbox" id="pref-email" class="toggle" checked />
-            </label>
-
-            <label class="preferencia-item">
-              <div>
-                <strong>SMS de confirmação</strong>
-                <span>Confirmar horários pelo celular</span>
+              <div class="campo">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(11) 98765-4321" required />
               </div>
-              <input type="checkbox" id="pref-sms" class="toggle" checked />
-            </label>
-          </section>
+            </div>
+
+            <button type="submit" class="btn-primary" id="btn-salvar">
+              <i class="fa-regular fa-floppy-disk"></i> Salvar alterações
+            </button>
+
+            <p class="estado" id="mensagem-perfil" style="display: none"></p>
+          </form>
+        </section>
+
+        <div class="secao-header">
+          <h2>Segurança</h2>
+          <p>Atualize sua senha periodicamente para manter sua conta protegida.</p>
         </div>
+
+        <section class="panel">
+          <h2 class="panel-titulo">Mudar senha</h2>
+          <form id="form-senha">
+            <div class="campo">
+              <label for="senha-atual">Senha atual</label>
+              <input type="password" id="senha-atual" name="senha-atual" placeholder="••••••••" required />
+            </div>
+
+            <div class="campo-linha">
+              <div class="campo">
+                <label for="nova-senha">Nova senha</label>
+                <input type="password" id="nova-senha" name="nova-senha" placeholder="••••••••" required />
+              </div>
+              <div class="campo">
+                <label for="confirmar-nova-senha">Confirmar nova senha</label>
+                <input type="password" id="confirmar-nova-senha" name="confirmar-nova-senha" placeholder="••••••••" required />
+              </div>
+            </div>
+
+            <p class="dica-senha">A senha deve ter pelo menos 8 caracteres, incluindo letras e números.</p>
+
+            <div class="senha-footer">
+              <p class="estado" id="mensagem-senha" style="display: none"></p>
+              <button type="submit" class="btn-primary" id="btn-salvar-senha">Salvar nova senha</button>
+            </div>
+          </form>
+        </section>
       </main>
     </div>
 

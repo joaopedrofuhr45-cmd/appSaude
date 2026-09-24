@@ -1,0 +1,74 @@
+.campo-linha {
+    display: flex;
+    gap: 20px;
+}
+
+.campo-linha .campo {
+    flex: 1;
+    min-width: 0;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.campo label {
+    font-size: 12px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-text);
+}
+
+.campo input {
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+    color: var(--primary-text);
+    background: var(--white);
+}
+
+.campo input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.panel-titulo {
+    margin: 0 0 16px;
+    font-size: 15px;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-text);
+}
+
+.secao-header {
+    margin-top: 4px;
+}
+
+.secao-header h2 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-text);
+}
+
+.secao-header p {
+    margin: 0;
+    font-size: 12px;
+    color: var(--secondary-text);
+}
+
+.dica-senha {
+    margin: -6px 0 16px;
+    font-size: 11px;
+    color: var(--secondary-text);
+}
+
+.senha-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+}

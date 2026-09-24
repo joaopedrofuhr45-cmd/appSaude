@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações | Saúde+</title>
+    <link rel="stylesheet" href="../../recursos/css/style-global.css">
+    <link rel="stylesheet" href="../../recursos/css/dashboard-staff.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="dashboard">
+    <aside class="sidebar">
+        <div class="logo"><i class="fa-regular fa-heart"></i> Saúde<span>+</span></div>
+        <div class="who">
+            <strong id="sidebar-nome">Carregando...</strong>
+            <span id="sidebar-subtitulo"></span>
+        </div>
+        <nav>
+            <a href="../consultas-do-dia/index.html"><span class="dot"></span> Consultas do dia</a>
+            <a href="index.html" class="ativo"><span class="dot"></span> Configurações</a>
+        </nav>
+        <hr class="divider">
+        <button class="logout" id="btn-logout">Sair da conta</button>
+    </aside>
+
+    <main class="dashboard-content">
+        <div class="topbar">
+            <a href="../../telas-comuns/menu-inicial/menu_inicial.html" class="voltar">
+                <i class="fa-solid fa-arrow-left"></i> Voltar ao menu inicial
+            </a>
+            <div class="topbar-actions">
+                <button class="icon-btn" title="Notificações"><i class="fa-regular fa-bell"></i></button>
+            </div>
+        </div>
+
+        <h1 class="page-title">Configurações</h1>
+        <p class="page-subtitle">Gerencie suas informações de acesso e segurança da conta.</p>
+
+        <section class="panel">
+            <form id="form-perfil">
+                <div class="campo-linha">
+                    <div class="campo">
+                        <label for="nome">Nome completo</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="campo">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="exemplo@seuemail.com">
+                    </div>
+                    <div class="campo">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(11) 98765-4321">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary" id="btn-salvar">
+                    <i class="fa-regular fa-floppy-disk"></i> Salvar alterações
+                </button>
+
+                <p class="estado" id="mensagem-perfil" style="display:none;"></p>
+            </form>
+        </section>
+
+        <div class="secao-header">
+            <h2>Segurança</h2>
+            <p>Atualize sua senha periodicamente para manter sua conta protegida.</p>
+        </div>
+
+        <section class="panel">
+            <h2 class="panel-titulo">Mudar senha</h2>
+            <form id="form-senha">
+                <div class="campo">
+                    <label for="senha-atual">Senha atual</label>
+                    <input type="password" id="senha-atual" placeholder="••••••••" required>
+                </div>
+
+                <div class="campo-linha">
+                    <div class="campo">
+                        <label for="nova-senha">Nova senha</label>
+                        <input type="password" id="nova-senha" placeholder="••••••••" required>
+                    </div>
+                    <div class="campo">
+                        <label for="confirmar-nova-senha">Confirmar nova senha</label>
+                        <input type="password" id="confirmar-nova-senha" placeholder="••••••••" required>
+                    </div>
+                </div>
+
+                <p class="dica-senha">A senha deve ter pelo menos 8 caracteres, incluindo letras e números.</p>
+
+                <div class="senha-footer">
+                    <p class="estado" id="mensagem-senha" style="display:none;"></p>
+                    <button type="submit" class="btn-primary" id="btn-salvar-senha">Salvar nova senha</button>
+                </div>
+            </form>
+        </section>
+    </main>
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
