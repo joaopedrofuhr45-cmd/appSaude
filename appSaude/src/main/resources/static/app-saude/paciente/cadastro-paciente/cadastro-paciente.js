@@ -1,4 +1,4 @@
-// paciente/cadastro-paciente/login.js
+// paciente/cadastro-paciente/login-medico-atendente.js
 import { authService } from "../../recursos/chamadaBackEnd/authService.js";
 
 const form = document.querySelector("#form-cadastro");

@@ -1,4 +1,4 @@
-// medico/configuracoes-medico/login.js
+// medico/configuracoes-medico/login-medico-atendente.js
 import { authService } from "../../recursos/chamadaBackEnd/authService.js";
 import { medicoService } from "../../recursos/chamadaBackEnd/medicoService.js";
 import { preencherSidebarStaff } from "../../recursos/js/staffSidebar.js";
@@ -8,7 +8,7 @@ preencherSidebarStaff(usuario);
 
 document.querySelector("#btn-logout").addEventListener("click", () => {
     authService.logout();
-    window.location.href = "../../telas-comuns/login-medico-atendente/login.html";
+    window.location.href = "../../telas-comuns/login-medico-atendente/login-medico-atendente.html";
 });
 
 function mostrarMensagem(el, texto, erro = false) {

@@ -1,4 +1,4 @@
-// paciente/configuracoes/login.js
+// paciente/configuracoes/login-medico-atendente.js
 import { authService } from "../../recursos/chamadaBackEnd/authService.js";
 import { pacienteService } from "../../recursos/chamadaBackEnd/pacienteService.js";
 import { preencherSidebarUsuario } from "../../recursos/js/sidebarUsuario.js";

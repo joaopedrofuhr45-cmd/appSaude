@@ -1,4 +1,4 @@
-// telas-comuns/login-medico-atendente/login.js
+// telas-comuns/login-medico-atendente/login-medico-atendente.js
 import { authService } from "../../recursos/chamadaBackEnd/authService.js";
 
 const form = document.querySelector("#loginForm");
@@ -11,7 +11,7 @@ const mensagem = document.querySelector("#mensagem");
 // saber pra onde mandar cada um depois do login.
 const DESTINO_POR_TIPO = {
     ATENDENTE: "../../atendente/atendimentos/atendimentos.html",
-    MEDICO: "../../medico/consultas-do-dia/atendimentos.html",
+    MEDICO: "../../medico/consultas-do-dia/consultas-do-dia.html",
 };
 
 form.addEventListener("submit", async (event) => {

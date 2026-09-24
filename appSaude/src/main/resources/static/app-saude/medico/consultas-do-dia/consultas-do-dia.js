@@ -1,4 +1,4 @@
-// medico/consultas-do-dia/login.js
+// medico/consultas-do-dia/login-medico-atendente.js
 import { authService } from "../../recursos/chamadaBackEnd/authService.js";
 import { consultaService } from "../../recursos/chamadaBackEnd/consultaService.js";
 import { preencherSidebarStaff } from "../../recursos/js/staffSidebar.js";
@@ -8,7 +8,7 @@ preencherSidebarStaff(usuario);
 
 document.querySelector("#btn-logout").addEventListener("click", () => {
     authService.logout();
-    window.location.href = "../../telas-comuns/login-medico-atendente/login.html";
+    window.location.href = "../../telas-comuns/login-medico-atendente/login-medico-atendente.html";
 });
 
 const dataAtualEl = document.querySelector("#data-atual");
