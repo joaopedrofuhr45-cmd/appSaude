@@ -1,7 +1,7 @@
 /* ===== Campos (mesmo padrão do agendar-consulta) ===== */
 .campo-linha {
     display: flex;
-    gap: 20px;
+    gap: 12px;
 }
 
 .campo-linha .campo {
@@ -24,12 +24,17 @@
 
 .campo select,
 .campo input {
-    padding: 10px 12px;
+    padding: 8px 12px;
     border: 1px solid var(--border);
     border-radius: 8px;
-    font-size: 12px;
+    font-family: inherit;
+    font-size: 11px;
     color: var(--primary-text);
     background: var(--white);
+}
+
+.campo input::placeholder {
+    color: var(--secondary-text);
 }
 
 .campo select:focus,
@@ -38,18 +43,44 @@
     border-color: var(--primary);
 }
 
-/* ===== Filtros ===== */
-.filtros {
-    align-items: flex-end;
+/* seta customizada dos selects (igual ao Figma) */
+.campo select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 28px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%239ca3af' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
 }
 
-.filtros .campo {
+/* ===== Filtros ===== */
+form.campo-linha.filtros {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    gap: 12px;
+    width: 100%;
+}
+
+form.campo-linha.filtros .campo {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
     margin-bottom: 0;
 }
 
-/* a busca é mais larga que os selects */
-.filtros .campo-busca {
-    flex: 1.6;
+/* a busca é ~2x mais larga que os selects */
+form.campo-linha.filtros .campo.campo-busca {
+    flex: 2 1 0;
+}
+
+.filtros select,
+.filtros input {
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .input-icone {
@@ -61,14 +92,14 @@
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 11px;
+    font-size: 10px;
     color: var(--secondary-text);
     pointer-events: none;
 }
 
 .input-icone input {
     width: 100%;
-    padding-left: 32px;
+    padding-left: 30px;
 }
 
 /* ===== Topo da lista ===== */
@@ -76,21 +107,23 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .lista-topo h2 {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: var(--font-weight-semibold);
     color: var(--primary-text);
+    margin: 0;
 }
 
 .link-baixar {
     background: none;
     border: none;
+    padding: 0;
     cursor: pointer;
     font-family: inherit;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: var(--font-weight-semibold);
     color: var(--primary);
     text-decoration: none;
@@ -107,17 +140,17 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 7px;
 }
 
 .consulta-item {
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 10px 16px;
+    gap: 14px;
+    padding: 8px 14px 8px 12px;
     background: #f7faf9;
-    border-left: 4px solid var(--border);
-    border-radius: 4px;
+    border-left: 3px solid var(--border);
+    border-radius: 2px;
     cursor: pointer;
     transition: background 0.15s;
 }
@@ -140,37 +173,41 @@
 }
 
 .consulta-hora {
-    min-width: 48px;
-    font-size: 14px;
+    min-width: 40px;
+    font-size: 13px;
     font-weight: var(--font-weight-bold, 700);
     color: var(--primary);
+    white-space: nowrap;
 }
 
 .consulta-info {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 1px;
     min-width: 0;
 }
 
 .consulta-info strong {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: var(--font-weight-semibold);
     color: var(--primary-text);
 }
 
 .consulta-info span {
-    font-size: 11px;
+    font-size: 9px;
     color: var(--secondary-text);
 }
 
-/* ===== Tags de situação ===== */
+/* ===== Tags de situação (largura fixa para alinhar a coluna) ===== */
 .tag-status {
-    padding: 3px 12px;
+    display: inline-block;
+    min-width: 48px;
+    padding: 3px 10px;
     border-radius: 999px;
-    font-size: 10px;
+    font-size: 8px;
     font-weight: var(--font-weight-semibold);
+    text-align: center;
     white-space: nowrap;
 }
 
@@ -190,13 +227,16 @@
 }
 
 .seta {
-    font-size: 11px;
+    width: 12px;
+    text-align: center;
+    font-size: 10px;
     color: var(--muted);
+    flex-shrink: 0;
 }
 
 /* ===== Responsivo ===== */
 @media (max-width: 720px) {
-    .filtros {
+    form.campo-linha.filtros {
         flex-direction: column;
         align-items: stretch;
         gap: 12px;
