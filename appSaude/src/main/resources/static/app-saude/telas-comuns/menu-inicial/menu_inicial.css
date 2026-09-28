@@ -26,56 +26,6 @@ body {
 }
 
 
-/* HEADER */
-.header {
-    height: 70px;
-    border-bottom: 1px solid #e2e6e8;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 35px;
-    background: #ffffff;
-}
-
-
-/* VOLTAR */
-.back-button {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    color: #279d99;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.back-button svg {
-    width: 20px;
-    height: 20px;
-}
-
-.back-button:hover {
-    color: #1c827e;
-}
-
-
-/* LOGO */
-.logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    text-decoration: none;
-    color: #354654;
-    font-size: 36px;
-    font-weight: 700;
-    letter-spacing: -1.5px;
-}
-
-.logo span {
-    color: #25a49f;
-}
-
-
 /* ESPAÇO DO HEADER */
 .header-space {
     width: 70px;

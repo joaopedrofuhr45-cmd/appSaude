@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login da equipe | Saúde+</title>
 
-    <link rel="stylesheet" href="../../recursos/css/variaveis.css" />
+    <link rel="stylesheet" href="../../recursos/css/style-global.css" />
     <link rel="stylesheet" href="login-medico-atendente.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
@@ -19,34 +19,34 @@
     <div class="logo">Saúde<span class="mais">+</span></div>
 </header>
 
-<main class="conteudo">
-    <div class="ilustracao">
-        <i class="fa-solid fa-plus"></i>
+<main class="login-screen">
+    <div class="login-illustration">
+        <img src="../../recursos/img/saude_em_um_so_lugar.png" alt="Sua saúde em um só lugar" />
     </div>
 
     <div class="login-card">
-        <div class="tag"><i class="fa-solid fa-user"></i> Acesso da equipe</div>
+        <div class="login-tag"><i class="fa-solid fa-user"></i> Acesso da equipe</div>
 
-        <h1 class="titulo">Entrar na sua conta</h1>
-        <p class="subtitulo">Use o CPF cadastrado na recepção.</p>
+        <h1 class="login-title">Entrar na sua conta</h1>
+        <p class="login-subtitle">Use o CPF cadastrado na recepção.</p>
 
         <form id="loginForm">
-            <div class="campo">
+            <div class="login-field">
                 <label for="cpf">CPF</label>
                 <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" />
             </div>
 
-            <div class="campo">
+            <div class="login-field">
                 <label for="senha">Senha</label>
                 <input type="password" id="senha" name="senha" placeholder="Digite sua senha" />
             </div>
 
-            <p id="mensagem" class="mensagem-erro"></p>
+            <p id="mensagem" class="login-error"></p>
 
-            <button type="submit" class="btn-entrar">Entrar</button>
+            <button type="submit" class="login-submit">Entrar</button>
         </form>
 
-        <p class="rodape">
+        <p class="login-footer">
             Problemas para acessar? <a href="#">Falar com o suporte</a>
         </p>
     </div>

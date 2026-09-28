@@ -23,6 +23,202 @@
    TÍTULOS
    ========================================================= */
 
+/* Barra de navegação das telas públicas */
+.topo,
+.header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 64px;
+    padding: 0 40px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+}
+
+.botao-voltar,
+.back-button {
+    position: absolute;
+    left: 40px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+}
+
+.botao-voltar:hover,
+.back-button:hover { color: var(--azul-escuro, #176f69); }
+.botao-voltar i,
+.back-button svg { font-size: 16px; }
+.back-button svg { width: 20px; height: 20px; }
+
+.topo .logo,
+.header .logo {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    transform: none;
+    color: var(--primary-text);
+    font-size: 20px;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0;
+    text-decoration: none;
+}
+
+.topo .logo .mais,
+.header .logo .mais,
+.header .logo > span { color: var(--primary); }
+
+.header .header-space { display: none; }
+
+/* Layout compartilhado dos logins de paciente e equipe */
+.login-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    width: min(100%, 1100px);
+    min-height: calc(100vh - 64px);
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.login-illustration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 400px;
+    width: 400px;
+    height: 400px;
+    max-width: 100%;
+    overflow: hidden;
+    background: var(--secondary);
+    border-radius: 16px;
+}
+
+.login-illustration img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.login-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 0 1 466px;
+    width: 466px;
+    max-width: 100%;
+    padding: 40px;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.login-tag {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: var(--secondary);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary);
+}
+
+.login-title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-text);
+}
+
+.login-subtitle {
+    margin: 0;
+    font-size: 14px;
+    color: var(--primary-text);
+}
+
+.login-card .login-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.login-field label {
+    font-size: 13px;
+    font-weight: var(--font-weight-medium);
+    color: var(--primary-text);
+}
+
+.login-field input {
+    height: 44px;
+    padding: 0 15px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.login-field input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.login-error {
+    min-height: 16px;
+    margin: 0 0 12px;
+    font-size: 12px;
+    color: var(--destructive);
+}
+
+.login-submit {
+    width: 100%;
+    height: 46px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 15px;
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+}
+
+.login-submit:hover { opacity: 0.92; }
+
+.login-footer {
+    margin: 4px 0 0;
+    text-align: center;
+    font-size: 13px;
+    color: var(--primary-text);
+}
+
+.login-footer a {
+    color: var(--primary);
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+}
+
+@media (max-width: 900px) {
+    .login-screen { flex-direction: column; }
+    .login-illustration { flex-basis: auto; width: 100%; height: 200px; }
+}
+
+@media (max-width: 480px) {
+    .topo,
+    .header { padding: 0 20px; }
+
+    .botao-voltar,
+    .back-button { left: 20px; }
+}
+
 .title {
     color: var(--cor-principal);
     font-size: 35px;
