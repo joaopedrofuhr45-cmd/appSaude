@@ -1,0 +1,209 @@
+/* ===== Campos (mesmo padrão do agendar-consulta) ===== */
+.campo-linha {
+    display: flex;
+    gap: 20px;
+}
+
+.campo-linha .campo {
+    flex: 1;
+    min-width: 0;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.campo label {
+    font-size: 12px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-text);
+}
+
+.campo select,
+.campo input {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 12px;
+    color: var(--primary-text);
+    background: var(--white);
+}
+
+.campo select:focus,
+.campo input:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* ===== Filtros ===== */
+.filtros {
+    align-items: flex-end;
+}
+
+.filtros .campo {
+    margin-bottom: 0;
+}
+
+/* a busca é mais larga que os selects */
+.filtros .campo-busca {
+    flex: 1.6;
+}
+
+.input-icone {
+    position: relative;
+}
+
+.input-icone i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px;
+    color: var(--secondary-text);
+    pointer-events: none;
+}
+
+.input-icone input {
+    width: 100%;
+    padding-left: 32px;
+}
+
+/* ===== Topo da lista ===== */
+.lista-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.lista-topo h2 {
+    font-size: 14px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-text);
+}
+
+.link-baixar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.link-baixar:hover {
+    text-decoration: underline;
+}
+
+/* ===== Lista de consultas ===== */
+.lista-consultas {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.consulta-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 16px;
+    background: #f7faf9;
+    border-left: 4px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.consulta-item:hover {
+    background: #eef5f3;
+}
+
+/* cor da barra lateral por situação */
+.consulta-item.status-concluida {
+    border-left-color: #22c55e;
+}
+
+.consulta-item.status-neutra {
+    border-left-color: #d1d5db;
+}
+
+.consulta-item.status-cancelada {
+    border-left-color: #ef4444;
+}
+
+.consulta-hora {
+    min-width: 48px;
+    font-size: 14px;
+    font-weight: var(--font-weight-bold, 700);
+    color: var(--primary);
+}
+
+.consulta-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.consulta-info strong {
+    font-size: 12px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-text);
+}
+
+.consulta-info span {
+    font-size: 11px;
+    color: var(--secondary-text);
+}
+
+/* ===== Tags de situação ===== */
+.tag-status {
+    padding: 3px 12px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: var(--font-weight-semibold);
+    white-space: nowrap;
+}
+
+.tag-concluida {
+    background: #dcf5e6;
+    color: #15803d;
+}
+
+.tag-neutra {
+    background: #e5e7eb;
+    color: #4b5563;
+}
+
+.tag-cancelada {
+    background: #fde2e2;
+    color: #b91c1c;
+}
+
+.seta {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 720px) {
+    .filtros {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .consulta-item {
+        flex-wrap: wrap;
+        gap: 8px 12px;
+    }
+}

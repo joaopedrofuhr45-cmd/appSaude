@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consultas anteriores | Saúde+</title>
+    <link rel="stylesheet" href="../../recursos/css/style-global.css" />
+    <link rel="stylesheet" href="../../recursos/css/dashboard-paciente.css" />
+    <link rel="stylesheet" href="consultas-anteriores.css" />
+</head>
+
+<body>
+<div class="dashboard">
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fa-solid fa-heart"></i> Saúde<span>+</span>
+        </div>
+
+        <div class="patient-card">
+            <strong id="sidebar-nome">Carregando...</strong>
+            <span id="sidebar-desde"></span>
+        </div>
+
+        <nav>
+            <a href="../inicio/inicio.html"><span class="dot"></span> Início</a>
+            <a href="../agendar-consulta/agendar-consulta.html"
+            ><span class="dot"></span> Agendar consulta</a
+            >
+            <a href="consultas-anteriores.html" class="ativo"
+            ><span class="dot"></span> Consultas anteriores</a
+            >
+            <a href="../historico/historico.html"
+            ><span class="dot"></span> Histórico</a
+            >
+            <a href="../configuracoes/configuracoes.html"
+            ><span class="dot"></span> Configurações</a
+            >
+        </nav>
+
+        <hr class="divider" />
+        <button class="logout" id="btn-logout">Sair da conta</button>
+    </aside>
+
+    <main class="dashboard-content">
+        <div class="topbar">
+            <a
+                    href="../../telas-comuns/menu-inicial/menu_inicial.html"
+                    class="voltar"
+            >
+                <i class="fa-solid fa-angle-left"></i> Voltar ao menu inicial
+            </a>
+            <div class="topbar-actions">
+                <button class="icon-btn" title="Notificações">
+                    <i class="fa-solid fa-bell"></i>
+                </button>
+                <a
+                        href="../agendar-consulta/agendar-consulta.html"
+                        class="btn-primary"
+                >
+                    <i class="fa-solid fa-plus"></i> Nova consulta
+                </a>
+            </div>
+        </div>
+
+        <h1 class="page-title">Consultas anteriores</h1>
+        <p class="page-subtitle">
+            Atendimentos já realizados, com médico, especialidade e situação.
+        </p>
+
+        <!-- Filtros -->
+        <section class="panel">
+            <form id="form-filtros" class="campo-linha filtros">
+                <div class="campo campo-busca">
+                    <label for="busca">Buscar</label>
+                    <div class="input-icone">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input
+                                type="text"
+                                id="busca"
+                                name="busca"
+                                placeholder="Médico ou especialidade"
+                        />
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="periodo">Período</label>
+                    <select id="periodo" name="periodo">
+                        <option value="12">Últimos 12 meses</option>
+                        <option value="6">Últimos 6 meses</option>
+                        <option value="3">Últimos 3 meses</option>
+                        <option value="0">Todo o período</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="situacao">Situação</label>
+                    <select id="situacao" name="situacao">
+                        <option value="">Todas</option>
+                        <option value="REALIZADA">Concluída</option>
+                        <option value="CANCELADA">Cancelada</option>
+                    </select>
+                </div>
+            </form>
+        </section>
+
+        <!-- Lista -->
+        <section class="panel">
+            <div class="lista-topo">
+                <h2 id="total-consultas">Carregando...</h2>
+                <button type="button" class="link-baixar" id="btn-baixar">Baixar histórico</button>
+            </div>
+
+            <ul class="lista-consultas" id="lista-consultas">
+                <li class="estado">Carregando consultas...</li>
+            </ul>
+        </section>
+    </main>
+</div>
+
+<script type="module" src="consultas-anteriores.js"></script>
+</body>
+</html>
