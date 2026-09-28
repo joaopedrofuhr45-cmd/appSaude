@@ -1,4 +1,3 @@
-// paciente/consultas-anteriores/consultas-anteriores.js
 import { authService } from "../../recursos/chamadaBackEnd/authService.js";
 import { consultaService } from "../../recursos/chamadaBackEnd/consultaService.js";
 import { preencherSidebarUsuario } from "../../recursos/js/sidebarUsuario.js";
@@ -30,7 +29,6 @@ const STATUS_VISUAL = {
 let consultasAnteriores = [];
 let consultasFiltradas = [];
 
-/* ---------- utilitários ---------- */
 
 function escapeHtml(valor) {
     return String(valor ?? "")
@@ -40,7 +38,6 @@ function escapeHtml(valor) {
         .replace(/"/g, "&quot;");
 }
 
-// minúsculas e sem acento, para a busca ignorar "Clínica" x "clinica"
 function normalizar(texto) {
     return String(texto ?? "")
         .normalize("NFD")
@@ -55,7 +52,6 @@ function formatarData(dataISO) {
     return `${dia}/${mes}/${ano}`;
 }
 
-// "08:00:00" -> "08:00"
 function formatarHorario(horario) {
     return horario ? String(horario).slice(0, 5) : "--:--";
 }
@@ -75,7 +71,6 @@ function ordenarMaisRecentesPrimeiro(a, b) {
     return chaveB.localeCompare(chaveA);
 }
 
-/* ---------- filtros ---------- */
 
 function aplicarFiltros() {
     const termo = normalizar(campoBusca.value);
@@ -98,7 +93,6 @@ function aplicarFiltros() {
     renderLista();
 }
 
-/* ---------- renderização ---------- */
 
 function renderTotal() {
     const qtd = consultasFiltradas.length;
@@ -134,7 +128,6 @@ function renderLista() {
         .join("");
 }
 
-/* ---------- baixar histórico (CSV) ---------- */
 
 function baixarHistorico(event) {
     event.preventDefault();
@@ -166,7 +159,6 @@ function baixarHistorico(event) {
     URL.revokeObjectURL(url);
 }
 
-/* ---------- carregamento ---------- */
 
 async function carregarConsultas() {
     if (!usuario?.id) {
