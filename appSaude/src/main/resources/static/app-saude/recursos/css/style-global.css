@@ -135,10 +135,132 @@ form {
     flex-direction: column;
 }
 
-
 /* =========================================================
    CAMPOS DO FORMULÁRIO
    ========================================================= */
+
+.campo-linha {
+    display: flex;
+    gap: 20px;
+}
+
+.campo-linha .campo {
+    flex: 1;
+    min-width: 0;
+}
+
+.campo label {
+    font-size: 12px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-text);
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* Indicadores usados nos dashboards de paciente e atendente */
+.stats-row {
+    display: grid;
+    gap: 16px;
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.stat-valor {
+    font-size: 20px;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-text);
+}
+
+.stat-label {
+    font-size: 11px;
+    color: var(--secondary-text);
+}
+
+/* Lista de consultas usada nas telas de médico e atendente */
+.rows {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 13px 16px;
+    background: var(--body);
+    border-left: 4px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.row--confirmado { border-left-color: #22c55e; }
+.row--espera { border-left-color: #3b82f6; }
+.row--finalizado { border-left-color: #d1d5db; }
+.row--cancelado { border-left-color: #ef4444; }
+
+.row .horario {
+    width: 46px;
+    flex-shrink: 0;
+    font-size: 15px;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary);
+}
+
+.row .quem {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.row .quem strong {
+    font-size: 13px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-text);
+}
+
+.row .quem span {
+    font-size: 11px;
+    color: var(--secondary-text);
+}
+
+.row .seta {
+    color: #9ca3af;
+    font-size: 18px;
+}
+
+.pill--agendado,
+.pill--espera { background: #ddebf7; color: #1d5fa8; }
+.pill--confirmado { background: #e0f2e6; color: #258551; }
+.pill--finalizado { background: #eef0f1; color: var(--secondary-text); }
+.pill--cancelado { background: #fbe4e4; color: #c0392b; }
 
 
 /* =========================================================

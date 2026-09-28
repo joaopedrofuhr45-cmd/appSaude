@@ -1,26 +1,9 @@
-.campo-linha {
-    display: flex;
-    gap: 20px;
-}
-
-.campo-linha .campo {
-    flex: 1;
-    min-width: 0;
-}
-
 .campo {
     display: flex;
     flex-direction: column;
     gap: 6px;
     margin-bottom: 16px;
 }
-
-.campo label {
-    font-size: 12px;
-    font-weight: var(--font-weight-semibold);
-    color: var(--primary-text);
-}
-
 .campo input {
     padding: 10px 12px;
     border: 1px solid var(--border);
@@ -29,12 +12,6 @@
     color: var(--primary-text);
     background: var(--white);
 }
-
-.campo input:focus {
-    outline: none;
-    border-color: var(--primary);
-}
-
 .campo input:disabled {
     background: var(--body);
     color: var(--secondary-text);

@@ -1,26 +1,9 @@
-.campo-linha {
-    display: flex;
-    gap: 20px;
-}
-
-.campo-linha .campo {
-    flex: 1;
-    min-width: 0;
-}
-
 .campo {
     display: flex;
     flex-direction: column;
     gap: 6px;
     margin-bottom: 16px;
 }
-
-.campo label {
-    font-size: 12px;
-    font-weight: var(--font-weight-semibold);
-    color: var(--primary-text);
-}
-
 .campo input {
     height: 40px;
     padding: 0 12px;
@@ -30,12 +13,6 @@
     color: var(--primary-text);
     background: var(--white);
 }
-
-.campo input:focus {
-    outline: none;
-    border-color: var(--primary);
-}
-
 .panel-titulo {
     margin: 0 0 16px;
     font-size: 15px;

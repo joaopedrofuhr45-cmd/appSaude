@@ -16,12 +16,6 @@
     margin-bottom: 16px;
 }
 
-.campo label {
-    font-size: 12px;
-    font-weight: var(--font-weight-semibold);
-    color: var(--primary-text);
-}
-
 .campo select,
 .campo input {
     padding: 8px 12px;
@@ -35,12 +29,6 @@
 
 .campo input::placeholder {
     color: var(--secondary-text);
-}
-
-.campo select:focus,
-.campo input:focus {
-    outline: none;
-    border-color: var(--primary);
 }
 
 /* seta customizada dos selects (igual ao Figma) */

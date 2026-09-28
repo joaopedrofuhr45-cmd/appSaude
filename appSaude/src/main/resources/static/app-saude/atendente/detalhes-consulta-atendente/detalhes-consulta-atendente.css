@@ -167,8 +167,3 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
-
-.pill--agendado { background: #ddebf7; color: #1d5fa8; }
-.pill--confirmado { background: #e0f2e6; color: #258551; }
-.pill--finalizado { background: #eef0f1; color: var(--secondary-text); }
-.pill--cancelado { background: #fbe4e4; color: #c0392b; }
