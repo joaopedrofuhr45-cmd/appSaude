@@ -21,7 +21,7 @@ label{
 
     gap: 20px;
 
-    min-height: 100vh;
+    min-height: calc(100vh - 64px);
 
     padding: 30px 5%;
     box-sizing: border-box;
