@@ -2,6 +2,7 @@ package com.br.appSaude.modules.consultas;
 
 import com.br.appSaude.modules.medico.EntityJpaMedico;
 import com.br.appSaude.modules.paciente.EntityJpaPaciente;
+import com.br.appSaude.modules.atendente.EntittyJpaAtendente;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,7 +16,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "consutlas")
+@Table(name = "consulta")
 public class EntityJpaConsultas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,5 +45,9 @@ public class EntityJpaConsultas {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "medico_idMedico", nullable = false)
     private EntityJpaMedico medico;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "atendente_idAtendente")
+    private EntittyJpaAtendente atendente;
 
 }
