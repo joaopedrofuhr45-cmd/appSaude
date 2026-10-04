@@ -26,7 +26,7 @@ public class EntityJpaMedico {
     @Column(length = 20)
     private String crmMedico;
 
-    @Column(length = 16, nullable = false)
+    @Column(length = 255, nullable = false)
     private String senha;
 
 
