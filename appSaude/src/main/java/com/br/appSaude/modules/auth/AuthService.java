@@ -26,7 +26,7 @@ public class AuthService {
                 new UsernamePasswordAuthenticationToken(request.cpf(), request.senha()));
         UsuarioAuth usuario = repository.findByCpf(request.cpf())
                 .orElseThrow(() -> new IllegalStateException("Conta autenticada não encontrada."));
-        return new LoginResponse(jwtService.gerarToken(usuario), usuario.getId(),
+        return new LoginResponse(jwtService.gerarToken(usuario), usuario.ge(),
                 usuario.getPerfilId(), usuario.getRole());
     }
 
