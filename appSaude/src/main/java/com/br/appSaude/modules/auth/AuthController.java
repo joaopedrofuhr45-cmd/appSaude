@@ -2,6 +2,7 @@ package com.br.appSaude.modules.auth;
 
 import com.br.appSaude.modules.auth.dto.LoginRequest;
 import com.br.appSaude.modules.auth.dto.LoginResponse;
+import com.br.appSaude.modules.auth.dto.UsuarioAutenticadoResponse;
 import jakarta.validation.Valid;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
