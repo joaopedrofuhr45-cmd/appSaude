@@ -1,4 +1,4 @@
-package com.br.appSaude.modules.auth.dto;
+package com.br.appSaude.modules.auth;
 
 import com.br.appSaude.modules.auth.Role;
 
