@@ -22,6 +22,14 @@ function formatarData(dataISO) {
     return `${dia}/${mes}/${ano}`;
 }
 
+function dataLocalISO() {
+    const agora = new Date();
+    const ano = agora.getFullYear();
+    const mes = String(agora.getMonth() + 1).padStart(2, "0");
+    const dia = String(agora.getDate()).padStart(2, "0");
+    return `${ano}-${mes}-${dia}`;
+}
+
 function badgeStatus(status) {
     const mapa = {
         CONFIRMADA: { classe: "badge--confirmada", texto: "Confirmada" },
@@ -110,7 +118,9 @@ async function carregarDashboard() {
     try {
         const consultas = await consultaService.listarPorPaciente(usuario.id);
 
-        const futuras = consultas.filter((c) => c.status !== "CANCELADA");
+        const futuras = consultas
+            .filter((c) => c.status !== "CANCELADA" && c.status !== "REALIZADA" && c.data >= dataLocalISO())
+            .sort((a, b) => `${a.data ?? ""}T${a.hora ?? ""}`.localeCompare(`${b.data ?? ""}T${b.hora ?? ""}`));
         const realizadas = consultas.filter((c) => c.status === "REALIZADA");
 
         statMarcadas.textContent = futuras.length;

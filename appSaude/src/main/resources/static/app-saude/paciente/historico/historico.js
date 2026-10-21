@@ -13,7 +13,6 @@ document.querySelector("#btn-logout").addEventListener("click", () => {
 });
 
 const listaHistorico = document.querySelector("#lista-historico");
-const filtroStatus = document.querySelector("#filtro-status");
 
 const TITULOS_POR_STATUS = {
     REALIZADA: "Consulta concluída",
@@ -28,22 +27,26 @@ function formatarData(dataISO) {
     return `${dia}/${mes}/${ano}`;
 }
 
-function renderHistorico(consultas, status) {
+function tituloStatus(status) {
+    return TITULOS_POR_STATUS[status] ?? "Consulta";
+}
+
+function renderTodasConsultas(consultas) {
     if (!consultas.length) {
-        listaHistorico.innerHTML = `<p class="estado">Nenhum registro com esse status.</p>`;
+        listaHistorico.innerHTML = `<p class="estado">Nenhuma consulta registrada.</p>`;
         return;
     }
 
     listaHistorico.innerHTML = consultas
-        .map(
-            (consulta) => `
-                <div class="historico-item">
-                    <strong>${TITULOS_POR_STATUS[status] ?? "Consulta"}</strong>
-                    <span class="subtitulo">${escapeHtml(consulta.especialidade)} - ${formatarData(consulta.data)}</span>
-                    <span class="descricao">${escapeHtml(consulta.observacoes || "Sem observações registradas.")}</span>
-                </div>
-            `
-        )
+        .slice()
+        .sort((a, b) => `${b.data ?? ""}T${b.hora ?? ""}`.localeCompare(`${a.data ?? ""}T${a.hora ?? ""}`))
+        .map((consulta) => `
+            <div class="historico-item">
+                <strong>${escapeHtml(tituloStatus(consulta.status))}</strong>
+                <span class="subtitulo">${escapeHtml(consulta.especialidade)} - ${formatarData(consulta.data)} às ${escapeHtml(consulta.hora ?? "")}</span>
+                <span class="descricao">${escapeHtml(consulta.observacoes || "Sem observações registradas.")}</span>
+            </div>
+        `)
         .join("");
 }
 
@@ -53,17 +56,14 @@ async function carregarHistorico() {
         return;
     }
 
-    const status = filtroStatus.value;
     listaHistorico.innerHTML = `<div class="estado">Carregando histórico...</div>`;
 
     try {
-        const consultas = await consultaService.listarPorStatus(usuario.id, status);
-        renderHistorico(consultas, status);
+        const consultas = await consultaService.listarPorPaciente(usuario.id);
+        renderTodasConsultas(consultas);
     } catch (error) {
         listaHistorico.textContent = error.message || "Não foi possível carregar o histórico.";
     }
 }
-
-filtroStatus.addEventListener("change", carregarHistorico);
 
 carregarHistorico();
