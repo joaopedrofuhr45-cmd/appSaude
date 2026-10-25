@@ -61,10 +61,9 @@ public class PacienteService {
     }
 
     @Transactional(readOnly = true)
-    public List<ConsultaPacienteResponse> listarConsultas(String cpf) {
+    public List<ConsultaPacienteResponse> listarConsultas(String cpf, String status) {
         Long pacienteId = buscarPaciente(cpf).getId();
-        return consultaRepository.findByPaciente_IdOrderByDataConsultaDescHoraConsultaDesc(pacienteId)
-                .stream().map(this::toConsulta).toList();
+        return consultaRepository.listarRespostas(pacienteId, status);
     }
 
     @Transactional(readOnly = true)
@@ -75,6 +74,7 @@ public class PacienteService {
 
     @Transactional
     public ConsultaPacienteResponse agendar(String cpf, AgendarConsultaRequest request) {
+        validarDataHora(request.data(), request.hora());
         EntityJpaPaciente paciente = buscarPaciente(cpf);
         EntityJpaMedico medico = medicoRepository.findById(request.medicoId())
                 .orElseThrow(() -> new EntityNotFoundException("Médico não encontrado."));
@@ -96,6 +96,7 @@ public class PacienteService {
 
     @Transactional
     public ConsultaPacienteResponse reagendar(String cpf, Long id, AgendarConsultaRequest request) {
+        validarDataHora(request.data(), request.hora());
         Long pacienteId = buscarPaciente(cpf).getId();
         EntityJpaConsultas consulta = buscarConsultaDoPaciente(id, pacienteId);
         if ("REALIZADA".equalsIgnoreCase(consulta.getStatusConsulta())
@@ -124,6 +125,11 @@ public class PacienteService {
         }
         consulta.setStatusConsulta("CANCELADA");
         consultaRepository.save(consulta);
+    }
+
+    private void validarDataHora(java.time.LocalDate data, java.time.LocalTime hora) {
+        com.br.appSaude.common.ConsultaHorarioValidator.validar(data, hora,
+                java.time.LocalDateTime.now(java.time.ZoneId.of("America/Sao_Paulo")));
     }
 
     private EntityJpaPaciente buscarPaciente(String cpf) {

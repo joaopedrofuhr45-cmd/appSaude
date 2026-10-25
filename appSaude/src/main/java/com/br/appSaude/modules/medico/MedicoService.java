@@ -47,9 +47,7 @@ public class MedicoService {
 
     @Transactional(readOnly = true)
     public List<String> listarEspecialidades() {
-        return medicoRepository.findAllByOrderByNomeAsc().stream()
-                .map(EntityJpaMedico::getEspecialidadeMedico).filter(s -> s != null && !s.isBlank())
-                .distinct().sorted().toList();
+        return medicoRepository.findDistinctEspecialidades();
     }
 
     @Transactional
@@ -76,10 +74,11 @@ public class MedicoService {
     }
 
     @Transactional(readOnly = true)
-    public List<ConsultaMedicoResponse> listarConsultas(String cpf) {
+    public List<ConsultaMedicoResponse> listarConsultas(String cpf, java.time.LocalDate data,
+                                                         String status, String paciente) {
         Long medicoId = buscarMedico(cpf).getId();
-        return consultaRepository.findByMedico_IdOrderByDataConsultaAscHoraConsultaAsc(medicoId)
-                .stream().map(this::toConsulta).toList();
+        String nomePaciente = paciente == null || paciente.isBlank() ? null : paciente.trim();
+        return consultaRepository.buscarAgenda(medicoId, data, status, nomePaciente);
     }
 
     @Transactional(readOnly = true)
@@ -95,6 +94,9 @@ public class MedicoService {
         EntityJpaConsultas consulta = buscarConsultaDoMedico(consultaId, medicoId);
         if ("CANCELADA".equalsIgnoreCase(consulta.getStatusConsulta())) {
             throw new IllegalStateException("Uma consulta cancelada não pode ser finalizada.");
+        }
+        if ("REALIZADA".equalsIgnoreCase(consulta.getStatusConsulta())) {
+            throw new IllegalStateException("Esta consulta já foi finalizada.");
         }
         consulta.setObservacoesConsulta(request.observacoes().trim());
         consulta.setStatusConsulta("REALIZADA");
@@ -119,6 +121,7 @@ public class MedicoService {
     private ConsultaMedicoResponse toConsulta(EntityJpaConsultas consulta) {
         return new ConsultaMedicoResponse(consulta.getIdConsulta(), consulta.getDataConsulta(),
                 consulta.getHoraConsulta(), consulta.getStatusConsulta(), consulta.getObservacoesConsulta(),
-                consulta.getPaciente().getId(), consulta.getPaciente().getNome());
+                consulta.getPaciente().getId(), consulta.getPaciente().getNome(),
+                consulta.getMedico().getEspecialidadeMedico());
     }
 }
