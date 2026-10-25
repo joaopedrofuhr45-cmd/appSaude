@@ -66,16 +66,10 @@ async function carregar() {
     }
 
     try {
-        const consultas = await consultaService.listarPorMedico(usuario.id, hojeISO);
-
-        const filtradas = consultas.filter((c) => {
-            const combinaPaciente = !filtroPaciente.value.trim()
-                || (c.pacienteNome ?? "").toLowerCase().includes(filtroPaciente.value.trim().toLowerCase());
-            const combinaStatus = !filtroSituacao.value || c.status === filtroSituacao.value;
-            return combinaPaciente && combinaStatus;
-        });
-
-        renderLista(filtradas);
+        const consultas = await consultaService.listarPorMedico(
+            usuario.id, hojeISO, filtroPaciente.value.trim(), filtroSituacao.value
+        );
+        renderLista(consultas);
     } catch (error) {
         listaConsultas.textContent = error.message || "Não foi possível carregar as consultas.";
     }

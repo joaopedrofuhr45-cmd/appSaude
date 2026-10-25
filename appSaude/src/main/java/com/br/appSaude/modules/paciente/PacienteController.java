@@ -40,8 +40,9 @@ public class PacienteController {
     }
 
     @GetMapping("/consultas")
-    public List<ConsultaPacienteResponse> consultas(@AuthenticationPrincipal UserDetails usuario) {
-        return service.listarConsultas(usuario.getUsername());
+    public List<ConsultaPacienteResponse> consultas(@AuthenticationPrincipal UserDetails usuario,
+            @RequestParam(required = false) String status) {
+        return service.listarConsultas(usuario.getUsername(), status);
     }
 
     @GetMapping("/consultas/{id}")

@@ -170,8 +170,11 @@ async function carregarConsultas() {
     listaConsultas.innerHTML = `<li class="estado">Carregando consultas...</li>`;
 
     try {
-        const consultas = await consultaService.listarPorPaciente(usuario.id);
-        consultasAnteriores = consultas.filter((c) => STATUS_ANTERIORES.includes(c.status));
+        const [realizadas, canceladas] = await Promise.all([
+            consultaService.listarPorStatus(usuario.id, "REALIZADA"),
+            consultaService.listarPorStatus(usuario.id, "CANCELADA"),
+        ]);
+        consultasAnteriores = [...realizadas, ...canceladas];
         aplicarFiltros();
     } catch (error) {
         totalConsultas.textContent = "Consultas anteriores";

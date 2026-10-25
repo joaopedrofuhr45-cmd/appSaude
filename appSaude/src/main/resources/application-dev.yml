@@ -7,6 +7,7 @@ spring:
     password: ""
     driver-class-name: org.h2.Driver
   jpa:
+    defer-datasource-initialization: true
     hibernate:
       ddl-auto: update
     show-sql: true
@@ -16,6 +17,9 @@ spring:
       path: /h2-console
   flyway:
     enabled: false
+  sql:
+    init:
+      mode: always
 
 app:
   auth:

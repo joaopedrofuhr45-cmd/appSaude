@@ -52,8 +52,11 @@ public class MedicoController {
 
     @GetMapping("/consultas")
     @PreAuthorize("hasRole('MEDICO')")
-    public List<ConsultaMedicoResponse> consultas(@AuthenticationPrincipal UserDetails usuario) {
-        return service.listarConsultas(usuario.getUsername());
+    public List<ConsultaMedicoResponse> consultas(@AuthenticationPrincipal UserDetails usuario,
+            @RequestParam(required = false) @org.springframework.format.annotation.DateTimeFormat(iso = org.springframework.format.annotation.DateTimeFormat.ISO.DATE) java.time.LocalDate data,
+            @RequestParam(required = false) String status,
+            @RequestParam(required = false) String paciente) {
+        return service.listarConsultas(usuario.getUsername(), data, status, paciente);
     }
 
     @GetMapping("/consultas/{id}")
