@@ -19,8 +19,8 @@
 .campo select,
 .campo input {
     padding: 8px 12px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
     font-family: inherit;
     font-size: 11px;
     color: var(--primary-text);
@@ -136,28 +136,30 @@ form.campo-linha.filtros .campo.campo-busca {
     align-items: center;
     gap: 14px;
     padding: 8px 14px 8px 12px;
-    background: #f7faf9;
-    border-left: 3px solid var(--border);
-    border-radius: 2px;
+    background: #fff;
+    border: 1px solid var(--cor-borda);
+    border-left: 4px solid var(--cor-borda);
+    border-radius: 12px;
     cursor: pointer;
-    transition: background 0.15s;
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s ease;
 }
 
 .consulta-item:hover {
-    background: #eef5f3;
+    transform: translateY(-2px);
+    box-shadow: var(--sombra-md);
 }
 
 /* cor da barra lateral por situação */
 .consulta-item.status-concluida {
-    border-left-color: #22c55e;
+    border-left-color: var(--cor-sucesso);
 }
 
 .consulta-item.status-neutra {
-    border-left-color: #d1d5db;
+    border-left-color: #cbd5e1;
 }
 
 .consulta-item.status-cancelada {
-    border-left-color: #ef4444;
+    border-left-color: var(--cor-erro);
 }
 
 .consulta-hora {
