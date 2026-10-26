@@ -1,35 +1,218 @@
-#form-agendar {
-    gap: 16px;
+body.booking-page {
+    min-height: 100vh;
+    background: #fff;
+    color: #10243a;
 }
-.campo {
+
+.booking-content {
+    width: auto;
+    margin: 0 32px;
+    padding: 22px 0 48px;
+}
+
+.booking-content .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 40px;
+    margin-bottom: 18px;
+}
+
+.booking-content .voltar {
+    color: #078f91;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.booking-content .voltar:hover { color: #087c80; }
+
+.booking-content .topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.booking-content .icon-btn,
+.booking-content .calendar-nav,
+.booking-content .today-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d6e2e9;
+    background: #fff;
+    color: #0f293f;
+    cursor: pointer;
+}
+
+.booking-content .icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.booking-content .topbar .btn-primary {
+    min-height: 40px;
+    padding: 0 16px;
+    border-radius: 10px;
+    background: #0d9694;
+    box-shadow: 0 8px 20px rgba(13, 150, 148, .2);
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.booking-content .page-title {
+    margin: 0 0 4px;
+    color: #101e2d;
+    font-size: 23px;
+    line-height: 1.3;
+}
+
+.booking-content .page-subtitle {
+    margin: 0 0 18px;
+    color: #536b83;
+    font-size: 13px;
+}
+
+.booking-panel {
+    width: min(100%, 900px);
+    padding: 20px;
+    border: 1px solid #dbe4e9;
+    border-radius: 13px;
+    background: #fff;
+    box-shadow: none;
+}
+
+#form-agendar { display: flex; flex-direction: column; gap: 14px; }
+
+.booking-panel .campo { min-width: 0; margin: 0; display: flex; flex-direction: column; gap: 7px; }
+
+.booking-panel .campo-linha { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.booking-panel label,
+.booking-panel .calendar-field > label,
+.booking-panel .time-field > label {
+    color: #132a40;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.booking-panel select,
+.booking-panel textarea {
+    width: 100%;
+    border: 1px solid #d5e1e8;
+    border-radius: 9px;
+    background: #fff;
+    color: #152b41;
+    font: inherit;
+    font-size: 12px;
+}
+
+.booking-panel select { height: 40px; padding: 0 12px; }
+
+.calendar-field { gap: 8px !important; }
+
+.calendar-toolbar {
+    display: grid;
+    grid-template-columns: 34px 1fr auto;
+    align-items: center;
+    min-height: 34px;
+    margin-bottom: 2px;
+}
+
+.calendar-toolbar > strong {
+    justify-self: center;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.calendar-actions { display: flex; align-items: center; gap: 8px; }
+.booking-content .calendar-nav { width: 34px; height: 34px; border-radius: 10px; color: #096e77; }
+.booking-content .calendar-nav:hover,.booking-content .today-button:hover { border-color: #0b9994; }
+.booking-content .today-button { height: 34px; padding: 0 13px; border-color: #0a9a94; border-radius: 10px; color: #087f81; font-size: 12px; font-weight: 600; }
+
+.week-days { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+
+.day-button {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    margin-bottom: 16px;
-}
-.campo select,
-.campo input,
-.campo textarea {
-    padding: 10px 12px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    font-size: 12px;
-    color: var(--primary-text);
-    background: var(--white);
-}
-
-.campo textarea {
-    resize: vertical;
-    font-family: inherit;
-}
-
-.btn-full {
-    width: 100%;
+    align-items: center;
     justify-content: center;
-    padding: 12px;
+    gap: 3px;
+    min-width: 0;
+    height: 62px;
+    border: 1px solid #d7e4eb;
+    border-radius: 12px;
+    background: #fff;
+    color: #10243a;
+    cursor: pointer;
 }
 
-.btn-full:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+.day-button span { font-size: 11px; }
+.day-button strong { font-size: 16px; }
+.day-button:hover { border-color: #0b9994; }
+.day-button[aria-pressed="true"] { border-color: #0b9994; background: #0b9994; color: #fff; }
+.day-button:disabled { background: #f5f8fa; color: #9aabb7; cursor: not-allowed; }
+
+#data, #horario { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+.time-field { gap: 10px !important; }
+.time-period { display: flex; flex-direction: column; gap: 7px; }
+.time-period > span { color: #536b83; font-size: 12px; }
+.time-slots { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.time-button {
+    min-width: 79px;
+    height: 38px;
+    padding: 0 12px;
+    border: 1px solid #d7e4eb;
+    border-radius: 10px;
+    background: #fff;
+    color: #10243a;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.time-button:hover { border-color: #0b9994; }
+.time-button[aria-pressed="true"] { border-color: #0b9994; background: #0b9994; color: #fff; }
+
+.observation-field textarea {
+    min-height: 68px;
+    padding: 10px 12px;
+    resize: vertical;
+}
+
+.booking-panel .btn-full {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 9px;
+    background: #228f88;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.booking-panel .btn-full:hover { background: #147f7b; }
+.booking-panel .btn-full:disabled { opacity: .6; cursor: not-allowed; }
+.booking-panel .estado { margin: 0; }
+
+@media (max-width: 700px) {
+    .booking-content { margin: 0 16px; padding-top: 16px; }
+    .booking-content .topbar { margin-bottom: 22px; }
+    .booking-content .topbar .btn-primary { padding: 0 11px; }
+    .booking-panel { padding: 16px; }
+    .booking-panel .campo-linha { grid-template-columns: 1fr; gap: 14px; }
+    .week-days { gap: 5px; }
+    .day-button { height: 58px; border-radius: 9px; }
+    .day-button span { font-size: 10px; }
+    .day-button strong { font-size: 14px; }
+    .time-slots { gap: 6px; }
+    .time-button { flex: 1 0 70px; min-width: 70px; }
 }
