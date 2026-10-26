@@ -1,5 +1,4 @@
 body {
-    background: var(--body);
     margin: 0;
 }
 
@@ -39,7 +38,9 @@ label{
 
     margin: 10px;
 
-    border-radius: 10px;
+    border-radius: 20px;
+    border: 1px solid var(--cor-borda);
+    box-shadow: var(--sombra-md);
 
     background-color: var(--white);
 
@@ -129,13 +130,16 @@ label {
 
     color: var(--secondary-text);
 
-    border: 1px solid var(--secondary-text);
+    border: 1px solid var(--cor-borda);
+    background: #fff;
 
     padding: 8px 5%;
 
     font-size: 14px;
 
     box-sizing: border-box;
+
+    transition: border-color .25s ease, box-shadow .25s ease;
 }
 
 
@@ -153,7 +157,11 @@ form button {
 
     width: 100%;
 
-    background-color: var(--primary);
+    position: relative;
+    overflow: hidden;
+
+    background: var(--grad-primario);
+    box-shadow: var(--sombra-brilho);
 
     color: var(--primary-foreground);
 
@@ -163,8 +171,20 @@ form button {
 
     margin-top: 5px;
 
+    font-size: 15px;
+    font-weight: var(--font-weight-semibold);
+
     cursor: pointer;
+
+    transition: transform .25s var(--ease), box-shadow .3s var(--ease), background .25s ease;
 }
+
+form button:hover:not(:disabled) {
+    background: var(--grad-primario-hover);
+    transform: translateY(-1px);
+}
+
+form button:disabled { opacity: .5; cursor: not-allowed; }
 
 
 /* =========================
@@ -178,9 +198,10 @@ form button {
 
     margin: 10px;
 
-    border-radius: 10px;
+    border-radius: 20px;
+    border: 1px solid var(--cor-borda);
 
-    background-color: var(--card);
+    background: var(--grad-suave);
 
     padding: 20px;
 
@@ -206,11 +227,12 @@ form button {
 
     padding: 5px;
 
-    background-color: var(--ring);
+    background: var(--grad-primario);
+    box-shadow: var(--sombra-brilho);
 
-    color: var(--primary);
+    color: #fff;
 
-    border-radius: 50px;
+    border-radius: 14px;
 
     display: flex;
 
@@ -256,3 +278,9 @@ form button {
 
     margin: 0;
 }
+
+/* entrada em cascata */
+.cadastro, .cards { animation: subir .7s var(--ease) backwards; }
+.cards { animation-delay: 120ms; }
+.card { transition: transform .3s var(--ease); }
+@media (hover: hover) { .card:hover { transform: translateY(-2px); } }

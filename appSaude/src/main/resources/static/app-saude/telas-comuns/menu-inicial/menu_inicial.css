@@ -12,9 +12,7 @@ body {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #ffffff;
-    color: #354654;
+    color: var(--cor-texto);
 }
 
 
@@ -49,7 +47,7 @@ body {
 /* TÍTULO */
 .profile-section h1 {
     text-align: center;
-    color: #354654;
+    color: var(--cor-texto);
     font-size: 32px;
     font-weight: 700;
     margin-bottom: 8px;
@@ -59,7 +57,7 @@ body {
 /* SUBTÍTULO */
 .subtitle {
     text-align: center;
-    color: #4f5e69;
+    color: var(--cor-texto-secundario);
     font-size: 21px;
     margin-bottom: 48px;
 }
@@ -77,9 +75,10 @@ body {
 /* CARD */
 .profile-card {
     height: 318px;
-    border: 1px solid #cfd5d8;
-    border-radius: 9px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 16px;
     background: #ffffff;
+    box-shadow: var(--sombra-sm);
 
     display: flex;
     flex-direction: column;
@@ -87,14 +86,23 @@ body {
 
     padding: 32px 28px 27px;
 
-    transition: 0.2s;
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s ease;
 }
 
 .profile-card:hover {
-    border-color: #2aa7a2;
-    box-shadow: 0 5px 20px rgba(30, 100, 110, 0.08);
-    transform: translateY(-2px);
+    border-color: var(--cor-primaria-media);
+    box-shadow: var(--sombra-md);
+    transform: translateY(-3px);
 }
+
+/* cards sobem em cascata */
+.profile-section h1,
+.subtitle { animation: subir .7s var(--ease) backwards; }
+.subtitle { animation-delay: 80ms; }
+.cards .profile-card { animation: subir .7s var(--ease) backwards; }
+.cards .profile-card:nth-child(1) { animation-delay: 160ms; }
+.cards .profile-card:nth-child(2) { animation-delay: 240ms; }
+.cards .profile-card:nth-child(3) { animation-delay: 320ms; }
 
 
 /* ÍCONE */
@@ -108,7 +116,7 @@ body {
     align-items: center;
     justify-content: center;
 
-    color: #354654;
+    color: var(--cor-primaria);
 
     margin-bottom: 15px;
 }
@@ -143,7 +151,7 @@ body {
 
 /* TÍTULO DOS CARDS */
 .profile-card h2 {
-    color: #354654;
+    color: var(--cor-texto);
     font-size: 24px;
     font-weight: 700;
 
@@ -155,7 +163,7 @@ body {
 
 /* TEXTO DOS CARDS */
 .profile-card p {
-    color: #3f4e59;
+    color: var(--cor-texto);
     font-size: 15px;
     line-height: 1.55;
 
@@ -173,17 +181,18 @@ body {
     margin-top: auto;
 
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
 
-    background: #29a6a1;
+    background: var(--grad-primario);
     color: #ffffff;
+    box-shadow: var(--sombra-brilho);
 
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
 
     cursor: pointer;
 
-    transition: 0.2s;
+    transition: transform .25s var(--ease), box-shadow .3s var(--ease), background .25s ease;
 
     /* Faz o <a> se comportar como botão */
     display: flex;
@@ -194,7 +203,8 @@ body {
 }
 
 .select-button:hover {
-    background: #218d89;
+    background: var(--grad-primario-hover);
+    transform: translateY(-1px);
 }
 
 .select-button:active {
@@ -212,7 +222,7 @@ body {
 
     margin-top: 47px;
 
-    color: #3f4e59;
+    color: var(--cor-texto);
     font-size: 14px;
 }
 
@@ -229,7 +239,7 @@ body {
 
     margin-top: 55px;
 
-    border-top: 1px solid #e2e6e8;
+    border-top: 1px solid var(--cor-borda);
 
     display: flex;
     align-items: center;
@@ -241,16 +251,16 @@ body {
 }
 
 .footer a {
-    color: #4e5b65;
+    color: var(--cor-texto-secundario);
     text-decoration: none;
     font-size: 14px;
 }
 
 .footer a:hover {
-    color: #279d99;
+    color: var(--cor-primaria);
 }
 
 .footer span {
-    color: #aeb6ba;
+    color: var(--cor-texto-suave);
     font-size: 13px;
 }

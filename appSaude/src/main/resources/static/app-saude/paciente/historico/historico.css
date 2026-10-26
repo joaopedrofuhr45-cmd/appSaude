@@ -9,8 +9,18 @@
     flex-direction: column;
     gap: 6px;
     padding: 14px 16px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    background: #fff;
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s ease;
+}
+
+@media (hover: hover) {
+    .historico-item:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--sombra-md);
+        border-color: var(--cor-primaria-media);
+    }
 }
 
 .historico-item strong {
@@ -51,8 +61,8 @@
 
 .filtro-historico select {
     padding: 8px 12px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 10px;
     font-size: 12px;
     color: var(--primary-text);
     background: var(--white);

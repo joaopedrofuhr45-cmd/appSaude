@@ -1,23 +1,67 @@
 :root {
-    --primary: #218c83;
-    --primary-foreground: #f8fdfc;
-    --background: #f8fbfb;
-    --foreground: #1a2b36;
-    --secondary: #ddf4f1;
-    --accent: #ddf4f1;
-    --destructive: #e7000b;
-    --border: #dce2e6;
-    --ring: #daeaea;
+    /* ============================================
+     MARCA (design do front Angular)
+     ============================================ */
+    --cor-primaria: #0d9488;
+    --cor-primaria-escura: #0f766e;
+    --cor-primaria-media: #14b8a6;
+    --cor-primaria-clara: #ccfbf1;
+    --cor-secundaria: #0891b2;
+    --cor-superficie: #ecfeff;
+    --cor-destaque: #f97316;
+    --cor-destaque-clara: #ffedd5;
+    --cor-coracao: #f43f5e;
+
+    /* gradientes */
+    --grad-primario: linear-gradient(135deg, #0d9488 0%, #0891b2 100%);
+    --grad-primario-hover: linear-gradient(135deg, #0f766e 0%, #0e7490 100%);
+    --grad-suave: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%);
+
+    /* texto, fundo e bordas */
+    --cor-texto: #0f172a;
+    --cor-texto-secundario: #475569;
+    --cor-texto-suave: #94a3b8;
+    --cor-fundo: #f1f8fb;
+    --cor-borda: #dbe7ee;
+
+    /* status */
+    --cor-sucesso: #16a34a;
+    --cor-aviso: #f59e0b;
+    --cor-erro: #ef4444;
+    --cor-info: #0ea5e9;
+
+    /* forma e movimento */
+    --raio: 12px;
+    --sombra-sm: 0 1px 2px rgba(15, 23, 42, .06);
+    --sombra-md: 0 8px 24px rgba(8, 145, 178, .11);
+    --sombra-brilho: 0 8px 22px rgba(13, 148, 136, .35);
+    --ease: cubic-bezier(.22, .61, .36, 1);
+
+    /* ============================================
+     NOMES ANTIGOS (as telas já usam estes)
+     apontam pra paleta nova, então tudo recolore sozinho
+     ============================================ */
+    --primary: var(--cor-primaria);
+    --primary-foreground: #ffffff;
+    --background: var(--cor-fundo);
+    --foreground: var(--cor-texto);
+    --secondary: var(--cor-primaria-clara);
+    --accent: var(--cor-superficie);
+    --destructive: var(--cor-erro);
+    --border: var(--cor-borda);
+    --ring: rgba(20, 184, 166, .35);
     --white: #ffffff;
-    --muted: #8a97a0;
+    --branco: #ffffff;
+    --muted: var(--cor-texto-suave);
 
-    --body: #f4f6f9;
+    --body: #f1f8fb;
+    --card: #ffffff;
 
-    --card: #ebf3f5;
+    --primary-text: var(--cor-texto);
+    --secondary-text: var(--cor-texto-secundario);
 
-    --primary-text: #26313E;
-    --secondary-text: #5B6774;
-
+    --cor-principal: var(--cor-primaria);
+    --azul-escuro: var(--cor-primaria-escura);
 
     /* ============================================
      PESO DAS FONTES (FONT WEIGHTS)
@@ -27,4 +71,4 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
 
-} 
+}
