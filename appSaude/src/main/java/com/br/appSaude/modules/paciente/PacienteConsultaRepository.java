@@ -20,4 +20,6 @@ public interface PacienteConsultaRepository extends JpaRepository<EntityJpaConsu
  Optional<EntityJpaConsultas> findByIdConsultaAndPaciente_Id(Long consultaId,Long pacienteId);
  boolean existsByMedico_IdAndDataConsultaAndHoraConsultaAndStatusConsultaNot(Long medicoId,LocalDate data,LocalTime hora,String statusConsulta);
  boolean existsByMedico_IdAndDataConsultaAndHoraConsultaAndStatusConsultaNotAndIdConsultaNot(Long medicoId,LocalDate data,LocalTime hora,String statusConsulta,Long idConsulta);
+
+ List<EntityJpaConsultas> findByMedico_IdAndDataConsultaAndStatusConsultaNot(Long medicoId,LocalDate data,String statusConsulta);
 }

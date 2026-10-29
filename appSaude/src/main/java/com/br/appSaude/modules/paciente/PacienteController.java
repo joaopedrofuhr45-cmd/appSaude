@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import com.br.appSaude.modules.auth.dto.AlterarSenhaRequest;
 
 import java.util.List;
+import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/pacientes")
@@ -43,6 +44,11 @@ public class PacienteController {
     public List<ConsultaPacienteResponse> consultas(@AuthenticationPrincipal UserDetails usuario,
             @RequestParam(required = false) String status) {
         return service.listarConsultas(usuario.getUsername(), status);
+    }
+
+    @GetMapping("/consultas/horarios-indisponiveis")
+    public List<String> horariosIndisponiveis(@RequestParam Long medicoId, @RequestParam LocalDate data) {
+        return service.horariosIndisponiveis(medicoId, data);
     }
 
     @GetMapping("/consultas/{id}")

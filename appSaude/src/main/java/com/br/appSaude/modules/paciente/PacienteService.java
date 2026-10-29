@@ -67,6 +67,12 @@ public class PacienteService {
     }
 
     @Transactional(readOnly = true)
+    public List<String> horariosIndisponiveis(Long medicoId, java.time.LocalDate data) {
+        return consultaRepository.findByMedico_IdAndDataConsultaAndStatusConsultaNot(medicoId, data, "CANCELADA")
+                .stream().map(consulta -> consulta.getHoraConsulta().toString().substring(0, 5)).toList();
+    }
+
+    @Transactional(readOnly = true)
     public ConsultaPacienteResponse buscarConsulta(String cpf, Long consultaId) {
         Long pacienteId = buscarPaciente(cpf).getId();
         return toConsulta(buscarConsultaDoPaciente(consultaId, pacienteId));

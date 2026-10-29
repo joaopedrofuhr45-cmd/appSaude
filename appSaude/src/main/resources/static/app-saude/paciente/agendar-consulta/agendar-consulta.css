@@ -216,3 +216,8 @@ body.booking-page {
     .time-slots { gap: 6px; }
     .time-button { flex: 1 0 70px; min-width: 70px; }
 }
+
+.time-button:disabled { background: #f1f4f6; color: #a0aab5; border-color: #e0e6eb; cursor: not-allowed; text-decoration: line-through; opacity: 1; }
+.time-button.is-current[aria-pressed="true"], .time-button.is-current:disabled[aria-pressed="true"] { border-color: #0b9994; background: #0b9994; color: #fff; text-decoration: none; opacity: 1; }
+.time-button.is-current:not([aria-pressed="true"]):not(:disabled) { border: 2px solid #d89916; background: #fff4d6; color: #704900; }
+.booking-content .calendar-nav:disabled { background: #f5f8fa; color: #9aabb7; cursor: not-allowed; }
