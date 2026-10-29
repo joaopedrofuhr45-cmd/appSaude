@@ -15,4 +15,6 @@ public interface PacienteConsultaRepository extends JpaRepository<EntityJpaConsu
             Long medicoId, LocalDate data, LocalTime hora, String statusConsulta);
     boolean existsByMedico_IdAndDataConsultaAndHoraConsultaAndStatusConsultaNotAndIdConsultaNot(
             Long medicoId, LocalDate data, LocalTime hora, String statusConsulta, Long idConsulta);
+    List<EntityJpaConsultas> findByMedico_IdAndDataConsultaAndStatusConsultaNot(
+            Long medicoId, LocalDate data, String statusConsulta);
 }

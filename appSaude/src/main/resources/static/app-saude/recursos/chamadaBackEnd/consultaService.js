@@ -10,6 +10,11 @@ class ConsultaService extends ApiService {
         });
     }
 
+    horariosIndisponiveis(medicoId, data) {
+        const params = new URLSearchParams({ medicoId, data });
+        return this.fetch(`/pacientes/consultas/horarios-indisponiveis?${params}`);
+    }
+
     atualizar(id, dto) {
         return this.fetch(`/pacientes/consultas/${id}`, {
             method: "PUT",

@@ -1,6 +1,26 @@
 #form-agendar {
     gap: 16px;
 }
+.calendario-cabecalho { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
+.calendario-cabecalho strong { text-transform: capitalize; }
+.calendario-cabecalho button, .data-opcao, .horario-opcao { border: 1px solid var(--border); border-radius: 10px; background: var(--white); color: var(--primary-text); cursor: pointer; }
+.calendario-cabecalho button { padding: 7px 12px; color: var(--primary); }
+.datas-disponiveis { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; }
+.data-opcao { display: flex; min-height: 56px; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
+.data-opcao span { color: var(--muted); font-size: 11px; text-transform: capitalize; }
+.data-opcao:disabled { background: #f1f4f6; color: #a0aab5; cursor: not-allowed; }
+.data-opcao:disabled span { color: #a0aab5; }
+.data-opcao.selecionada, .horario-opcao.selecionado { background: var(--primary); border-color: var(--primary); color: var(--white); }
+.data-opcao.selecionada span { color: var(--white); }
+.horarios-disponiveis { display: flex; flex-wrap: wrap; gap: 8px; }
+.grupo-horarios { width: 100%; }
+.grupo-horarios h3 { margin: 0 0 8px; font-size: 12px; font-weight: 500; color: var(--secondary-text); }
+.grupo-horarios + .grupo-horarios { margin-top: 12px; }
+.horario-opcao { min-width: 68px; padding: 9px 12px; }
+.horario-opcao.indisponivel { background: #f1f4f6; color: #a0aab5; border-color: #e0e6eb; cursor: not-allowed; text-decoration: line-through; }
+.horario-opcao.horario-passado { opacity: 0.55; }
+.horario-opcao.consulta-atual, .horario-opcao.consulta-atual:disabled { background: var(--primary); border: 2px solid var(--primary); color: var(--white); font-weight: 700; cursor: default; opacity: 1; text-decoration: none; }
+.horario-opcao:focus-visible, .data-opcao:focus-visible, .calendario-cabecalho button:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 .campo {
     display: flex;
     flex-direction: column;

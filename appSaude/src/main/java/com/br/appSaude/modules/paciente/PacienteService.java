@@ -14,6 +14,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Service
 public class PacienteService {
@@ -68,6 +71,12 @@ public class PacienteService {
     }
 
     @Transactional(readOnly = true)
+    public List<String> horariosIndisponiveis(Long medicoId, LocalDate data) {
+        return consultaRepository.findByMedico_IdAndDataConsultaAndStatusConsultaNot(medicoId, data, "CANCELADA")
+                .stream().map(consulta -> consulta.getHoraConsulta().toString().substring(0, 5)).toList();
+    }
+
+    @Transactional(readOnly = true)
     public ConsultaPacienteResponse buscarConsulta(String cpf, Long consultaId) {
         Long pacienteId = buscarPaciente(cpf).getId();
         return toConsulta(buscarConsultaDoPaciente(consultaId, pacienteId));
@@ -75,6 +84,7 @@ public class PacienteService {
 
     @Transactional
     public ConsultaPacienteResponse agendar(String cpf, AgendarConsultaRequest request) {
+        validarHorarioFuturo(request);
         EntityJpaPaciente paciente = buscarPaciente(cpf);
         EntityJpaMedico medico = medicoRepository.findById(request.medicoId())
                 .orElseThrow(() -> new EntityNotFoundException("Médico não encontrado."));
@@ -96,6 +106,7 @@ public class PacienteService {
 
     @Transactional
     public ConsultaPacienteResponse reagendar(String cpf, Long id, AgendarConsultaRequest request) {
+        validarHorarioFuturo(request);
         Long pacienteId = buscarPaciente(cpf).getId();
         EntityJpaConsultas consulta = buscarConsultaDoPaciente(id, pacienteId);
         if ("REALIZADA".equalsIgnoreCase(consulta.getStatusConsulta())
@@ -129,6 +140,13 @@ public class PacienteService {
     private EntityJpaPaciente buscarPaciente(String cpf) {
         return pacienteRepository.findByCpfPaciente(cpf)
                 .orElseThrow(() -> new EntityNotFoundException("Usuário não encontrado."));
+    }
+
+    private void validarHorarioFuturo(AgendarConsultaRequest request) {
+        LocalDateTime horario = LocalDateTime.of(request.data(), request.hora());
+        if (horario.isBefore(LocalDateTime.now(ZoneId.of("America/Sao_Paulo")))) {
+            throw new IllegalArgumentException("Não é possível agendar uma consulta em um horário que já passou.");
+        }
     }
 
     private EntityJpaConsultas buscarConsultaDoPaciente(Long consultaId, Long pacienteId) {
