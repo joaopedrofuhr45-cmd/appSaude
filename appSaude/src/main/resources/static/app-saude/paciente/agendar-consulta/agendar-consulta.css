@@ -6,8 +6,8 @@ body.booking-page {
 
 .booking-content {
     width: auto;
-    margin: 0 32px;
-    padding: 22px 0 48px;
+    margin: 0;
+    padding: 22px 32px 48px;
 }
 
 .booking-content .topbar {
@@ -31,6 +31,7 @@ body.booking-page {
     display: flex;
     align-items: center;
     gap: 12px;
+    margin-left: auto;
 }
 
 .booking-content .icon-btn,
@@ -204,7 +205,7 @@ body.booking-page {
 .booking-panel .estado { margin: 0; }
 
 @media (max-width: 700px) {
-    .booking-content { margin: 0 16px; padding-top: 16px; }
+    .booking-content { padding: 16px 16px 32px; }
     .booking-content .topbar { margin-bottom: 22px; }
     .booking-content .topbar .btn-primary { padding: 0 11px; }
     .booking-panel { padding: 16px; }

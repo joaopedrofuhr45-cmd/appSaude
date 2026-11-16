@@ -5,15 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Agendar consulta | Saúde+</title>
     <link rel="stylesheet" href="../../recursos/css/style-global.css" />
+    <link rel="stylesheet" href="../../recursos/css/dashboard-paciente.css" />
     <link rel="stylesheet" href="agendar-consulta.css" />
   </head>
 
   <body class="booking-page">
-    <main class="booking-content">
+    <div class="dashboard">
+      <aside class="sidebar">
+        <div class="logo">
+          <i class="fa-regular fa-heart"></i> Saúde<span>+</span>
+        </div>
+
+        <div class="patient-card">
+          <strong id="sidebar-nome">Carregando...</strong>
+          <span id="sidebar-desde"></span>
+        </div>
+
+        <nav>
+          <a href="../inicio/inicio.html"><span class="dot"></span> Início</a>
+          <a href="agendar-consulta.html" class="ativo"><span class="dot"></span> Agendar consulta</a>
+          <a href="../historico/historico.html"><span class="dot"></span> Histórico</a>
+          <a href="../configuracoes/configuracoes.html"><span class="dot"></span> Configurações</a>
+        </nav>
+
+        <hr class="divider" />
+        <button class="logout" id="btn-logout">Sair da conta</button>
+      </aside>
+
+    <main class="dashboard-content booking-content">
       <div class="topbar">
-        <a href="../../telas-comuns/menu-inicial/menu_inicial.html" class="voltar">
-          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Voltar ao menu inicial
-        </a>
+        
         <div class="topbar-actions">
           <button class="icon-btn" type="button" title="Notificações" aria-label="Notificações">
             <i class="fa-regular fa-bell" aria-hidden="true"></i>
@@ -99,6 +120,7 @@
         </form>
       </section>
     </main>
+    </div>
 
     <script type="module" src="agendar-consulta.js"></script>
   </body>

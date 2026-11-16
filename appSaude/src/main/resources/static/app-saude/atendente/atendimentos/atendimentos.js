@@ -17,6 +17,7 @@ btnNovoAgendamento.disabled = true;
 btnNovoAgendamento.title = "Agendamento manual pela recepção ainda não está disponível.";
 
 let consultasCarregadas = [];
+const formatarHora = (hora) => String(hora ?? "").slice(0, 5);
 document.querySelector("#btn-exportar").addEventListener("click", () => {
     if (!consultasCarregadas.length) return;
     const csvCell = (value) => {
@@ -26,7 +27,7 @@ document.querySelector("#btn-exportar").addEventListener("click", () => {
     };
     const rows = [
         ["Data", "Hora", "Paciente", "Médico", "Especialidade", "Status"],
-        ...consultasCarregadas.map(c => [c.data, c.hora, c.pacienteNome, c.medicoNome, c.especialidade, c.status])
+        ...consultasCarregadas.map(c => [c.data, formatarHora(c.hora), c.pacienteNome, c.medicoNome, c.especialidade, c.status])
     ];
     const csv = "\uFEFF" + rows.map(row => row.map(csvCell).join(";")).join("\r\n");
     const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
@@ -76,7 +77,7 @@ function renderLista(consultas) {
             const pill = classesPill(consulta.status);
             return `
                 <a class="row ${pill.linha}" href="../detalhes-consulta-atendente/detalhes-consulta-atendente.html?id=${encodeURIComponent(consulta.id)}">
-                    <span class="horario">${escapeHtml(consulta.hora)}</span>
+                    <span class="horario">${escapeHtml(formatarHora(consulta.hora))}</span>
                     <span class="quem">
                         <strong>${escapeHtml(consulta.pacienteNome ?? "Paciente")}</strong>
                         <span>${escapeHtml(consulta.medicoNome ?? "Médico")}</span>
@@ -103,7 +104,7 @@ async function carregar() {
         consultasCarregadas = consultas;
         statTotal.textContent = consultas.length;
         statAgendadas.textContent = consultas.filter((c) => c.status !== "CANCELADA" && c.status !== "REALIZADA").length;
-        statProximo.textContent = consultas[0]?.hora ?? "--:--";
+        statProximo.textContent = consultas[0] ? formatarHora(consultas[0].hora) : "--:--";
 
         renderLista(consultas);
     } catch (error) {
