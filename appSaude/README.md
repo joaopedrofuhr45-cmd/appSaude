@@ -45,6 +45,22 @@ No Linux/macOS:
 
 Abra `http://localhost:8080/app-saude/telas-comuns/inicio/inicio.html` para acessar a página inicial.
 
+No perfil local (`dev`), a aplicação usa um banco H2 em memória e carrega
+automaticamente médicos de demonstração para permitir testar o agendamento. Se
+seu `.env` configurar outro banco, force os valores locais ao iniciar no Windows:
+
+```powershell
+$env:SPRING_PROFILES_ACTIVE = "dev"
+$env:SPRING_DATASOURCE_URL = "jdbc:h2:mem:appsaude;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"
+$env:SPRING_DATASOURCE_USERNAME = "sa"
+$env:SPRING_DATASOURCE_PASSWORD = ""
+./mvnw.cmd spring-boot:run
+```
+
+Os dados do H2 são recriados quando a aplicação reinicia. Para persistência local
+ou para usar os médicos do PostgreSQL, configure as variáveis `SPRING_DATASOURCE_*`
+e inicie com `SPRING_PROFILES_ACTIVE=prod`.
+
 ## Testes
 
 ```sh
