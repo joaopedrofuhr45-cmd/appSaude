@@ -13,6 +13,11 @@
     color: var(--primary-text);
     background: var(--white);
 }
+.campo input[readonly] {
+    background: #f3f7fa;
+    color: var(--secondary-text);
+    cursor: default;
+}
 .panel-titulo {
     margin: 0 0 16px;
     font-size: 15px;

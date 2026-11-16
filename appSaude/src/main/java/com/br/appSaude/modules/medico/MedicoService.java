@@ -54,8 +54,6 @@ public class MedicoService {
     public MedicoPerfilResponse atualizarPerfil(String cpf, AtualizarMedicoRequest request) {
         EntityJpaMedico medico = buscarMedico(cpf);
         medico.setNome(request.nome().trim());
-        medico.setEspecialidadeMedico(request.especialidade());
-        medico.setCrmMedico(request.crm());
         medico.setEmail(request.email());
         medico.setTelefone(request.telefone());
         return toPerfil(medicoRepository.save(medico));

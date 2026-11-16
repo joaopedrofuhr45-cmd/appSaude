@@ -55,8 +55,6 @@ document.querySelector("#form-perfil").addEventListener("submit", async (event) 
             nome: nomeInput.value.trim(),
             email: emailInput.value.trim(),
             telefone: telefoneInput.value.trim(),
-            especialidade: especialidadeInput.value.trim(),
-            crm: crmInput.value.trim(),
         });
         mostrarMensagem(mensagemPerfil, "Dados atualizados com sucesso.");
     } catch (error) {
