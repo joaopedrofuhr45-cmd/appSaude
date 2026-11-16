@@ -15,3 +15,5 @@ app:
     attendant-password: ${APP_TEST_ATENDENTE_PASSWORD:}
     doctor-cpf: ${APP_TEST_MEDICO_CPF:}
     doctor-password: ${APP_TEST_MEDICO_PASSWORD:}
+    patient-cpf: ${APP_TEST_PACIENTE_CPF:}
+    patient-password: ${APP_TEST_PACIENTE_PASSWORD:}
