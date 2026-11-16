@@ -3,7 +3,15 @@ spring:
     name: appSaude
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:dev}
+server:
+  port: ${PORT:8080}
 
 app:
   auth:
     jwt-expiration-ms: ${APP_AUTH_JWT_EXPIRATION_MS:3600000}
+  test-accounts:
+    enabled: ${APP_TEST_ACCOUNTS_ENABLED:false}
+    attendant-cpf: ${APP_TEST_ATENDENTE_CPF:}
+    attendant-password: ${APP_TEST_ATENDENTE_PASSWORD:}
+    doctor-cpf: ${APP_TEST_MEDICO_CPF:}
+    doctor-password: ${APP_TEST_MEDICO_PASSWORD:}

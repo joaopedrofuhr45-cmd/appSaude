@@ -12,12 +12,29 @@ document.querySelector("#btn-logout").addEventListener("click", () => {
     window.location.href = "../../telas-comuns/login-medico-atendente/login-medico-atendente.html";
 });
 
-document.querySelector("#btn-novo-agendamento").addEventListener("click", () => {
-    alert("Agendamento manual pelo atendente ainda não foi implementado.");
-});
+const btnNovoAgendamento = document.querySelector("#btn-novo-agendamento");
+btnNovoAgendamento.disabled = true;
+btnNovoAgendamento.title = "Agendamento manual pela recepção ainda não está disponível.";
 
+let consultasCarregadas = [];
 document.querySelector("#btn-exportar").addEventListener("click", () => {
-    alert("Exportação de lista ainda não foi implementada.");
+    if (!consultasCarregadas.length) return;
+    const csvCell = (value) => {
+        let text = String(value ?? "");
+        if (/^[=+@\-\t\r]/.test(text)) text = "'" + text;
+        return '"' + text.replace(/"/g, '""') + '"';
+    };
+    const rows = [
+        ["Data", "Hora", "Paciente", "Médico", "Especialidade", "Status"],
+        ...consultasCarregadas.map(c => [c.data, c.hora, c.pacienteNome, c.medicoNome, c.especialidade, c.status])
+    ];
+    const csv = "\uFEFF" + rows.map(row => row.map(csvCell).join(";")).join("\r\n");
+    const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "agenda-consultas.csv";
+    a.click();
+    URL.revokeObjectURL(url);
 });
 
 const filtroData = document.querySelector("#filtro-data");
@@ -83,6 +100,7 @@ async function carregar() {
             status: filtroSituacao.value,
         });
 
+        consultasCarregadas = consultas;
         statTotal.textContent = consultas.length;
         statAgendadas.textContent = consultas.filter((c) => c.status !== "CANCELADA" && c.status !== "REALIZADA").length;
         statProximo.textContent = consultas[0]?.hora ?? "--:--";

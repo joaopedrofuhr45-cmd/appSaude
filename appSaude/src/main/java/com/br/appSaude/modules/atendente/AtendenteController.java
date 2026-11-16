@@ -27,8 +27,9 @@ public class AtendenteController {
 
     @GetMapping("/consultas")
     public List<ConsultaAtendenteResponse> consultas(@RequestParam(required = false) String status,
-            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate data) {
-        return service.listarConsultas(status, data);
+            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate data,
+            @RequestParam(required = false) String paciente) {
+        return service.listarConsultas(status, data, paciente);
     }
 
     @GetMapping("/consultas/{id}")

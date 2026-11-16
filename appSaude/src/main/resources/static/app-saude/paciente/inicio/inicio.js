@@ -5,7 +5,7 @@ import { pacienteService } from "../../recursos/chamadaBackEnd/pacienteService.j
 import { preencherSidebarUsuario } from "../../recursos/js/sidebarUsuario.js";
 import { escapeHtml } from "../../recursos/js/seguranca.js";
 
-const saudacao = document.querySelector("#saudacao");
+const saudacao = document.querySelector("#pagina-titulo");
 const btnLogout = document.querySelector("#btn-logout");
 
 const proximaConsultaCard = document.querySelector("#proxima-consulta-card");
@@ -20,14 +20,6 @@ function formatarData(dataISO) {
     if (!dataISO) return "";
     const [ano, mes, dia] = dataISO.split("-");
     return `${dia}/${mes}/${ano}`;
-}
-
-function dataLocalISO() {
-    const agora = new Date();
-    const ano = agora.getFullYear();
-    const mes = String(agora.getMonth() + 1).padStart(2, "0");
-    const dia = String(agora.getDate()).padStart(2, "0");
-    return `${ano}-${mes}-${dia}`;
 }
 
 function badgeStatus(status) {
@@ -118,12 +110,14 @@ async function carregarDashboard() {
     try {
         const consultas = await consultaService.listarPorPaciente(usuario.id);
 
-        const futuras = consultas
-            .filter((c) => c.status !== "CANCELADA" && c.status !== "REALIZADA" && c.data >= dataLocalISO())
-            .sort((a, b) => `${a.data ?? ""}T${a.hora ?? ""}`.localeCompare(`${b.data ?? ""}T${b.hora ?? ""}`));
         const realizadas = consultas.filter((c) => c.status === "REALIZADA");
+        const ativas = consultas.filter((c) => c.status === "AGENDADA" || c.status === "CONFIRMADA");
+        const agora = new Date();
+        const futuras = ativas
+            .filter((c) => new Date(`${c.data}T${c.hora}`) >= agora)
+            .sort((a, b) => new Date(`${a.data}T${a.hora}`) - new Date(`${b.data}T${b.hora}`));
 
-        statMarcadas.textContent = futuras.length;
+        statMarcadas.textContent = ativas.length;
         statRealizados.textContent = realizadas.length;
         statProximoHorario.textContent = futuras[0]?.hora ?? "--:--";
 
