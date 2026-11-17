@@ -23,7 +23,7 @@ export class ApiService {
 
         if (!res.ok) {
             const error = await res.json().catch(() => ({}));
-            if (res.status === 401 || res.status === 403) {
+            if (res.status === 401) {
                 const eraStaff = location.pathname.includes("/medico/") || location.pathname.includes("/atendente/");
                 localStorage.removeItem("token");
                 localStorage.removeItem("usuario");
@@ -52,7 +52,7 @@ export class ApiService {
 
         if (!res.ok) {
             const error = await res.json().catch(() => ({}));
-            if (res.status === 401 || res.status === 403) {
+            if (res.status === 401) {
                 const eraStaff = location.pathname.includes("/medico/") || location.pathname.includes("/atendente/");
                 localStorage.removeItem("token");
                 localStorage.removeItem("usuario");

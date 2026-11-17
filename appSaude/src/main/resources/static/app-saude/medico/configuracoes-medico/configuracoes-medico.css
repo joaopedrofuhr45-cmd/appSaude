@@ -8,10 +8,15 @@
     height: 40px;
     padding: 0 12px;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 12px;
     color: var(--primary-text);
     background: var(--white);
+}
+.campo input[readonly] {
+    background: #f3f7fa;
+    color: var(--secondary-text);
+    cursor: default;
 }
 .panel-titulo {
     margin: 0 0 16px;

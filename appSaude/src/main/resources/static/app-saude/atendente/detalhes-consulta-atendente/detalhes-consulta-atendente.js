@@ -6,6 +6,7 @@ const usuario = authService.getUsuarioLogado();
 preencherSidebarStaff(usuario, "Atendente · Recepção");
 const id = new URLSearchParams(location.search).get("id");
 const set = (selector, value) => { document.querySelector(selector).textContent = value ?? "–"; };
+const formatarHora = (hora) => String(hora ?? "").slice(0, 5);
 
 document.querySelector("#btn-logout").addEventListener("click", () => {
     authService.logout();
@@ -20,11 +21,12 @@ async function carregar() {
     try {
         const consulta = await consultaService.getById(id);
         const data = consulta.data ? new Date(`${consulta.data}T00:00:00`).toLocaleDateString("pt-BR") : "";
-        set("#subtitulo-consulta", `Consulta de ${data}, às ${consulta.hora ?? ""}.`);
+        const hora = formatarHora(consulta.hora);
+        set("#subtitulo-consulta", `Consulta de ${data}, às ${hora}.`);
         set("#info-paciente", consulta.pacienteNome);
         set("#info-medico", consulta.medicoNome);
         set("#info-especialidade", consulta.especialidade);
-        set("#info-data-hora", `${data} às ${consulta.hora ?? ""}`);
+        set("#info-data-hora", `${data} às ${hora}`);
         set("#info-situacao", consulta.status);
         set("#info-observacao", consulta.observacoes || "Nenhuma observação registrada.");
         set("#pessoa-nome", consulta.pacienteNome);

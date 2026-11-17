@@ -7,6 +7,7 @@ spring:
     password: ""
     driver-class-name: org.h2.Driver
   jpa:
+    defer-datasource-initialization: true
     hibernate:
       ddl-auto: update
     show-sql: true
@@ -16,7 +17,18 @@ spring:
       path: /h2-console
   flyway:
     enabled: false
+  sql:
+    init:
+      mode: always
 
 app:
   auth:
     jwt-secret: ${APP_AUTH_JWT_SECRET:dev-only-secret-key-change-before-production-1234567890}
+  test-accounts:
+    enabled: ${APP_TEST_ACCOUNTS_ENABLED:true}
+    attendant-cpf: ${APP_TEST_ATENDENTE_CPF:99900000001}
+    attendant-password: ${APP_TEST_ATENDENTE_PASSWORD:AtendenteTeste2026!}
+    doctor-cpf: ${APP_TEST_MEDICO_CPF:99900000002}
+    doctor-password: ${APP_TEST_MEDICO_PASSWORD:MedicoTeste2026!}
+    patient-cpf: ${APP_TEST_PACIENTE_CPF:99900000003}
+    patient-password: ${APP_TEST_PACIENTE_PASSWORD:PacienteTeste2026!}

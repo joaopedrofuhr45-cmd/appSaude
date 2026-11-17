@@ -45,6 +45,44 @@ No Linux/macOS:
 
 Abra `http://localhost:8080/app-saude/telas-comuns/inicio/inicio.html` para acessar a página inicial.
 
+No perfil local (`dev`), a aplicação usa um banco H2 em memória e prepara
+automaticamente contas de demonstração para paciente, médico e atendente, além
+de uma consulta compartilhada entre o paciente e o médico de teste no próximo
+horário disponível. Acesse a tela de login da equipe em
+`http://localhost:8080/app-saude/telas-comuns/login-medico-atendente/login-medico-atendente.html`:
+
+| Perfil | CPF | Senha |
+| --- | --- | --- |
+| Atendente | `99900000001` | `AtendenteTeste2026!` |
+| Médico | `99900000002` | `MedicoTeste2026!` |
+| Paciente | `99900000003` | `PacienteTeste2026!` |
+
+Essas credenciais existem somente no perfil `dev`. Para trocar os dados, configure
+`APP_TEST_ATENDENTE_CPF`, `APP_TEST_ATENDENTE_PASSWORD`, `APP_TEST_MEDICO_CPF` e
+`APP_TEST_MEDICO_PASSWORD`, `APP_TEST_PACIENTE_CPF` e
+`APP_TEST_PACIENTE_PASSWORD`. Para desativar as contas de demonstração, use
+`APP_TEST_ACCOUNTS_ENABLED=false`. Nunca use essas credenciais em produção.
+
+O paciente pode agendar outras consultas pela área **Agendar consulta**, escolhendo
+`Médico de Teste`. As consultas ficam vinculadas ao mesmo paciente e médico; o
+médico as vê na agenda dele e a atendente vê todas na agenda da recepção. A agenda
+da atendente abre no dia atual; selecione a data da consulta no filtro se ela
+estiver marcada para outro dia.
+
+Se seu `.env` configurar outro banco, force os valores locais ao iniciar no Windows:
+
+```powershell
+$env:SPRING_PROFILES_ACTIVE = "dev"
+$env:SPRING_DATASOURCE_URL = "jdbc:h2:mem:appsaude;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE"
+$env:SPRING_DATASOURCE_USERNAME = "sa"
+$env:SPRING_DATASOURCE_PASSWORD = ""
+./mvnw.cmd spring-boot:run
+```
+
+Os dados do H2 são recriados quando a aplicação reinicia. Para persistência local
+ou para usar os médicos do PostgreSQL, configure as variáveis `SPRING_DATASOURCE_*`
+e inicie com `SPRING_PROFILES_ACTIVE=prod`.
+
 ## Testes
 
 ```sh

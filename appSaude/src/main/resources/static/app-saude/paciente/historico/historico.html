@@ -40,12 +40,7 @@
 
       <main class="dashboard-content">
         <div class="topbar">
-          <a
-            href="../../telas-comuns/menu-inicial/menu_inicial.html"
-            class="voltar"
-          >
-            <i class="fa-solid fa-arrow-left"></i> Voltar ao menu inicial
-          </a>
+          
           <div class="topbar-actions">
             <button class="icon-btn" title="Notificações">
               <i class="fa-regular fa-bell"></i>
@@ -64,6 +59,16 @@
           Veja consultas finalizadas, retornos e registros recentes do seu
           atendimento.
         </p>
+
+        <div class="filtro-historico">
+          <label for="filtro-status">Mostrar:</label>
+          <select id="filtro-status">
+            <option value="REALIZADA" selected>Concluídas</option>
+            <option value="AGENDADA">Pendentes</option>
+            <option value="CONFIRMADA">Confirmadas</option>
+            <option value="CANCELADA">Canceladas</option>
+          </select>
+        </div>
 
         <section class="panel">
           <div class="historico-grid" id="lista-historico">

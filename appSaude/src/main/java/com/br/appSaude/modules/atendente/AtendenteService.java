@@ -31,11 +31,9 @@ public class AtendenteService {
     }
 
     @Transactional(readOnly = true)
-    public List<ConsultaAtendenteResponse> listarConsultas(String status, LocalDate data) {
-        return consultaRepository.findAll().stream()
-                .filter(c -> status == null || status.isBlank() || status.equalsIgnoreCase(c.getStatusConsulta()))
-                .filter(c -> data == null || data.equals(c.getDataConsulta()))
-                .map(this::toConsulta).toList();
+    public List<ConsultaAtendenteResponse> listarConsultas(String status, LocalDate data, String paciente) {
+        String nomePaciente = paciente == null || paciente.isBlank() ? null : paciente.trim();
+        return consultaRepository.buscarAgenda(status, data, nomePaciente);
     }
 
     @Transactional(readOnly = true)
@@ -84,6 +82,7 @@ public class AtendenteService {
         return new ConsultaAtendenteResponse(consulta.getIdConsulta(), consulta.getDataConsulta(),
                 consulta.getHoraConsulta(), consulta.getStatusConsulta(), consulta.getObservacoesConsulta(),
                 consulta.getPaciente().getId(), consulta.getPaciente().getNome(),
-                consulta.getMedico().getId(), consulta.getMedico().getNome());
+                consulta.getMedico().getId(), consulta.getMedico().getNome(),
+                consulta.getMedico().getEspecialidadeMedico());
     }
 }

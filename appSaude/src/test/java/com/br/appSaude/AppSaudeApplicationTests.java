@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 		"spring.datasource.driver-class-name=org.h2.Driver",
 		"spring.flyway.enabled=false",
 		"spring.jpa.hibernate.ddl-auto=create-drop",
+		"spring.jpa.defer-datasource-initialization=true",
 		"app.auth.jwt-secret=MDEyMzQ1Njc4OWFiY2RlZjAxMjM0NTY3ODlhYmNkZWY="
 })
 class AppSaudeApplicationTests {

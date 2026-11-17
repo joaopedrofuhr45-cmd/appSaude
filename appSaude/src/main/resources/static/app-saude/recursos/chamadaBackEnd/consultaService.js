@@ -10,6 +10,11 @@ class ConsultaService extends ApiService {
         });
     }
 
+    horariosIndisponiveis(medicoId, data) {
+        const params = new URLSearchParams({ medicoId, data });
+        return this.fetch(`/pacientes/consultas/horarios-indisponiveis?${params}`);
+    }
+
     atualizar(id, dto) {
         return this.fetch(`/pacientes/consultas/${id}`, {
             method: "PUT",
@@ -41,12 +46,15 @@ class ConsultaService extends ApiService {
     }
 
     listarPorStatus(pacienteId, status) {
-        return this.fetch("/pacientes/consultas").then((consultas) => consultas.filter((c) => c.status === status));
+        const params = new URLSearchParams({ status });
+        return this.fetch(`/pacientes/consultas?${params.toString()}`);
     }
 
-    listarPorMedico(medicoId, data) {
-        return this.fetch("/medicos/consultas").then((consultas) =>
-            data ? consultas.filter((c) => c.data === data) : consultas);
+    listarPorMedico(medicoId, data, paciente = "", status = "") {
+        const params = new URLSearchParams(
+            Object.entries({ data, paciente, status }).filter(([, valor]) => valor)
+        );
+        return this.fetch(`/medicos/consultas?${params.toString()}`);
     }
 
     listarTodas(filtros = {}) {
@@ -54,9 +62,7 @@ class ConsultaService extends ApiService {
             Object.entries(filtros).filter(([, valor]) => valor !== undefined && valor !== null && valor !== "")
         );
         const query = params.toString();
-        return this.fetch(`/atendentes/consultas${query ? `?${query}` : ""}`).then((consultas) =>
-            filtros.paciente ? consultas.filter((c) => (c.pacienteNome ?? "").toLowerCase()
-                .includes(filtros.paciente.toLowerCase())) : consultas);
+        return this.fetch(`/atendentes/consultas${query ? `?${query}` : ""}`);
     }
 }
 

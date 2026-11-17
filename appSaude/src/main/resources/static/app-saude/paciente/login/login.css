@@ -5,7 +5,6 @@ body {
 
 body {
     margin: 0;
-    background: var(--body);
     color: var(--primary-text);
     font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 }

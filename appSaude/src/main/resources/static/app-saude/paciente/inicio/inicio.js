@@ -5,7 +5,7 @@ import { pacienteService } from "../../recursos/chamadaBackEnd/pacienteService.j
 import { preencherSidebarUsuario } from "../../recursos/js/sidebarUsuario.js";
 import { escapeHtml } from "../../recursos/js/seguranca.js";
 
-const saudacao = document.querySelector("#saudacao");
+const saudacao = document.querySelector("#pagina-titulo");
 const btnLogout = document.querySelector("#btn-logout");
 
 const proximaConsultaCard = document.querySelector("#proxima-consulta-card");
@@ -110,10 +110,14 @@ async function carregarDashboard() {
     try {
         const consultas = await consultaService.listarPorPaciente(usuario.id);
 
-        const futuras = consultas.filter((c) => c.status !== "CANCELADA");
         const realizadas = consultas.filter((c) => c.status === "REALIZADA");
+        const ativas = consultas.filter((c) => c.status === "AGENDADA" || c.status === "CONFIRMADA");
+        const agora = new Date();
+        const futuras = ativas
+            .filter((c) => new Date(`${c.data}T${c.hora}`) >= agora)
+            .sort((a, b) => new Date(`${a.data}T${a.hora}`) - new Date(`${b.data}T${b.hora}`));
 
-        statMarcadas.textContent = futuras.length;
+        statMarcadas.textContent = ativas.length;
         statRealizados.textContent = realizadas.length;
         statProximoHorario.textContent = futuras[0]?.hora ?? "--:--";
 
