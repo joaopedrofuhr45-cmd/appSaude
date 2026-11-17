@@ -16,14 +16,12 @@ document.querySelector("#btn-logout").addEventListener("click", () => {
 
 const TITULOS_POR_STATUS = {
     REALIZADA: "Consulta concluída",
-    AGENDADA: "Consulta pendente",
     CONFIRMADA: "Consulta confirmada",
     CANCELADA: "Consulta cancelada",
 };
 
 const MENSAGENS_VAZIAS_POR_STATUS = {
     REALIZADA: "Não há consultas concluídas.",
-    AGENDADA: "Não há consultas pendentes.",
     CONFIRMADA: "Não há consultas confirmadas.",
     CANCELADA: "Não há consultas canceladas.",
 };

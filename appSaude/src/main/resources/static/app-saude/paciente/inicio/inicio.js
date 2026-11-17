@@ -29,10 +29,10 @@ function formatarHorario(hora) {
 function badgeStatus(status) {
     const mapa = {
         CONFIRMADA: { classe: "badge--confirmada", texto: "Confirmada" },
-        AGENDADA: { classe: "badge--pendente", texto: "Pendente" },
+        REALIZADA: { classe: "badge--finalizada", texto: "Realizada" },
         CANCELADA: { classe: "badge--cancelada", texto: "Cancelada" },
     };
-    return mapa[status] || { classe: "badge--pendente", texto: status || "Pendente" };
+    return mapa[status] || { classe: "", texto: status || "Consulta" };
 }
 
 function linkEditar(consulta) {
@@ -112,7 +112,7 @@ async function carregarDashboard() {
         const consultas = await consultaService.listarPorPaciente(usuario.id);
 
         const realizadas = consultas.filter((c) => c.status === "REALIZADA");
-        const ativas = consultas.filter((c) => c.status === "AGENDADA" || c.status === "CONFIRMADA");
+        const ativas = consultas.filter((c) => c.status === "CONFIRMADA");
         const agora = new Date();
         const futuras = ativas
             .filter((c) => new Date(`${c.data}T${c.hora}`) >= agora)

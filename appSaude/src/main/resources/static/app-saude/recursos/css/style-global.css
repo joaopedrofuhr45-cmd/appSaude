@@ -480,7 +480,6 @@ form {
 }
 
 .row--confirmado { border-left-color: var(--cor-sucesso); }
-.row--espera { border-left-color: var(--cor-info); }
 .row--finalizado { border-left-color: #cbd5e1; }
 .row--cancelado { border-left-color: var(--cor-erro); }
 
@@ -516,8 +515,6 @@ form {
     font-size: 18px;
 }
 
-.pill--agendado,
-.pill--espera { background: #e0f2fe; color: #0369a1; }
 .pill--confirmado { background: #dcfce7; color: #15803d; }
 .pill--finalizado { background: #f1f5f9; color: var(--cor-texto-secundario); }
 .pill--cancelado { background: #fee2e2; color: #b91c1c; }

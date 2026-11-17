@@ -101,7 +101,7 @@ public class PacienteService {
         EntityJpaConsultas consulta = EntityJpaConsultas.builder()
                 .dataConsulta(request.data())
                 .horaConsulta(request.hora())
-                .statusConsulta("AGENDADA")
+                .statusConsulta("CONFIRMADA")
                 .observacoesConsulta(request.observacoes())
                 .paciente(paciente)
                 .medico(medico)

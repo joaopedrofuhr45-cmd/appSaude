@@ -428,7 +428,6 @@
 }
 
 .badge--confirmada { background: #dcfce7; color: #15803d; }
-.badge--pendente { background: #fef3c7; color: #b45309; }
 .badge--cancelada { background: #fee2e2; color: #b91c1c; }
 
 /* ---------- estados de carregamento/erro/vazio ---------- */

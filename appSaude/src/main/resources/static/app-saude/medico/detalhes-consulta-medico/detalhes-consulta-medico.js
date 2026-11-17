@@ -26,12 +26,11 @@ function formatarHora(hora) {
 
 function pillSituacao(status) {
     const mapa = {
-        AGENDADA: { classe: "pill--agendado", texto: "Agendado" },
         CONFIRMADA: { classe: "pill--confirmado", texto: "Confirmada" },
         REALIZADA: { classe: "pill--finalizado", texto: "Finalizada" },
         CANCELADA: { classe: "pill--cancelado", texto: "Cancelada" },
     };
-    return mapa[status] || { classe: "pill--agendado", texto: status ?? "" };
+    return mapa[status] || { classe: "", texto: status ?? "" };
 }
 
 async function carregar() {

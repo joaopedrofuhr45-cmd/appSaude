@@ -136,7 +136,7 @@ public class TestAccountsInitializer implements ApplicationRunner {
                 consultaRepository.save(EntityJpaConsultas.builder()
                         .dataConsulta(data)
                         .horaConsulta(hora)
-                        .statusConsulta("AGENDADA")
+                        .statusConsulta("CONFIRMADA")
                         .observacoesConsulta("Consulta de demonstração para testar a integração dos perfis.")
                         .paciente(paciente)
                         .medico(medico)

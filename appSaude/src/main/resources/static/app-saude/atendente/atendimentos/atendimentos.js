@@ -43,7 +43,7 @@ const listaAtendimentos = document.querySelector("#lista-atendimentos");
 const tituloAgenda = document.querySelector("#titulo-agenda");
 
 const statTotal = document.querySelector("#stat-total");
-const statAgendadas = document.querySelector("#stat-agendadas");
+const statConfirmadas = document.querySelector("#stat-confirmadas");
 const statProximo = document.querySelector("#stat-proximo");
 
 filtroData.value = hojeLocalISO();
@@ -56,12 +56,11 @@ function formatarDataLonga(dataISO) {
 
 function classesPill(status) {
     const mapa = {
-        AGENDADA: { classe: "pill--agendado", texto: "Agendado", linha: "" },
         CONFIRMADA: { classe: "pill--confirmado", texto: "Confirmado", linha: "row--confirmado" },
         REALIZADA: { classe: "pill--finalizado", texto: "Finalizado", linha: "row--finalizado" },
         CANCELADA: { classe: "pill--cancelado", texto: "Cancelado", linha: "row--cancelado" },
     };
-    return mapa[status] || { classe: "pill--agendado", texto: status, linha: "" };
+    return mapa[status] || { classe: "", texto: status || "Consulta", linha: "" };
 }
 
 function renderLista(consultas) {
@@ -101,7 +100,7 @@ async function carregar() {
 
         consultasCarregadas = consultas;
         statTotal.textContent = consultas.length;
-        statAgendadas.textContent = consultas.filter((c) => c.status !== "CANCELADA" && c.status !== "REALIZADA").length;
+        statConfirmadas.textContent = consultas.filter((c) => c.status === "CONFIRMADA").length;
         statProximo.textContent = consultas[0] ? formatarHora(consultas[0].hora) : "--:--";
 
         renderLista(consultas);

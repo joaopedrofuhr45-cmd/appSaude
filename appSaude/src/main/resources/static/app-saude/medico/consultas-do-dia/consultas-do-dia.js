@@ -25,12 +25,11 @@ const btnAtualizar = document.querySelector("#btn-atualizar");
 
 function classesPill(status) {
     const mapa = {
-        AGENDADA: { classe: "pill--agendado", texto: "Agendado", linha: "row--espera" },
         CONFIRMADA: { classe: "pill--confirmado", texto: "Confirmado", linha: "row--confirmado" },
         REALIZADA: { classe: "pill--finalizado", texto: "Finalizado", linha: "row--finalizado" },
         CANCELADA: { classe: "pill--cancelado", texto: "Cancelado", linha: "row--cancelado" },
     };
-    return mapa[status] || { classe: "pill--agendado", texto: status, linha: "" };
+    return mapa[status] || { classe: "", texto: status || "Consulta", linha: "" };
 }
 
 function formatarHora(hora) {
@@ -43,7 +42,7 @@ function renderLista(consultas) {
         return;
     }
 
-    tituloLista.textContent = `${consultas.length} consulta${consultas.length === 1 ? "" : "s"} agendada${consultas.length === 1 ? "" : "s"}`;
+    tituloLista.textContent = consultas.length + " consulta" + (consultas.length === 1 ? "" : "s") + " do dia";
 
     listaConsultas.innerHTML = consultas
         .map((consulta) => {
