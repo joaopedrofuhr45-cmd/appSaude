@@ -46,8 +46,9 @@ class ConsultaService extends ApiService {
     }
 
     listarPorStatus(pacienteId, status) {
-        const params = new URLSearchParams({ status });
-        return this.fetch(`/pacientes/consultas?${params.toString()}`);
+        const params = new URLSearchParams(status ? { status } : {});
+        const query = params.toString();
+        return this.fetch(`/pacientes/consultas${query ? `?${query}` : ""}`);
     }
 
     listarPorMedico(medicoId, data, paciente = "", status = "") {
