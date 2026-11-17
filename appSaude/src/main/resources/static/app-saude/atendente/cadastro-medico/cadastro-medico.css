@@ -1,0 +1,71 @@
+.cadastro-panel {
+    width: 100%;
+    max-width: 900px;
+}
+
+.cadastro-panel .panel-header {
+    margin-bottom: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 20px;
+}
+
+.cadastro-panel .campo {
+    gap: 7px;
+}
+
+.cadastro-panel .campo input,
+.cadastro-panel .campo select {
+    height: 42px;
+    font-size: 13px;
+}
+
+.opcional {
+    color: var(--secondary-text);
+    font-weight: var(--font-weight-regular);
+}
+
+.dica-senha {
+    margin: 16px 0 0;
+    color: var(--secondary-text);
+    font-size: 12px;
+}
+
+.mensagem:not([hidden]) {
+    margin: 16px 0 0;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: var(--secondary);
+    color: var(--primary);
+    text-align: left;
+}
+
+.mensagem.estado--erro {
+    background: #fbe4e4;
+    color: #c0392b;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.form-actions .btn-primary:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+@media (max-width: 640px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .dashboard-content {
+        padding: 20px 16px 28px;
+    }
+}

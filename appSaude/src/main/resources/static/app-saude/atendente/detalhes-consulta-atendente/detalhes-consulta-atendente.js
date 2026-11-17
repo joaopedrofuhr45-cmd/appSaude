@@ -31,10 +31,6 @@ async function carregar() {
         set("#pessoa-sub", "Paciente");
         set("#mini-tipo", "Consulta");
         set("#mini-unidade", "–");
-        document.querySelector("#btn-iniciar-atendimento").addEventListener("click", () => {
-            location.href = `../../medico/atendimentos/atendimentos.html?id=${encodeURIComponent(id)}`;
-        });
-        document.querySelector("#btn-cancelar").hidden = true;
     } catch (error) {
         set("#subtitulo-consulta", error.message || "Não foi possível carregar a consulta.");
     }

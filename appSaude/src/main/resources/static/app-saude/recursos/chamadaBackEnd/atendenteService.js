@@ -2,6 +2,13 @@ import { ApiService } from "./api.js";
 
 class AtendenteService extends ApiService {
 
+    cadastrarMedico(dto) {
+        return this.fetch("/atendentes/medicos", {
+            method: "POST",
+            body: JSON.stringify(dto),
+        });
+    }
+
     getPerfil() {
         return this.fetch("/atendentes/perfil");
     }

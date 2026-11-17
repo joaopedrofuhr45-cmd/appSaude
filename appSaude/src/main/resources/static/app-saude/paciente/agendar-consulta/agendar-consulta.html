@@ -6,6 +6,7 @@
     <title>Agendar consulta | Saúde+</title>
     <link rel="stylesheet" href="../../recursos/css/style-global.css" />
     <link rel="stylesheet" href="../../recursos/css/dashboard-paciente.css" />
+    <link rel="stylesheet" href="../../recursos/css/week-calendar.css" />
     <link rel="stylesheet" href="agendar-consulta.css" />
   </head>
 
@@ -56,33 +57,12 @@
           </div>
         </div>
 
-        <h1 class="page-title">Agendar consulta</h1>
-        <p class="page-subtitle">
+        <h1 class="page-title" id="pagina-titulo">Agendar consulta</h1>
+        <p class="page-subtitle" id="pagina-subtitulo">
           Escolha a especialidade, o profissional e o melhor horário para
           atendimento.
         </p>
-        <h1 class="page-title">Histórico</h1>
-        <p class="page-subtitle">
-          Veja consultas finalizadas, retornos e registros recentes do seu
-          atendimento.
-        </p>
-
-        <div class="filtro-historico">
-          <label for="filtro-status">Mostrar:</label>
-          <select id="filtro-status">
-            <option value="REALIZADA" selected>Concluídas</option>
-            <option value="AGENDADA">Pendentes</option>
-            <option value="CONFIRMADA">Confirmadas</option>
-            <option value="CANCELADA">Canceladas</option>
-          </select>
-        </div>
-
-        <section class="panel">
-          <div class="historico-grid" id="lista-historico">
-            <div class="estado">Carregando histórico...</div>
-          </div>
-        </section>
-        <section class="panel">
+        <section class="panel booking-panel">
           <form id="form-agendar">
             <div class="campo-linha">
               <div class="campo">
@@ -103,14 +83,36 @@
               </div>
             </div>
 
-            <div class="campo-linha">
-              <div class="campo">
-                <label for="data">Data</label>
-                <input type="date" id="data" name="data" required />
+            <div class="campo campo-calendario">
+              <label>Data</label>
+              <input type="hidden" id="data" name="data" />
+              <div class="week-calendar" aria-label="Escolha a data da consulta">
+                <div class="week-calendar__toolbar">
+                  <button class="week-calendar__nav" id="calendario-anterior" type="button" aria-label="Semana anterior">
+                    <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                  </button>
+                  <h2 class="week-calendar__month" id="calendario-mes" aria-live="polite"></h2>
+                  <div class="week-calendar__actions">
+                    <button class="week-calendar__nav" id="calendario-proximo" type="button" aria-label="Próxima semana">
+                      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+                    <button class="week-calendar__today" id="calendario-hoje" type="button">Hoje</button>
+                  </div>
+                </div>
+                <div class="week-calendar__days" id="calendario-dias" role="group" aria-label="Dias da semana"></div>
               </div>
-              <div class="campo">
-                <label for="horario">Horário</label>
-                <input type="time" id="horario" name="horario" required />
+            </div>
+
+            <div class="campo campo-horarios" role="group" aria-labelledby="rotulo-horario">
+              <span class="campo-label" id="rotulo-horario">Horário</span>
+              <input type="hidden" id="horario" name="horario" />
+              <div class="horario-periodo" role="group" aria-labelledby="rotulo-manha">
+                <h3 class="horario-periodo__titulo" id="rotulo-manha">Manhã</h3>
+                <div class="horarios-lista" id="horarios-manha"></div>
+              </div>
+              <div class="horario-periodo" role="group" aria-labelledby="rotulo-tarde">
+                <h3 class="horario-periodo__titulo" id="rotulo-tarde">Tarde</h3>
+                <div class="horarios-lista" id="horarios-tarde"></div>
               </div>
             </div>
 

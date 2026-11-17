@@ -3,6 +3,75 @@
     grid-template-columns: repeat(3, 1fr);
 }
 
-/* Stats */
-/* Lista de atendimentos */
-#filtro-data { max-width: 160px; }
+.card-filters {
+    display: grid;
+    grid-template-columns: minmax(0, 2.15fr) minmax(170px, 1fr) minmax(150px, 0.9fr);
+    align-items: end;
+    gap: 18px;
+}
+
+.card-filters .campo-calendario {
+    min-width: 0;
+}
+
+.card-filters .campo-calendario > label {
+    margin-bottom: 2px;
+}
+
+.card-filters .week-calendar__toolbar {
+    gap: 6px;
+    margin-bottom: 8px;
+}
+
+.card-filters .week-calendar__nav {
+    width: 32px;
+    min-height: 32px;
+    border-radius: 8px;
+}
+
+.card-filters .week-calendar__today {
+    min-height: 32px;
+    padding: 0 9px;
+    border-radius: 8px;
+}
+
+.card-filters .week-calendar__days {
+    gap: 5px;
+}
+
+.card-filters .week-calendar__day {
+    min-height: 52px;
+    padding: 6px 2px;
+    border-radius: 9px;
+}
+
+.card-filters .week-calendar__weekday {
+    font-size: 10px;
+}
+
+.card-filters .week-calendar__number {
+    font-size: 14px;
+}
+
+@media (max-width: 1150px) {
+    .card-filters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: end;
+    }
+
+    .card-filters .campo-calendario {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 640px) {
+    .card-filters {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .card-filters .campo-calendario {
+        grid-column: auto;
+    }
+}

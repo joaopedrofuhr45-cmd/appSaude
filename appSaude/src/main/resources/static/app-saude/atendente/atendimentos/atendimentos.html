@@ -6,6 +6,7 @@
     <title>Atendimentos | Saúde+</title>
     <link rel="stylesheet" href="../../recursos/css/style-global.css">
     <link rel="stylesheet" href="../../recursos/css/dashboard-staff.css">
+    <link rel="stylesheet" href="../../recursos/css/week-calendar.css">
     <link rel="stylesheet" href="atendimentos.css">
 </head>
 <body>
@@ -18,6 +19,7 @@
         </div>
         <nav>
             <a href="atendimentos.html" class="ativo"><span class="dot"></span> Atendimentos</a>
+            <a href="../cadastro-medico/cadastro-medico.html"><span class="dot"></span> Cadastrar médico</a>
             <a href="../configuracoes-atendente/configuracoes-atendente.html"><span class="dot"></span> Configurações</a>
         </nav>
         <hr class="divider">
@@ -31,9 +33,9 @@
             </a>
             <div class="topbar-actions">
                 <button class="icon-btn" title="Notificações"><i class="fa-regular fa-bell"></i></button>
-                <button class="btn-primary" id="btn-novo-agendamento">
-                    <i class="fa-solid fa-plus"></i> Novo agendamento
-                </button>
+                <a class="btn-primary" href="../cadastro-medico/cadastro-medico.html">
+                    <i class="fa-solid fa-user-doctor"></i> Cadastrar médico
+                </a>
             </div>
         </div>
 
@@ -41,9 +43,24 @@
         <p class="page-subtitle">Todas as consultas do hospital na data selecionada.</p>
 
         <section class="panel card-filters">
-            <div class="campo">
-                <label for="filtro-data">Data</label>
-                <input type="date" id="filtro-data">
+            <div class="campo campo-calendario">
+                <label id="rotulo-filtro-data">Data</label>
+                <input type="hidden" id="filtro-data" aria-labelledby="rotulo-filtro-data">
+                <div class="week-calendar" aria-label="Escolha a data da agenda">
+                    <div class="week-calendar__toolbar">
+                        <button class="week-calendar__nav" id="calendario-anterior" type="button" aria-label="Semana anterior">
+                            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <h2 class="week-calendar__month" id="calendario-mes" aria-live="polite"></h2>
+                        <div class="week-calendar__actions">
+                            <button class="week-calendar__nav" id="calendario-proximo" type="button" aria-label="Próxima semana">
+                                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                            </button>
+                            <button class="week-calendar__today" id="calendario-hoje" type="button">Hoje</button>
+                        </div>
+                    </div>
+                    <div class="week-calendar__days" id="calendario-dias" role="group" aria-label="Dias da semana"></div>
+                </div>
             </div>
             <div class="campo">
                 <label for="filtro-paciente">Buscar paciente</label>

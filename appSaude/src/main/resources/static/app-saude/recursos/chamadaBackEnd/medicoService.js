@@ -7,6 +7,10 @@ class MedicoService extends ApiService {
         return this.fetch(`/medicos${query}`);
     }
 
+    listarEspecialidades() {
+        return this.fetch("/medicos/especialidades");
+    }
+
     getPerfil() {
         return this.fetch("/medicos/perfil");
     }

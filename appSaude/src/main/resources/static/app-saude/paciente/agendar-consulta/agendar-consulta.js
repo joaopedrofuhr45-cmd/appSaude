@@ -3,6 +3,7 @@ import { authService } from "../../recursos/chamadaBackEnd/authService.js";
 import { consultaService } from "../../recursos/chamadaBackEnd/consultaService.js";
 import { medicoService } from "../../recursos/chamadaBackEnd/medicoService.js";
 import { preencherSidebarUsuario } from "../../recursos/js/sidebarUsuario.js";
+import { montarCalendarioSemana } from "../../recursos/js/weekCalendar.js";
 
 const usuario = authService.getUsuarioLogado();
 preencherSidebarUsuario(usuario);
@@ -14,6 +15,12 @@ document.querySelector("#btn-logout").addEventListener("click", () => {
 
 const params = new URLSearchParams(window.location.search);
 const editandoId = params.get("id");
+const horarioInput = document.querySelector("#horario");
+const horariosManha = document.querySelector("#horarios-manha");
+const horariosTarde = document.querySelector("#horarios-tarde");
+
+const opcoesManha = ["08:00", "08:30", "09:00", "09:30", "10:00", "10:30", "11:00", "11:30"];
+const opcoesTarde = ["13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30"];
 
 const especialidadeParam = params.get("especialidade");
 if (especialidadeParam) {
@@ -25,7 +32,7 @@ if (especialidadeParam) {
 
 if (editandoId) {
     document.querySelector("#data").value = params.get("data") ?? "";
-    document.querySelector("#horario").value = params.get("horario") ?? "";
+    horarioInput.value = (params.get("horario") ?? "").slice(0, 5);
     document.querySelector("#observacao").value = params.get("observacao") ?? "";
 
     document.querySelector("#pagina-titulo").textContent = "Editar consulta";
@@ -34,6 +41,48 @@ if (editandoId) {
     document.querySelector("#btn-solicitar").innerHTML =
         `<i class="fa-regular fa-floppy-disk"></i> Salvar alterações`;
 }
+
+const calendarioData = montarCalendarioSemana({
+    input: document.querySelector("#data"),
+    dias: document.querySelector("#calendario-dias"),
+    titulo: document.querySelector("#calendario-mes"),
+    anterior: document.querySelector("#calendario-anterior"),
+    proximo: document.querySelector("#calendario-proximo"),
+    hoje: document.querySelector("#calendario-hoje"),
+    permitirDatasPassadas: false,
+});
+
+function renderizarHorarios() {
+    const horarioAtual = horarioInput.value;
+    const manha = [...opcoesManha];
+    const tarde = [...opcoesTarde];
+
+    if (editandoId && horarioAtual && ![...manha, ...tarde].includes(horarioAtual)) {
+        (horarioAtual < "12:00" ? manha : tarde).push(horarioAtual);
+    }
+
+    horariosManha.replaceChildren();
+    horariosTarde.replaceChildren();
+
+    for (const [container, opcoes] of [[horariosManha, manha], [horariosTarde, tarde]]) {
+        opcoes.sort();
+        for (const horario of opcoes) {
+            const botao = document.createElement("button");
+            botao.type = "button";
+            botao.className = "horario-opcao";
+            botao.textContent = horario;
+            botao.dataset.horario = horario;
+            botao.setAttribute("aria-pressed", String(horario === horarioAtual));
+            botao.addEventListener("click", () => {
+                horarioInput.value = horario;
+                renderizarHorarios();
+            });
+            container.append(botao);
+        }
+    }
+}
+
+renderizarHorarios();
 
 const form = document.querySelector("#form-agendar");
 const btnSolicitar = document.querySelector("#btn-solicitar");
@@ -77,6 +126,12 @@ form.addEventListener("submit", async (event) => {
         return;
     }
 
+    if (!horarioInput.value) {
+        mostrarMensagem("Selecione um horário para a consulta.", true);
+        document.querySelector(".horario-opcao")?.focus();
+        return;
+    }
+
     const dto = {
         medicoId: Number(document.querySelector("#medico").value),
         data: document.querySelector("#data").value,
@@ -94,7 +149,10 @@ form.addEventListener("submit", async (event) => {
         } else {
             await consultaService.criar(dto);
             mostrarMensagem("Consulta solicitada com sucesso! Você será notificado quando for confirmada.");
+            const dataSelecionada = calendarioData.obterData();
             form.reset();
+            calendarioData.definirData(dataSelecionada, false);
+            renderizarHorarios();
         }
     } catch (error) {
         mostrarMensagem(error.message || "Não foi possível salvar a consulta.", true);

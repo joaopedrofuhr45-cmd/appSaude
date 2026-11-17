@@ -1,9 +1,12 @@
 package com.br.appSaude.modules.medico;
 
 import com.br.appSaude.modules.consultas.EntityJpaConsultas;
+import com.br.appSaude.modules.auth.Role;
+import com.br.appSaude.modules.auth.UsuarioAuth;
 import com.br.appSaude.modules.auth.UsuarioAuthRepository;
 import com.br.appSaude.modules.medico.dto.AtualizarMedicoRequest;
 import com.br.appSaude.modules.medico.dto.ConsultaMedicoResponse;
+import com.br.appSaude.modules.medico.dto.CriarMedicoRequest;
 import com.br.appSaude.modules.medico.dto.FinalizarConsultaRequest;
 import com.br.appSaude.modules.medico.dto.MedicoPerfilResponse;
 import com.br.appSaude.modules.medico.dto.MedicoPublicoResponse;
@@ -50,6 +53,40 @@ public class MedicoService {
         return medicoRepository.findAllByOrderByNomeAsc().stream()
                 .map(EntityJpaMedico::getEspecialidadeMedico).filter(s -> s != null && !s.isBlank())
                 .distinct().sorted().toList();
+    }
+
+    @Transactional
+    public MedicoPublicoResponse cadastrar(CriarMedicoRequest request) {
+        String cpf = request.cpf().trim();
+        String crm = request.crm().trim();
+        if (medicoRepository.findByCpfMedico(cpf).isPresent()
+                || usuarioAuthRepository.findByCpf(cpf).isPresent()) {
+            throw new IllegalStateException("Já existe uma conta com este CPF.");
+        }
+        if (medicoRepository.existsByCrmMedico(crm)) {
+            throw new IllegalStateException("Já existe um médico cadastrado com este CRM.");
+        }
+
+        EntityJpaMedico medico = EntityJpaMedico.builder()
+                .nome(request.nome().trim())
+                .cpfMedico(cpf)
+                .especialidadeMedico(request.especialidade().trim())
+                .crmMedico(crm)
+                .email(request.email().trim().toLowerCase())
+                .telefone(request.telefone() == null || request.telefone().isBlank()
+                        ? null : request.telefone().trim())
+                .build();
+        medico = medicoRepository.save(medico);
+
+        UsuarioAuth usuario = new UsuarioAuth();
+        usuario.setCpf(cpf);
+        usuario.setSenhaHash(passwordEncoder.encode(request.senha()));
+        usuario.setRole(Role.MEDICO);
+        usuario.setPerfilId(medico.getId());
+        usuarioAuthRepository.save(usuario);
+
+        return new MedicoPublicoResponse(medico.getId(), medico.getNome(),
+                medico.getEspecialidadeMedico(), medico.getCrmMedico());
     }
 
     @Transactional

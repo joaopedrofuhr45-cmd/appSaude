@@ -3,6 +3,7 @@ import { authService } from "../../recursos/chamadaBackEnd/authService.js";
 import { consultaService } from "../../recursos/chamadaBackEnd/consultaService.js";
 import { preencherSidebarStaff } from "../../recursos/js/staffSidebar.js";
 import { escapeHtml, hojeLocalISO } from "../../recursos/js/seguranca.js";
+import { montarCalendarioSemana } from "../../recursos/js/weekCalendar.js";
 
 const usuario = authService.getUsuarioLogado();
 preencherSidebarStaff(usuario, "Atendente · Recepção");
@@ -10,10 +11,6 @@ preencherSidebarStaff(usuario, "Atendente · Recepção");
 document.querySelector("#btn-logout").addEventListener("click", () => {
     authService.logout();
     window.location.href = "../../telas-comuns/login-medico-atendente/login-medico-atendente.html";
-});
-
-document.querySelector("#btn-novo-agendamento").addEventListener("click", () => {
-    alert("Agendamento manual pelo atendente ainda não foi implementado.");
 });
 
 document.querySelector("#btn-exportar").addEventListener("click", () => {
@@ -98,6 +95,16 @@ filtroSituacao.addEventListener("change", carregar);
 filtroPaciente.addEventListener("input", () => {
     clearTimeout(filtroPaciente._t);
     filtroPaciente._t = setTimeout(carregar, 400);
+});
+
+montarCalendarioSemana({
+    input: filtroData,
+    dias: document.querySelector("#calendario-dias"),
+    titulo: document.querySelector("#calendario-mes"),
+    anterior: document.querySelector("#calendario-anterior"),
+    proximo: document.querySelector("#calendario-proximo"),
+    hoje: document.querySelector("#calendario-hoje"),
+    permitirDatasPassadas: true,
 });
 
 carregar();
