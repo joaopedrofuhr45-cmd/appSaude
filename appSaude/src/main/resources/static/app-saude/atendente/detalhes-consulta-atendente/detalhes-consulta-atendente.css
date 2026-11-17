@@ -27,6 +27,7 @@
 }
 
 .pairs-row:last-child { margin-bottom: 0; }
+.pairs-row .pair:only-child { flex-basis: 100%; }
 
 .pair {
     flex: 1;

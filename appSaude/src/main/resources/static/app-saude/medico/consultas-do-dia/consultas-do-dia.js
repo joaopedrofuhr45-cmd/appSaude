@@ -33,6 +33,10 @@ function classesPill(status) {
     return mapa[status] || { classe: "pill--agendado", texto: status, linha: "" };
 }
 
+function formatarHora(hora) {
+    return hora ? String(hora).slice(0, 5) : "–";
+}
+
 function renderLista(consultas) {
     if (!consultas.length) {
         listaConsultas.innerHTML = `<p class="estado">Nenhuma consulta encontrada para esse filtro.</p>`;
@@ -46,7 +50,7 @@ function renderLista(consultas) {
             const pill = classesPill(consulta.status);
             return `
                 <a class="row ${pill.linha}" href="../detalhes-consulta-medico/detalhes-consulta-medico.html?id=${encodeURIComponent(consulta.id)}">
-                    <span class="horario">${escapeHtml(consulta.hora)}</span>
+                    <span class="horario">${escapeHtml(formatarHora(consulta.hora))}</span>
                     <span class="quem">
                         <strong>${escapeHtml(consulta.pacienteNome ?? "Paciente")}</strong>
                         <span>${escapeHtml(consulta.especialidade)}</span>

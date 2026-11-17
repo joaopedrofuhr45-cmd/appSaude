@@ -13,6 +13,7 @@ document.querySelector("#btn-logout").addEventListener("click", () => {
 
 const consultaId = new URLSearchParams(window.location.search).get("id");
 const mensagem = document.querySelector("#mensagem-atendimento");
+let consultaPodeSerFinalizada = false;
 
 function mostrarMensagem(texto, erro = false) {
     mensagem.textContent = texto;
@@ -28,25 +29,38 @@ async function carregar() {
 
     try {
         const consulta = await consultaService.getById(consultaId);
+        const status = String(consulta.status ?? "").toUpperCase();
 
         document.querySelector("#titulo-atendimento").textContent = `Atendimento de ${consulta.pacienteNome ?? "paciente"}`;
         document.querySelector("#pessoa-nome").textContent = consulta.pacienteNome ?? "–";
         document.querySelector("#pessoa-sub").textContent = consulta.pacienteIdade
             ? `${consulta.pacienteIdade} anos`
             : "";
-        document.querySelector("#mini-convenio").textContent = consulta.convenio ?? "Particular";
-        document.querySelector("#mini-horario").textContent = consulta.hora ?? "–";
-        document.querySelector("#mini-situacao").textContent = "Em atendimento";
-
+        document.querySelector("#mini-horario").textContent = consulta.hora
+            ? String(consulta.hora).slice(0, 5)
+            : "–";
+        document.querySelector("#mini-situacao").textContent = status === "REALIZADA"
+            ? "Finalizada"
+            : status === "CANCELADA" ? "Cancelada" : "Em atendimento";
         if (consulta.observacoes) {
             document.querySelector("#observacoes").value = consulta.observacoes;
         }
+
+        if (status === "REALIZADA" || status === "CANCELADA") {
+            document.querySelectorAll(".prontuario-blocks textarea").forEach((campo) => { campo.disabled = true; });
+            document.querySelector("#tempo-atendimento").textContent = status === "REALIZADA" ? "Finalizada" : "Cancelada";
+            mostrarMensagem("Esta consulta já foi finalizada ou cancelada e não pode iniciar outro atendimento.", true);
+            return;
+        }
+        consultaPodeSerFinalizada = true;
+        document.querySelector("#btn-finalizar").disabled = false;
     } catch (error) {
         mostrarMensagem(error.message || "Não foi possível carregar a consulta.", true);
     }
 }
 
 document.querySelector("#btn-finalizar").addEventListener("click", async () => {
+    if (!consultaPodeSerFinalizada) return;
     const prontuario = [
         document.querySelector("#queixa-principal").value.trim(),
         document.querySelector("#historico-clinico").value.trim(),

@@ -12,11 +12,16 @@ document.querySelector("#btn-logout").addEventListener("click", () => {
 });
 
 const consultaId = new URLSearchParams(window.location.search).get("id");
+let consultaAtual = null;
 
 function formatarData(dataISO) {
     if (!dataISO) return "";
     const [ano, mes, dia] = dataISO.split("-");
     return `${dia}/${mes}/${ano}`;
+}
+
+function formatarHora(hora) {
+    return hora ? String(hora).slice(0, 5) : "";
 }
 
 function pillSituacao(status) {
@@ -37,17 +42,18 @@ async function carregar() {
 
     try {
         const consulta = await consultaService.getById(consultaId);
+        consultaAtual = consulta;
+        const hora = formatarHora(consulta.hora);
+        const status = String(consulta.status ?? "").toUpperCase();
 
         document.querySelector("#subtitulo-consulta").textContent =
-            `Consulta de ${formatarData(consulta.data)}, às ${consulta.hora ?? ""}.`;
+            `Consulta de ${formatarData(consulta.data)}, às ${hora}.`;
 
         document.querySelector("#info-paciente").textContent = consulta.pacienteNome ?? "–";
         document.querySelector("#info-medico").textContent = usuario?.nome ?? "–";
         document.querySelector("#info-especialidade").textContent = consulta.especialidade ?? "–";
         document.querySelector("#info-data-hora").textContent =
-            `${formatarData(consulta.data)} às ${consulta.hora ?? ""}`;
-        document.querySelector("#info-convenio").textContent = consulta.convenio ?? "Particular";
-
+            `${formatarData(consulta.data)} às ${hora}`;
         const pill = pillSituacao(consulta.status);
         const situacaoEl = document.querySelector("#info-situacao");
         situacaoEl.textContent = pill.texto;
@@ -60,13 +66,15 @@ async function carregar() {
         document.querySelector("#pessoa-sub").textContent = consulta.pacienteIdade
             ? `${consulta.pacienteIdade} anos`
             : "";
-        document.querySelector("#mini-convenio").textContent = consulta.convenio ?? "Particular";
         document.querySelector("#mini-tipo").textContent = consulta.tipoConsulta ?? "Consulta";
         document.querySelector("#mini-unidade").textContent = consulta.local ?? "–";
 
-        if (consulta.status === "CANCELADA" || consulta.status === "REALIZADA") {
-            document.querySelector("#btn-cancelar").disabled = true;
-        }
+        const finalizadaOuCancelada = status === "CANCELADA" || status === "REALIZADA";
+        document.querySelector("#btn-iniciar-atendimento").disabled = finalizadaOuCancelada;
+        document.querySelector("#btn-iniciar-atendimento").title = finalizadaOuCancelada
+            ? "Não é possível iniciar atendimento para uma consulta finalizada ou cancelada."
+            : "Iniciar atendimento";
+        document.querySelector("#btn-cancelar").disabled = finalizadaOuCancelada;
     } catch (error) {
         document.querySelector("#subtitulo-consulta").textContent =
             error.message || "Não foi possível carregar a consulta.";
@@ -84,6 +92,8 @@ document.querySelector("#btn-cancelar").addEventListener("click", async () => {
     }
 });
 document.querySelector("#btn-iniciar-atendimento").addEventListener("click", () => {
+    const status = String(consultaAtual?.status ?? "").toUpperCase();
+    if (status === "REALIZADA" || status === "CANCELADA") return;
     window.location.href = `../atendimentos/atendimentos.html?id=${encodeURIComponent(consultaId)}`;
 });
 carregar();
