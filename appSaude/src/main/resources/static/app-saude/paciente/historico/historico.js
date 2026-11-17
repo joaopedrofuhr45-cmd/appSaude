@@ -21,6 +21,7 @@ const TITULOS_POR_STATUS = {
 };
 
 const MENSAGENS_VAZIAS_POR_STATUS = {
+    "": "Nenhuma consulta registrada.",
     REALIZADA: "Não há consultas concluídas.",
     CONFIRMADA: "Não há consultas confirmadas.",
     CANCELADA: "Não há consultas canceladas.",
