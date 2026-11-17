@@ -36,6 +36,10 @@ function formatarData(dataISO) {
     return dia + "/" + mes + "/" + ano;
 }
 
+function formatarHorario(hora) {
+    return hora ? String(hora).slice(0, 5) : "--:--";
+}
+
 function tituloStatus(status) {
     return TITULOS_POR_STATUS[status] ?? "Consulta";
 }
@@ -55,7 +59,7 @@ function renderConsultas(consultas, status) {
             '<article class="historico-item">',
             "<strong>" + escapeHtml(tituloStatus(consulta.status)) + "</strong>",
             '<span class="subtitulo">' + escapeHtml(consulta.especialidade) + " - " +
-                formatarData(consulta.data) + " às " + escapeHtml(consulta.hora ?? "") + "</span>",
+                formatarData(consulta.data) + " às " + escapeHtml(formatarHorario(consulta.hora)) + "</span>",
             '<span class="descricao">' +
                 escapeHtml(consulta.observacoes || "Sem observações registradas.") + "</span>",
             "</article>",

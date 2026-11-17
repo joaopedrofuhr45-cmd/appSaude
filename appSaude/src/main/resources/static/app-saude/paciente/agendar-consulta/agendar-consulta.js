@@ -231,7 +231,7 @@ form.addEventListener("submit", async (event) => {
             mostrarMensagem("Consulta atualizada com sucesso!");
         } else {
             await consultaService.criar(dto);
-            mostrarMensagem("Consulta solicitada com sucesso. Você será notificado quando for confirmada.");
+            mostrarMensagem("Consulta realizada com sucesso!.");
             form.reset();
             inputData.value = hojeISO;
             inputHorario.value = "";

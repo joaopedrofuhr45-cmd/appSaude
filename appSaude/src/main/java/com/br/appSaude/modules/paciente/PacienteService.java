@@ -67,9 +67,14 @@ public class PacienteService {
     }
 
     @Transactional(readOnly = true)
-    public List<String> horariosIndisponiveis(Long medicoId, java.time.LocalDate data) {
-        return consultaRepository.findByMedico_IdAndDataConsultaAndStatusConsultaNot(medicoId, data, "CANCELADA")
-                .stream().map(consulta -> consulta.getHoraConsulta().toString().substring(0, 5)).toList();
+    public List<String> horariosIndisponiveis(String cpf, Long medicoId, java.time.LocalDate data) {
+        Long pacienteId = buscarPaciente(cpf).getId();
+        return java.util.stream.Stream.concat(
+                        consultaRepository.findByMedico_IdAndDataConsultaAndStatusConsultaNot(medicoId, data, "CANCELADA").stream(),
+                        consultaRepository.findByPaciente_IdAndDataConsultaAndStatusConsultaNot(pacienteId, data, "CANCELADA").stream())
+                .map(consulta -> consulta.getHoraConsulta().toString().substring(0, 5))
+                .distinct()
+                .toList();
     }
 
     @Transactional(readOnly = true)
@@ -87,6 +92,10 @@ public class PacienteService {
         if (consultaRepository.existsByMedico_IdAndDataConsultaAndHoraConsultaAndStatusConsultaNot(
                 medico.getId(), request.data(), request.hora(), "CANCELADA")) {
             throw new IllegalStateException("O médico já possui uma consulta nesse horário.");
+        }
+        if (consultaRepository.existsByPaciente_IdAndDataConsultaAndHoraConsultaAndStatusConsultaNot(
+                paciente.getId(), request.data(), request.hora(), "CANCELADA")) {
+            throw new IllegalStateException("Você já possui uma consulta nesse dia e horário.");
         }
 
         EntityJpaConsultas consulta = EntityJpaConsultas.builder()
@@ -114,6 +123,10 @@ public class PacienteService {
         if (consultaRepository.existsByMedico_IdAndDataConsultaAndHoraConsultaAndStatusConsultaNotAndIdConsultaNot(
                 medico.getId(), request.data(), request.hora(), "CANCELADA", id)) {
             throw new IllegalStateException("O médico já possui uma consulta nesse horário.");
+        }
+        if (consultaRepository.existsByPaciente_IdAndDataConsultaAndHoraConsultaAndStatusConsultaNotAndIdConsultaNot(
+                pacienteId, request.data(), request.hora(), "CANCELADA", id)) {
+            throw new IllegalStateException("Você já possui outra consulta nesse dia e horário.");
         }
         consulta.setMedico(medico);
         consulta.setDataConsulta(request.data());

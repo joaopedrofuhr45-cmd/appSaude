@@ -47,8 +47,9 @@ public class PacienteController {
     }
 
     @GetMapping("/consultas/horarios-indisponiveis")
-    public List<String> horariosIndisponiveis(@RequestParam Long medicoId, @RequestParam LocalDate data) {
-        return service.horariosIndisponiveis(medicoId, data);
+    public List<String> horariosIndisponiveis(@AuthenticationPrincipal UserDetails usuario,
+            @RequestParam Long medicoId, @RequestParam LocalDate data) {
+        return service.horariosIndisponiveis(usuario.getUsername(), medicoId, data);
     }
 
     @GetMapping("/consultas/{id}")

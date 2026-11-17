@@ -5,7 +5,7 @@ import { pacienteService } from "../../recursos/chamadaBackEnd/pacienteService.j
 import { preencherSidebarUsuario } from "../../recursos/js/sidebarUsuario.js";
 import { escapeHtml } from "../../recursos/js/seguranca.js";
 
-const saudacao = document.querySelector("#pagina-titulo");
+const saudacao = document.querySelector("#saudacao");
 const btnLogout = document.querySelector("#btn-logout");
 
 const proximaConsultaCard = document.querySelector("#proxima-consulta-card");
@@ -20,6 +20,10 @@ function formatarData(dataISO) {
     if (!dataISO) return "";
     const [ano, mes, dia] = dataISO.split("-");
     return `${dia}/${mes}/${ano}`;
+}
+
+function formatarHorario(hora) {
+    return hora ? String(hora).slice(0, 5) : "--:--";
 }
 
 function badgeStatus(status) {
@@ -52,10 +56,7 @@ function renderProximaConsulta(consulta) {
     proximaConsultaCard.innerHTML = `
         <div class="titulo"><i class="fa-regular fa-calendar"></i> Próxima consulta</div>
         <p class="especialidade">${escapeHtml(consulta.especialidade)}</p>
-        <p class="detalhes">${formatarData(consulta.data)}, às ${escapeHtml(consulta.hora)} com ${escapeHtml(consulta.medicoNome ?? "profissional a definir")}.</p>
-        <a href="../agendar-consulta/agendar-consulta.html" class="btn-outline">
-            Agendar outra <i class="fa-solid fa-arrow-right"></i>
-        </a>
+        <p class="detalhes">${formatarData(consulta.data)}, às ${escapeHtml(formatarHorario(consulta.hora))} com ${escapeHtml(consulta.medicoNome ?? "profissional a definir")}.</p>
     `;
 }
 
@@ -66,14 +67,14 @@ function renderListaConsultas(consultas) {
     }
 
     listaProximasConsultas.innerHTML = consultas
-        .slice(0, 3)
+        .slice(0, 5)
         .map((consulta) => {
             const badge = badgeStatus(consulta.status);
             const editavel = consulta.status !== "CANCELADA" && consulta.status !== "REALIZADA";
 
             return `
                 <div class="consulta-item">
-                    <p class="horario">${escapeHtml(consulta.hora)}</p>
+                    <p class="horario">${escapeHtml(formatarHorario(consulta.hora))}</p>
                     <div class="info">
                         <strong>${escapeHtml(consulta.medicoNome ?? "Profissional a definir")}</strong>
                         <span>${escapeHtml(consulta.especialidade)} - ${formatarData(consulta.data)}</span>
@@ -119,7 +120,7 @@ async function carregarDashboard() {
 
         statMarcadas.textContent = ativas.length;
         statRealizados.textContent = realizadas.length;
-        statProximoHorario.textContent = futuras[0]?.hora ?? "--:--";
+        statProximoHorario.textContent = formatarHorario(futuras[0]?.hora);
 
         renderProximaConsulta(futuras[0]);
         renderListaConsultas(futuras);
