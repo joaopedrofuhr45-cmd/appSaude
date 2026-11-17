@@ -129,7 +129,6 @@ a:focus-visible, button:focus-visible {
     background: var(--grad-suave);
     border: 1px solid var(--cor-borda);
     border-radius: 20px;
-    animation: flutuar 5s ease-in-out infinite;
 }
 
 .login-illustration img {
@@ -692,8 +691,7 @@ form {
 
 /* telas públicas: topo, logo e cartões sobem ao carregar */
 .topo, .header { animation: subir .7s var(--ease) backwards; }
-.login-card, .login-illustration { animation-name: subir; animation-duration: .7s; animation-timing-function: var(--ease); animation-fill-mode: backwards; }
-.login-illustration { animation-delay: 120ms; }
+.login-card { animation-name: subir; animation-duration: .7s; animation-timing-function: var(--ease); animation-fill-mode: backwards; }
 
 .topo .logo i,
 .header .logo i { color: var(--cor-coracao); animation: batimento 2.6s ease-in-out infinite; }
