@@ -23,7 +23,7 @@ spring:
 
 app:
   auth:
-    jwt-secret: ${APP_AUTH_JWT_SECRET:dev-only-secret-key-change-before-production-1234567890}
+    jwt-secret: ${APP_AUTH_JWT_SECRET:ZGV2LW9ubHktc2VjcmV0LWtleS1jaGFuZ2UtYmVmb3JlLXByb2R1Y3Rpb24tMTIzNDU2Nzg5MA==}
   test-accounts:
     enabled: ${APP_TEST_ACCOUNTS_ENABLED:true}
     attendant-cpf: ${APP_TEST_ATENDENTE_CPF:99900000001}
